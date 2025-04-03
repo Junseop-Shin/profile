@@ -1,34 +1,57 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useGlobal } from "../utils/GlobalContext";
 
 const HeaderMenu: React.FC = () => {
+  const { toggleMenu } = useGlobal();
   return (
     <section id="menu" className="w-full">
       <nav>
         <ul className="flex flex-column space-x-6 justify-center items-center gap-6">
           <li>
-            <a href="#" className="hover:text-blue-400 transition">
+            <Link
+              to="/"
+              onClick={toggleMenu}
+              className="hover:text-blue-400 transition"
+            >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#about" className="hover:text-blue-400 transition">
+            <Link
+              to="/about"
+              onClick={toggleMenu}
+              className="hover:text-blue-400 transition"
+            >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#timeline" className="hover:text-blue-400 transition">
+            <Link
+              to="/timeline"
+              onClick={toggleMenu}
+              className="hover:text-blue-400 transition"
+            >
               Timeline
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#work" className="hover:text-blue-400 transition">
+            <Link
+              to="/works"
+              onClick={toggleMenu}
+              className="hover:text-blue-400 transition"
+            >
               Works
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#contact" className="hover:text-blue-400 transition">
+            <Link
+              to="/contact"
+              onClick={toggleMenu}
+              className="hover:text-blue-400 transition"
+            >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

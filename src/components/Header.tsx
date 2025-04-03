@@ -7,6 +7,7 @@ import {
 } from "react-icons/md";
 import { TbGridDots } from "react-icons/tb";
 import { useGlobal } from "../utils/GlobalContext";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const { isLightMode, toggleTheme, isMenuOpened, toggleMenu } = useGlobal();
@@ -14,9 +15,9 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 flex flex-row px-16 py-16 justify-between items-center p-16 bg-transparent text-gray-500">
       <div className="flex flex-row">
-        <a href="/">
+        <Link to="/" onClick={toggleMenu}>
           <GiLighthouse className="hover:opacity-0.5 size-8" />
-        </a>
+        </Link>
       </div>
       <div className="flex flex-row gap-8">
         {isLightMode ? (
