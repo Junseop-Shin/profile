@@ -8,7 +8,10 @@ interface SectionProps extends React.HTMLProps<HTMLElement> {
 const Section = ({ children, ...props }: SectionProps) => {
   return (
     <FadeUpAnimation>
-      <section className="h-[100vh] pt-[130px] text-center" {...props}>
+      <section
+        className="flex flex-col items-center justify-center h-screen text-center"
+        {...props}
+      >
         {children}
       </section>
     </FadeUpAnimation>
