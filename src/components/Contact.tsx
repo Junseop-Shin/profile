@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Section from "./common/Section";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="p-8 bg-gray-100">
+    <Section id="contact">
       <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
         Contact Me
       </h2>
@@ -54,7 +55,7 @@ const ContactForm: React.FC = () => {
           Send Message
         </button>
       </form>
-    </section>
+    </Section>
   );
 };
 
