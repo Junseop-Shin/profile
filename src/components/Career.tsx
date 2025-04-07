@@ -13,14 +13,14 @@ const CareerSection: React.FC = () => {
       heading: "발전소 현장근무",
       where: "한국수력원자력",
       fromTo: "2016.08 ~ 2020.01",
-      description: "인턴 교육 및 원자력발전소에서 계통 및 기계 설비 유지보수",
+      description: "인턴 교육 및 원자력발전소 계통 및 기계 설비 유지보수",
     },
     {
       heading: "C++ 개발",
       where: "티맥스오피스",
       fromTo: "2020.02 ~ 2022.02",
       description:
-        "윈도우 기반 문서 편집기(포인트/셀/워드/한글)를 개발하는 본부에서 hwp 문서 편집기 개발",
+        "윈도우 기반 문서 편집기(포인트/셀/워드/한글)를 개발하는 본부 hwp 문서 편집기 개발",
     },
     {
       heading: "프론트엔드 개발",
@@ -47,7 +47,7 @@ const CareerSection: React.FC = () => {
         {events.reverse().map((event) => (
           <div
             key={event.fromTo}
-            className="flex flex-col items-center space-x-4 nth-last-[n+3]:shadow-lg nth-last-[n+3]:rounded-lg nth-last-[n+3]:p-4 nth-last-[-n+2]:opacity-50"
+            className="flex flex-col items-center p-4 shadow-lg rounded-lg  nth-last-[-n+2]:opacity-50"
           >
             <h4 className="text-2xl font-bold text-gray-800">
               {event.heading}

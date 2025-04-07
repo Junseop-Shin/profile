@@ -32,25 +32,25 @@ const Header: React.FC = () => {
           <ul className="flex flex-column space-x-6 justify-center items-center gap-6">
             <li
               onClick={() => scrollToSection("home")}
-              className="hover:text-blue-400 transition"
+              className="opacity-40 hover:opacity-80 transition"
             >
               Home
             </li>
             <li
               onClick={() => scrollToSection("about")}
-              className="hover:text-blue-400 transition"
+              className="opacity-40 hover:opacity-80 transition"
             >
               About
             </li>
             <li
               onClick={() => scrollToSection("career")}
-              className="hover:text-blue-400 transition"
+              className="opacity-40 hover:opacity-80 transition"
             >
               Career
             </li>
             <li
               onClick={() => scrollToSection("projects")}
-              className="hover:text-blue-400 transition"
+              className="opacity-40 hover:opacity-80 transition"
             >
               Projects
             </li>
