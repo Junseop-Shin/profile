@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
-import { MdOutlineLightMode, MdOutlineNightlight } from "react-icons/md";
+import { IoMdSunny, IoMdMoon } from "react-icons/io";
+
 import { useGlobal } from "../utils/GlobalContext";
 
 const Header: React.FC = () => {
@@ -16,12 +17,12 @@ const Header: React.FC = () => {
     <header className="fixed top-0 left-0 w-full flex flex-row px-12 py-12 justify-between items-center p-16 bg-transparent text-gray-500">
       <div className="flex flex-row">
         {isLightMode ? (
-          <MdOutlineNightlight
+          <IoMdMoon
             className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
             onClick={toggleTheme}
           />
         ) : (
-          <MdOutlineLightMode
+          <IoMdSunny
             className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
             onClick={toggleTheme}
           />
