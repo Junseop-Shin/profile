@@ -9,7 +9,7 @@ const Section = ({ children, ...props }: SectionProps) => {
   return (
     <FadeUpAnimation>
       <section
-        className="flex flex-col items-center justify-center h-screen text-center p-8"
+        className="flex flex-col items-center justify-center min-h-screen text-center p-10"
         {...props}
       >
         {children}
