@@ -1,20 +1,16 @@
 import React from "react";
+import Section from "./common/Section";
 
 const HomeSection: React.FC = () => {
   return (
-    <section id="about" className="p-8 bg-gray-100 text-center">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">About Me</h2>
+    <Section id="home">
+      <h2 className="text-3xl font-bold mb-6 text-gray-800">
+        안녕하세요, 입니다
+      </h2>
       <p className="text-lg text-gray-700 leading-relaxed">
-        Hello! I'm a passionate developer with experience in building modern web
-        applications. I enjoy solving complex problems and creating
-        user-friendly designs.
+        프론트엔드 웹 개발자
       </p>
-      <img
-        src="/images/profile.jpg"
-        alt="Profile"
-        className="w-32 h-32 rounded-full mx-auto mt-6 border-4 border-blue-500"
-      />
-    </section>
+    </Section>
   );
 };
 

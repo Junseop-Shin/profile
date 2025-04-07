@@ -1,47 +1,61 @@
-import React from "react";
-import { GiLighthouse } from "react-icons/gi";
-import {
-  MdOutlineLightMode,
-  MdOutlineNightlight,
-  MdOutlineClose,
-} from "react-icons/md";
-import { TbGridDots } from "react-icons/tb";
+import React, { useCallback } from "react";
+import { MdOutlineLightMode, MdOutlineNightlight } from "react-icons/md";
 import { useGlobal } from "../utils/GlobalContext";
-import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
-  const { isLightMode, toggleTheme, isMenuOpened, toggleMenu } = useGlobal();
+  const { isLightMode, toggleTheme } = useGlobal();
+
+  const scrollToSection = useCallback((id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   return (
-    <header className="sticky top-0 flex flex-row px-16 py-16 justify-between items-center p-16 bg-transparent text-gray-500">
+    <header className="fixed top-0 left-0 w-full flex flex-row px-12 py-12 justify-between items-center p-16 bg-transparent text-gray-500">
       <div className="flex flex-row">
-        <Link to="/" onClick={toggleMenu}>
-          <GiLighthouse className="hover:opacity-0.5 size-8" />
-        </Link>
-      </div>
-      <div className="flex flex-row gap-8">
         {isLightMode ? (
           <MdOutlineNightlight
-            className="hover:opacity-0.5 size-8"
+            className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
             onClick={toggleTheme}
           />
         ) : (
           <MdOutlineLightMode
-            className="hover:opacity-0.5 size-8"
+            className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
             onClick={toggleTheme}
           />
         )}
-        {isMenuOpened ? (
-          <MdOutlineClose
-            className="hover:opacity-0.5 size-8"
-            onClick={toggleMenu}
-          />
-        ) : (
-          <TbGridDots
-            className="hover:opacity-0.5 size-8"
-            onClick={toggleMenu}
-          />
-        )}
+      </div>
+      <div className="flex flex-row gap-8">
+        <nav className="w-full">
+          <ul className="flex flex-column space-x-6 justify-center items-center gap-6">
+            <li
+              onClick={() => scrollToSection("home")}
+              className="hover:text-blue-400 transition"
+            >
+              Home
+            </li>
+            <li
+              onClick={() => scrollToSection("about")}
+              className="hover:text-blue-400 transition"
+            >
+              About
+            </li>
+            <li
+              onClick={() => scrollToSection("career")}
+              className="hover:text-blue-400 transition"
+            >
+              Career
+            </li>
+            <li
+              onClick={() => scrollToSection("projects")}
+              className="hover:text-blue-400 transition"
+            >
+              Projects
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );

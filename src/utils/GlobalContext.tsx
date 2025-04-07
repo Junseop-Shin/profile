@@ -9,9 +9,7 @@ import {
 // Context 타입 정의
 interface GlobalContextType {
   isLightMode: boolean;
-  isMenuOpened: boolean;
   toggleTheme: () => void;
-  toggleMenu: () => void;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -22,20 +20,13 @@ export const GlobalContextProvider = ({
   children: ReactNode;
 }) => {
   const [isLightMode, setIsLightMode] = useState(true);
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const toggleTheme = useCallback(() => {
     setIsLightMode((prev) => !prev);
   }, []);
 
-  const toggleMenu = useCallback(() => {
-    setIsMenuOpened((prev) => !prev);
-  }, []);
-
   return (
-    <GlobalContext.Provider
-      value={{ isLightMode, toggleTheme, isMenuOpened, toggleMenu }}
-    >
+    <GlobalContext.Provider value={{ isLightMode, toggleTheme }}>
       {children}
     </GlobalContext.Provider>
   );
