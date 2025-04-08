@@ -1,53 +1,80 @@
 type ProjectType = "personal" | "work";
 
 export interface Project {
-  title: string;
-  link: string;
   type: ProjectType;
-  image: string;
+  title: string;
+  subtitle: string;
+  date: string;
   skills: string;
-  description: string;
+  link: string;
+  git?: string;
+  image: string;
+  description?: string[];
+  subProjects?: Project[];
 }
 
 export const projects: Project[] = [
   {
+    type: "personal",
     title: "프로필",
+    subtitle: "A web app for task management.",
+    date: "2023.10",
+    skills: "",
     link: "profile",
-    type: "personal",
     image: "",
-    skills: "",
-    description: "A web app for task management.",
+    description: [""],
   },
   {
+    type: "personal",
     title: "BOLD 웹페이지",
-    link: "bold",
-    type: "personal",
-    image: "/BOLD.png",
+    subtitle: "A portfolio website for designers.",
+    date: "2025.03 ~ 2025.04",
     skills: "TypeScript, React, Next.js, Styled-Components",
-    description: "A portfolio website for designers.",
+    link: "bold",
+    image: "/BOLD.png",
+    description: [],
+    subProjects: [
+      {
+        type: "personal",
+        title: "BOLD 웹페이지",
+        subtitle: "A portfolio website for designers.",
+        date: "2025.03 ~ 2025.04",
+        skills: "TypeScript, React, Next.js, Styled-Components",
+        link: "https://boldgobynd.vercel.app/",
+        git: "https://github.com/Junseop-Shin/boldgobynd",
+        image: "/BOLD.png",
+        description: ["1", "2"],
+      },
+    ],
   },
   {
+    type: "work",
     title: "액스",
+    subtitle: "A portfolio website for designers.",
+    date: "2023.10",
+    skills: "",
     link: "ax",
-    type: "work",
     image: "",
-    skills: "",
-    description: "A portfolio website for designers.",
+    description: [],
   },
   {
+    type: "work",
     title: "웹오피스",
-    link: "weboffice",
-    type: "work",
-    image: "",
+    subtitle: "A portfolio website for designers.",
+    date: "2023.10",
     skills: "",
-    description: "A portfolio website for designers.",
+    link: "weboffice",
+    image: "",
+    description: [],
   },
   {
-    title: "오피스",
-    link: "office",
     type: "work",
-    image: "",
+    title: "오피스",
+    subtitle: "A portfolio website for designers.",
+    date: "2023.10",
     skills: "",
-    description: "A portfolio website for designers.",
+    link: "office",
+    image: "",
+    description: [],
   },
 ];
