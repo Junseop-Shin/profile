@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import H2 from "./common/H2";
+import Icon from "./common/Icon";
 
 interface AboutDetailProps {
   isOpened: boolean;
@@ -25,7 +26,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
 
   return (
     <MountUnmountAnimation isVisible={isOpened}>
-      <div className="fixed top-0 right-0 w-full h-full bg-black opacity-20 z-40" />
+      <div className="fixed top-0 right-0 w-full h-full bg-black opacity-20 dark:bg-white z-40" />
       <motion.div
         className="fixed top-0 right-0 w-[50%] h-full z-50"
         initial={{ x: 100, opacity: 1 }}
@@ -34,12 +35,12 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
         transition={{ type: "spring", damping: 20, duration: 0.5 }}
       >
         <button
-          className="absolute top-0 left-[-45px] bg-none text-white"
+          className="absolute top-0 left-[-45px] bg-none"
           onClick={onClose}
         >
-          <IoMdClose className="w-5 h-5" />
+          <Icon iconName={IoMdClose} className="text-white" />
         </button>
-        <div className="flex flex-col w-full h-full bg-white rounded-lg shadow-lg p-4 items-center justify-center">
+        <div className="flex flex-col w-full h-full bg-white dark:bg-gray-500 rounded-lg shadow-lg p-4 items-center justify-center">
           <H2>Journey as a Developer</H2>
         </div>
       </motion.div>

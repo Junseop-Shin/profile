@@ -3,6 +3,7 @@ import Section from "./common/Section";
 import { Link } from "react-router-dom";
 import { Project, projects, ProjectType } from "../assets/projects";
 import H2 from "./common/H2";
+import P from "./common/P";
 
 const ProjectsSection: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
@@ -28,12 +29,14 @@ const ProjectsSection: React.FC = () => {
         {(["all", "personal", "work"] as ProjectType[]).map((type) => (
           <div
             className={`${
-              type === activeTag ? "border-2 border-solid" : "border-none"
+              type === activeTag
+                ? "border-2 border-solid dark:border-white"
+                : "border-none"
             } rounded-3xl cursor-pointer  hover:opacity-50 px-4 py-2`}
             onClick={() => onTagClick(type)}
             key={type}
           >
-            {type.charAt(0).toUpperCase() + type.slice(1)}
+            <P>{type.charAt(0).toUpperCase() + type.slice(1)}</P>
           </div>
         ))}
       </div>
@@ -44,7 +47,7 @@ const ProjectsSection: React.FC = () => {
             <Link
               key={index}
               to={`project/${project.link}`}
-              className={`shadow-md hover:shadow-lg transition relative`}
+              className={`shadow-md hover:shadow-lg transition relative dark:bg-gray-600`}
               onMouseEnter={() => setHoveredProject(project)}
             >
               <img
@@ -55,15 +58,16 @@ const ProjectsSection: React.FC = () => {
               <div
                 className={`${
                   hoveredProject === project ? "" : "collapse"
-                } flex flex-col bg-gray-600 absolute top-0 left-0 w-full h-full opacity-50 z-10 rounded-lg justify-end items-start p-4 gap-3`}
+                } flex flex-col bg-gray-600 dark:bg-gray-400 absolute top-0 left-0 w-full h-full opacity-50 z-10 rounded-lg justify-end items-start p-4 gap-3 text-left`}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <p className="text-white text-lg font-semibold">
+                <p className="text-white dark:text-gray-800 text-lg font-semibold">
                   {project.title}
                 </p>
-                <p className="text-white text-sm text-left">{project.skills}</p>
+                <p className="text-white dark:text-gray-800 text-sm">
+                  {project.skills}
+                </p>
               </div>
-              <p className="text-gray-700">{project.description}</p>
             </Link>
           );
         })}

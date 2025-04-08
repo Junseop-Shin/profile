@@ -3,6 +3,7 @@ import { IoMdSunny, IoMdMoon } from "react-icons/io";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { sectionIds } from "../assets/header";
 import { useNavigate, useParams } from "react-router-dom";
+import Icon from "./common/Icon";
 
 const Header: React.FC = () => {
   const { isLightMode, toggleTheme, currentSection } = useGlobalContext();
@@ -34,17 +35,11 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full flex flex-row px-12 py-12 justify-between items-center p-16 bg-transparent z-30 text-gray-500 dark:text-white">
       <div className="flex flex-row">
-        {isLightMode ? (
-          <IoMdMoon
-            className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
-            onClick={toggleTheme}
-          />
-        ) : (
-          <IoMdSunny
-            className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
-            onClick={toggleTheme}
-          />
-        )}
+        <Icon
+          iconName={isLightMode ? IoMdMoon : IoMdSunny}
+          className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
+          onClick={toggleTheme}
+        />
       </div>
       <div className="flex flex-row gap-8">
         <nav className="w-full">

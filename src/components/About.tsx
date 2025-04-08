@@ -11,6 +11,9 @@ import {
 import AboutDetail from "./AboutDetail";
 import { about } from "../assets/about";
 import H2 from "./common/H2";
+import P from "./common/P";
+import Span from "./common/Span";
+import Icon from "./common/Icon";
 
 const AboutSection: React.FC = () => {
   const [isAboutDetailOpen, setIsAboutDetailOpen] = useState(false);
@@ -35,24 +38,22 @@ const AboutSection: React.FC = () => {
       <div className="grid grid-cols-2">
         <div className="mx-10 text-left gap-5 flex flex-col justify-center">
           <H2 className="pb-6 border-b-2">About</H2>
-          <p className="text-lg text-ellipsis text-gray-700 leading-relaxed">
-            {about.intro}
-          </p>
-          <div className="flex flex-col gap-3 text-sm">
+          <P>{about.intro}</P>
+          <div className="flex flex-col gap-3">
             <a
               href={`mailto:${about.email}?subject=[문의]`}
               className="flex items-center gap-1"
             >
-              <IoIosMail className="w-6 h-6" />
-              {about.email}
+              <Icon iconName={IoIosMail} />
+              <Span>{about.email}</Span>
             </a>
             <a href={about.linkedin} className="flex items-center gap-1">
-              <IoLogoLinkedin className="w-6 h-6 flex-shrink-0" />
-              <span className="truncate">{about.linkedin}</span>
+              <Icon iconName={IoLogoLinkedin} />
+              <Span>{about.linkedin}</Span>
             </a>
             <a href={about.github} className="flex items-center gap-1">
-              <IoLogoGithub className="w-6 h-6" />
-              {about.github}
+              <Icon iconName={IoLogoGithub} />
+              <Span>{about.github}</Span>
             </a>
           </div>
           <div className="flex items-center gap-5 mt-4">
@@ -60,14 +61,18 @@ const AboutSection: React.FC = () => {
               onClick={handleDownload}
               className="flex w-fit items-center gap-1 bg-black text-white font-bold"
             >
-              <IoMdDownload />
+              <Icon iconName={IoMdDownload} className="text-white" />
               이력서
             </button>
             <button
               onClick={openAboutDetail}
               className="flex w-fit items-center gap-1 bg-gray-300  font-bold"
             >
-              {isAboutDetailOpen ? <IoIosArrowBack /> : <IoIosArrowForward />}
+              {isAboutDetailOpen ? (
+                <Icon iconName={IoIosArrowBack} className="dark:text-black" />
+              ) : (
+                <Icon iconName={IoIosArrowForward} />
+              )}
               더보기
             </button>
           </div>
