@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Section from "./common/Section";
+import H2 from "./common/H2";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,9 +22,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <Section id="contact">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
-        Contact Me
-      </h2>
+      <H2 className="text-center">Contact Me</H2>
       <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto">
         <input
           type="text"

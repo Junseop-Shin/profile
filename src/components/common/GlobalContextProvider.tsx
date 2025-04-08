@@ -13,7 +13,8 @@ export const GlobalContextProvider = ({
 
   const toggleTheme = useCallback(() => {
     setIsLightMode((prev) => !prev);
-  }, []);
+    document.body.className = isLightMode ? "dark" : "";
+  }, [isLightMode]);
 
   return (
     <GlobalContext.Provider
