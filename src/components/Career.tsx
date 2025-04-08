@@ -9,11 +9,11 @@ const CareerSection: React.FC = () => {
         Career
       </h2>
 
-      <div className="space-y-6 ">
+      <div className="space-y-6">
         {events.reverse().map((event) => (
           <div
             key={event.fromTo}
-            className="flex flex-col items-center p-4 shadow-lg rounded-lg  nth-last-[-n+2]:opacity-50"
+            className="flex flex-col items-center p-4 shadow-lg rounded-lg nth-last-[-n+2]:opacity-50"
           >
             <h4 className="text-2xl font-bold text-gray-800">
               {event.heading}

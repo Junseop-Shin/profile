@@ -1,4 +1,4 @@
-type ProjectType = "personal" | "work";
+export type ProjectType = "personal" | "work" | "all";
 
 export interface Project {
   type: ProjectType;
