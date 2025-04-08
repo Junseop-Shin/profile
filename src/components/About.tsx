@@ -1,22 +1,27 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import Section from "./common/Section";
 import {
   IoMdDownload,
   IoIosMail,
   IoLogoLinkedin,
   IoLogoGithub,
+  IoIosArrowBack,
+  IoIosArrowForward,
 } from "react-icons/io";
-
-const about = {
-  intro: `Hello! I'm a passionate developer with experience in building modern
-            web applications. I enjoy solving complex problems and creating
-            user-friendly designs.`,
-  email: "nuclearbomb6518@gmail.com",
-  linkedin: "https://www.linkedin.com/in/준섭-신-24b5a8247/",
-  github: "https://github.com/Junseop-Shin/",
-};
+import AboutDetail from "./AboutDetail";
+import { about } from "../assets/about";
 
 const AboutSection: React.FC = () => {
+  const [isAboutDetailOpen, setIsAboutDetailOpen] = useState(false);
+
+  const openAboutDetail = useCallback(() => {
+    setIsAboutDetailOpen(true);
+  }, []);
+
+  const closeAboutDetail = useCallback(() => {
+    setIsAboutDetailOpen(false);
+  }, []);
+
   const handleDownload = useCallback(() => {
     const link = document.createElement("a");
     link.href = "/resume.pdf"; // 이력서 파일 경로
@@ -51,19 +56,34 @@ const AboutSection: React.FC = () => {
               {about.github}
             </a>
           </div>
-          <button
-            onClick={handleDownload}
-            className="flex w-fit items-center gap-1 text-white font-bold"
-          >
-            <IoMdDownload />
-            이력서
-          </button>
+          <div className="flex items-center gap-5 mt-4">
+            <button
+              onClick={handleDownload}
+              className="flex w-fit items-center gap-1 bg-black text-white font-bold"
+            >
+              <IoMdDownload />
+              이력서
+            </button>
+            <button
+              onClick={openAboutDetail}
+              className="flex w-fit items-center gap-1 bg-gray-300  font-bold"
+            >
+              {isAboutDetailOpen ? <IoIosArrowBack /> : <IoIosArrowForward />}
+              더보기
+            </button>
+          </div>
         </div>
-        <img
-          src="/images/profile.jpg"
-          alt="Profile"
-          className="w-fit h-fit rounded-r-lg opacity-50"
-        />
+        <div className="flex relative items-center justify-center">
+          <img
+            src="/images/profile.jpg"
+            alt="Profile"
+            className="w-fit h-fit rounded-r-lg opacity-50"
+          />
+          <AboutDetail
+            isOpened={isAboutDetailOpen}
+            onClose={closeAboutDetail}
+          />
+        </div>
       </div>
     </Section>
   );
