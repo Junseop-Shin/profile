@@ -3,23 +3,20 @@ import Section from "./common/Section";
 import { useParams } from "react-router-dom";
 import { projects } from "../assets/projects";
 import { IoMdAt, IoLogoGithub } from "react-icons/io";
+import H2 from "./common/H2";
 
 const ProjectDetail: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const project = projects.find((p) => p.link === projectId);
 
   if (!project) {
-    return (
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">
-        프로젝트를 찾을 수 없습니다.
-      </h2>
-    );
+    return <H2>프로젝트를 찾을 수 없습니다.</H2>;
   }
 
   const { subProjects } = project;
   return (
     <Section id="project-detail">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">{project.title}</h2>
+      <H2>{project.title}</H2>
       {subProjects?.map((subProject) => (
         <div
           key={subProject.link}

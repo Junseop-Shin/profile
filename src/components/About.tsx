@@ -10,6 +10,7 @@ import {
 } from "react-icons/io";
 import AboutDetail from "./AboutDetail";
 import { about } from "../assets/about";
+import H2 from "./common/H2";
 
 const AboutSection: React.FC = () => {
   const [isAboutDetailOpen, setIsAboutDetailOpen] = useState(false);
@@ -33,9 +34,7 @@ const AboutSection: React.FC = () => {
     <Section id="about">
       <div className="grid grid-cols-2">
         <div className="mx-10 text-left gap-5 flex flex-col justify-center">
-          <h2 className="text-3xl font-bold pb-6 text-gray-800 border-b-2">
-            About
-          </h2>
+          <H2 className="pb-6 border-b-2">About</H2>
           <p className="text-lg text-ellipsis text-gray-700 leading-relaxed">
             {about.intro}
           </p>

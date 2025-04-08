@@ -3,6 +3,7 @@ import MountUnmountAnimation from "./common/MountUnmoundAnimation";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 import { useGlobalContext } from "../hooks/useGlobalContext";
+import H2 from "./common/H2";
 
 interface AboutDetailProps {
   isOpened: boolean;
@@ -24,9 +25,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
 
   return (
     <MountUnmountAnimation isVisible={isOpened}>
-      <div className="fixed top-0 right-0 w-full h-full bg-black opacity-20 z-20" />
+      <div className="fixed top-0 right-0 w-full h-full bg-black opacity-20 z-40" />
       <motion.div
-        className="fixed top-0 right-0 w-[50%] h-full z-30"
+        className="fixed top-0 right-0 w-[50%] h-full z-50"
         initial={{ x: 100, opacity: 1 }}
         animate={{ x: 0 }}
         exit={{ x: 100, opacity: 1 }}
@@ -39,9 +40,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
           <IoMdClose className="w-5 h-5" />
         </button>
         <div className="flex flex-col w-full h-full bg-white rounded-lg shadow-lg p-4 items-center justify-center">
-          <h2 className="text-3xl font-bold mb-6 text-gray-800">
-            Journey as a Developer
-          </h2>
+          <H2>Journey as a Developer</H2>
         </div>
       </motion.div>
     </MountUnmountAnimation>

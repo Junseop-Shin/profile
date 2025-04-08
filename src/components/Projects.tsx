@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import Section from "./common/Section";
 import { Link } from "react-router-dom";
 import { Project, projects, ProjectType } from "../assets/projects";
+import H2 from "./common/H2";
 
 const ProjectsSection: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
@@ -21,9 +22,7 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <Section id="projects">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
-        Projects
-      </h2>
+      <H2 className="text-center">Projects</H2>
 
       <div className="flex items-center justify-center gap-4 mb-4">
         {(["all", "personal", "work"] as ProjectType[]).map((type) => (
