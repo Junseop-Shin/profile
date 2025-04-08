@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { IoMdSunny, IoMdMoon } from "react-icons/io";
-
-import { useGlobal } from "../utils/GlobalContext";
+import { useGlobalContext } from "../hooks/useGlobalContext";
+import { sectionIds } from "../assets/header";
 
 const Header: React.FC = () => {
-  const { isLightMode, toggleTheme } = useGlobal();
+  const { isLightMode, toggleTheme, currentSection } = useGlobalContext();
 
   const scrollToSection = useCallback((id: string) => {
     const section = document.getElementById(id);
@@ -31,30 +31,19 @@ const Header: React.FC = () => {
       <div className="flex flex-row gap-8">
         <nav className="w-full">
           <ul className="flex flex-column space-x-6 justify-center items-center gap-6">
-            <li
-              onClick={() => scrollToSection("home")}
-              className="opacity-40 hover:opacity-80 transition"
-            >
-              Home
-            </li>
-            <li
-              onClick={() => scrollToSection("about")}
-              className="opacity-40 hover:opacity-80 transition"
-            >
-              About
-            </li>
-            <li
-              onClick={() => scrollToSection("career")}
-              className="opacity-40 hover:opacity-80 transition"
-            >
-              Career
-            </li>
-            <li
-              onClick={() => scrollToSection("projects")}
-              className="opacity-40 hover:opacity-80 transition"
-            >
-              Projects
-            </li>
+            {sectionIds.map((id) => (
+              <li
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`${
+                  currentSection === id
+                    ? "after:bg-gray-500"
+                    : "after-bg-transparent"
+                } after:content-[''] after:block after:w-full after:h-[2px] text-lg font-bold cursor-pointer  opacity-40 hover:opacity-80 transition`}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MountUnmountAnimation from "./common/MountUnmoundAnimation";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
+import { useGlobalContext } from "../hooks/useGlobalContext";
 
 interface AboutDetailProps {
   isOpened: boolean;
@@ -9,6 +10,18 @@ interface AboutDetailProps {
 }
 
 const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
+  const { currentSection } = useGlobalContext();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (currentSection !== "about") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [currentSection, onClose]);
+
   return (
     <MountUnmountAnimation isVisible={isOpened}>
       <div className="fixed top-0 right-0 w-full h-full bg-black opacity-20 z-20" />
