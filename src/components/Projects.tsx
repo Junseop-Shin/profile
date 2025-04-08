@@ -1,60 +1,7 @@
 import React, { useState } from "react";
 import Section from "./common/Section";
 import { Link } from "react-router-dom";
-
-type ProjectType = "personal" | "work";
-
-interface Project {
-  title: string;
-  link: string;
-  type: ProjectType;
-  image: string;
-  skills: string;
-  description: string;
-}
-
-const projects: Project[] = [
-  {
-    title: "프로필",
-    link: "",
-    type: "personal",
-    image: "",
-    skills: "",
-    description: "A web app for task management.",
-  },
-  {
-    title: "BOLD 웹페이지",
-    link: "",
-    type: "personal",
-    image: "/BOLD.png",
-    skills: "TypeScript, React, Next.js, Styled-Components",
-    description: "A portfolio website for designers.",
-  },
-  {
-    title: "액스",
-    link: "",
-    type: "work",
-    image: "",
-    skills: "",
-    description: "A portfolio website for designers.",
-  },
-  {
-    title: "웹오피스",
-    link: "",
-    type: "work",
-    image: "",
-    skills: "",
-    description: "A portfolio website for designers.",
-  },
-  {
-    title: "오피스",
-    link: "",
-    type: "work",
-    image: "",
-    skills: "",
-    description: "A portfolio website for designers.",
-  },
-];
+import { Project, projects } from "../assets/projects";
 
 const ProjectsSection: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
@@ -83,7 +30,7 @@ const ProjectsSection: React.FC = () => {
           return (
             <Link
               key={index}
-              to={project.link}
+              to={`project/${project.link}`}
               className={`${bgColor} p-6 rounded-lg shadow-md hover:shadow-lg transition relative`}
               onMouseEnter={() => setHoveredProject(project)}
             >

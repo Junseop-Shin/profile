@@ -4,16 +4,37 @@ import About from "./components/About";
 import Career from "./components/Career";
 import Projects from "./components/Projects";
 import Home from "./components/Home";
+import ProjectDetail from "./components/ProjectDetail";
+import { Route, Routes } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
     <>
-      <Header />
       <main className="flex-1">
-        <Home />
-        <About />
-        <Career />
-        <Projects />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Home />
+                <About />
+                <Career />
+                <Projects />
+              </>
+            }
+          />
+
+          <Route
+            path="/project/:projectId"
+            element={
+              <>
+                <Header />
+                <ProjectDetail />
+              </>
+            }
+          />
+        </Routes>
       </main>
     </>
   );
