@@ -12,7 +12,7 @@ const CareerSection: React.FC = () => {
 
   return (
     <Section id="career">
-      <H2 className="text-center">Career</H2>
+      <H2>Career</H2>
 
       <div className="space-y-6">
         {reversedEvents.reverse().map((event, index) => (
@@ -24,12 +24,10 @@ const CareerSection: React.FC = () => {
               } flex flex-col items-center p-4 shadow-lg rounded-lg
                 dark:bg-gray-600 transition-colors duration-500 hover-target`}
             >
-              <H3 className="text-2xl font-bold text-gray-800">
-                {event.heading}
-              </H3>
-              <H4 className="flex items-center justify-center mb-3">
-                {`${event.where} (${event.fromTo})`}
-              </H4>
+              <H3>{event.heading}</H3>
+              <H4
+                style={{ marginBottom: "12px" }}
+              >{`${event.where} (${event.fromTo})`}</H4>
               <Span className="opacity-70">{event.description}</Span>
             </div>
           </FadeUpAnimation>

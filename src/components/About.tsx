@@ -85,12 +85,9 @@ const AboutSection: React.FC = () => {
               className="flex w-fit items-center gap-1 bg-gray-300 font-bold hover-target"
             >
               {isAboutDetailOpen ? (
-                <Icon
-                  iconName={IoIosArrowBack}
-                  className="dark:text-black transition-colors duration-500"
-                />
+                <IoIosArrowBack className="size-6 flex-shrink-0 text-black transition-colors duration-500" />
               ) : (
-                <Icon iconName={IoIosArrowForward} />
+                <IoIosArrowForward className="size-6 flex-shrink-0 text-black transition-colors duration-500" />
               )}
               더보기
             </button>

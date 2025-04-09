@@ -6,7 +6,7 @@ import Projects from "./components/Projects";
 import Home from "./components/Home";
 import ProjectDetail from "./components/ProjectDetail";
 import { Route, Routes } from "react-router-dom";
-import Cursor from "./components/common/Cursor";
+import Cursor from "./components/Cursor";
 
 const App: React.FC = () => {
   return (

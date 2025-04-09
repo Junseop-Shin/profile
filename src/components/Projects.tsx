@@ -23,7 +23,7 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <Section id="projects">
-      <H2 className="text-center">Projects</H2>
+      <H2>Projects</H2>
 
       <div className="flex items-center justify-center gap-4 mb-4">
         {(["all", "personal", "work"] as ProjectType[]).map((type) => (
