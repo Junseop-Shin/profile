@@ -1,4 +1,4 @@
-import React, { useRef, ReactNode } from "react";
+import { useRef, ReactNode } from "react";
 import { HTMLMotionProps, motion, useInView } from "framer-motion";
 
 interface FadeUpAnimationProps extends HTMLMotionProps<"div"> {
