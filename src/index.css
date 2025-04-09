@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant hover-active (&:where(.hover-active, .hover-active *));
+@custom-variant scrolling (&:where(.scrolling, .scrolling *));
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

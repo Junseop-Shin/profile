@@ -31,15 +31,15 @@ const useCursorTarget = (cursorRef?: RefObject<HTMLDivElement | null>) => {
 
     const targets = document.querySelectorAll(".hover-target");
     setCursorTarget(targets);
-    targets.forEach((btn) => {
-      btn.addEventListener("mouseenter", handleButtonEnter);
-      btn.addEventListener("mouseleave", handleButtonLeave);
+    targets.forEach((target) => {
+      target.addEventListener("mouseenter", handleButtonEnter);
+      target.addEventListener("mouseleave", handleButtonLeave);
     });
 
     return () => {
-      targets.forEach((btn) => {
-        btn.removeEventListener("mouseenter", handleButtonEnter);
-        btn.removeEventListener("mouseleave", handleButtonLeave);
+      targets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleButtonEnter);
+        target.removeEventListener("mouseleave", handleButtonLeave);
       });
     };
   }, [cursorRef]);
