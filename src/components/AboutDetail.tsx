@@ -5,6 +5,8 @@ import { IoMdClose } from "react-icons/io";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import H2 from "./common/H2";
 import Icon from "./common/Icon";
+import P from "./common/P";
+import { about } from "../assets/about";
 
 interface AboutDetailProps {
   isOpened: boolean;
@@ -40,8 +42,23 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
         >
           <Icon iconName={IoMdClose} className="text-white" />
         </button>
-        <div className="flex flex-col w-full h-full bg-white dark:bg-gray-500 rounded-lg shadow-lg p-4 items-center justify-center">
-          <H2>Journey as a Developer</H2>
+        <div className="flex flex-col text-left w-full h-full bg-white dark:bg-gray-500 rounded-lg shadow-lg p-10 overflow-auto">
+          <H2 className="pb-6 border-b-2">Journey as a Developer</H2>
+          <div className="break-keep mb-3">
+            {about.detail.map((int) => (
+              <P>{int}</P>
+            ))}
+          </div>
+          <div className="flex flex-col gap-2">
+            {about.pros.map((pro) => (
+              <li
+                key={pro}
+                className="text-sm text-gray-700 dark:text-white leading-relaxed"
+              >
+                {pro}
+              </li>
+            ))}
+          </div>
         </div>
       </motion.div>
     </MountUnmountAnimation>

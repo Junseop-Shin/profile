@@ -35,10 +35,16 @@ const AboutSection: React.FC = () => {
 
   return (
     <Section id="about">
-      <div className="grid grid-cols-2">
-        <div className="mx-10 text-left gap-5 flex flex-col justify-center">
-          <H2 className="pb-6 border-b-2">About</H2>
-          <P>{about.intro}</P>
+      <div className="grid sm:grid-cols-1 md:grid-cols-2">
+        <div className="mx-10 text-left gap-5 flex flex-col justify-center sm:order-2 md:order-1">
+          <H2 className="pb-6 border-b-2" style={{ margin: 0 }}>
+            About
+          </H2>
+          <div className="break-keep">
+            {about.intro.map((int) => (
+              <P>{int}</P>
+            ))}
+          </div>
           <div className="flex flex-col gap-3">
             <a
               href={`mailto:${about.email}?subject=[문의]`}
@@ -50,6 +56,8 @@ const AboutSection: React.FC = () => {
             <a
               href={about.linkedin}
               className="flex items-center gap-1 hover-target"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Icon iconName={IoLogoLinkedin} />
               <Span>{about.linkedin}</Span>
@@ -57,6 +65,8 @@ const AboutSection: React.FC = () => {
             <a
               href={about.github}
               className="flex items-center gap-1 hover-target"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Icon iconName={IoLogoGithub} />
               <Span>{about.github}</Span>
@@ -83,11 +93,11 @@ const AboutSection: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="flex relative items-center justify-center">
+        <div className="flex relative items-center justify-center sm:order-1 md-order-2">
           <img
-            src="/images/profile.jpg"
+            src="/about.png"
             alt="Profile"
-            className="w-fit h-fit rounded-r-lg opacity-50"
+            className="w-fit h-fit rounded-r-lg p-8 opacity-70"
           />
           <AboutDetail
             isOpened={isAboutDetailOpen}

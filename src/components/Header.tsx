@@ -43,7 +43,7 @@ const Header: React.FC = () => {
       </div>
       <div className="flex flex-row gap-8">
         <nav className="w-full">
-          <ul className="flex flex-column space-x-6 justify-center items-center gap-6">
+          <ul className="flex flex-column space-x-6 justify-center items-center md:gap-6 sm:gap-2">
             {sectionIds.map((sectionId) => (
               <li
                 key={sectionId}
