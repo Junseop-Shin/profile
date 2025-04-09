@@ -24,6 +24,5 @@ jobs: # job 설정
       - name: Dependencies Cache clean
         run: rm -rf node_modules
           rm -f package-lock.json
-          npm install
 
-      - run: npm ci && npm run build
+      - run: npm install && npm run build
