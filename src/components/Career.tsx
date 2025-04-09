@@ -21,7 +21,8 @@ const CareerSection: React.FC = () => {
               key={event.fromTo}
               className={`${
                 index > events.length - 3 && "opacity-50"
-              } flex flex-col items-center p-4 shadow-lg rounded-lg dark:bg-gray-600 hover-target`}
+              } flex flex-col items-center p-4 shadow-lg rounded-lg
+                dark:bg-gray-600 transition-colors duration-500 hover-target`}
             >
               <H3 className="text-2xl font-bold text-gray-800">
                 {event.heading}

@@ -33,7 +33,10 @@ const Header: React.FC = () => {
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full flex flex-row px-12 py-12 justify-between items-center p-16 bg-transparent z-30 text-gray-500 dark:text-white">
+    <header
+      className="fixed top-0 left-0 w-full flex flex-row px-12 py-12 justify-between items-center p-16
+     bg-transparent z-30 text-gray-500 dark:text-white transition-colors duration-500"
+    >
       <div className="flex flex-row">
         <Icon
           iconName={isLightMode ? IoMdMoon : IoMdSunny}

@@ -40,13 +40,13 @@ const ProjectDetail: React.FC = () => {
     return (
       <li
         key={mainItem}
-        className="text-lg text-gray-700 dark:text-white leading-relaxed"
+        className="text-lg text-gray-700 dark:text-white transition-colors duration-500 leading-relaxed"
       >
         {mainItem}
         {subItemsText?.split(".")?.map((text) => (
           <li
             key={text}
-            className="text-sm text-gray-700 dark:text-white leading-relaxed pl-5"
+            className="text-sm text-gray-700 dark:text-white transition-colors duration-500 leading-relaxed pl-5"
           >
             {text}
           </li>
@@ -59,7 +59,7 @@ const ProjectDetail: React.FC = () => {
     return (
       <div
         key={project.link}
-        className="flex flex-col w-full min-h-[50dvh] text-left p-6 shadow-lg rounded-lg dark:bg-gray-600"
+        className="flex flex-col w-full min-h-[50dvh] text-left p-6 shadow-lg rounded-lg dark:bg-gray-600 transition-colors duration-500"
       >
         <H3>{`${project.subtitle} (${project.date})`}</H3>
         <H4>{project.skills}</H4>
@@ -81,7 +81,9 @@ const ProjectDetail: React.FC = () => {
       />
       <div
         className={`w-full h-full flex flex-col items-center p-6 ${
-          imageOpacity !== 1 ? "bg-white dark:bg-gray-400" : "bg-none"
+          imageOpacity !== 1
+            ? "bg-white dark:bg-gray-400 transition-colors duration-500"
+            : "bg-none"
         }`}
         style={{
           opacity: 1 - imageOpacity,

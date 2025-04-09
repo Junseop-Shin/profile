@@ -85,7 +85,10 @@ const AboutSection: React.FC = () => {
               className="flex w-fit items-center gap-1 bg-gray-300 font-bold hover-target"
             >
               {isAboutDetailOpen ? (
-                <Icon iconName={IoIosArrowBack} className="dark:text-black" />
+                <Icon
+                  iconName={IoIosArrowBack}
+                  className="dark:text-black transition-colors duration-500"
+                />
               ) : (
                 <Icon iconName={IoIosArrowForward} />
               )}

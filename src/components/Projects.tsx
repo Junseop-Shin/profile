@@ -30,7 +30,7 @@ const ProjectsSection: React.FC = () => {
           <div
             className={`${
               type === activeTag
-                ? "border-2 border-solid dark:border-white"
+                ? "border-2 border-solid dark:border-white transition-colors duration-500"
                 : "border-none"
             } rounded-3xl hover:opacity-50 px-4 py-2 cursor-pointer hover-target`}
             onClick={() => onTagClick(type)}
@@ -47,7 +47,7 @@ const ProjectsSection: React.FC = () => {
             <Link
               key={index}
               to={`project/${project.link}`}
-              className={`shadow-md hover:shadow-lg transition relative dark:bg-gray-600 hover-target`}
+              className={`shadow-md hover:shadow-lg transition relative dark:bg-gray-600 transition-colors duration-500 hover-target`}
               onMouseEnter={() => setHoveredProject(project)}
             >
               <img
@@ -58,13 +58,14 @@ const ProjectsSection: React.FC = () => {
               <div
                 className={`${
                   hoveredProject === project ? "" : "collapse"
-                } flex flex-col bg-gray-600 dark:bg-gray-400 absolute top-0 left-0 w-full h-full opacity-50 z-10 rounded-lg justify-end items-start p-4 gap-3 text-left`}
+                } flex flex-col bg-gray-600 dark:bg-gray-400 transition-colors duration-500
+                  absolute top-0 left-0 w-full h-full opacity-50 z-10 rounded-lg justify-end items-start p-4 gap-3 text-left`}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <p className="text-white dark:text-gray-800 text-lg font-semibold">
+                <p className="text-white dark:text-gray-800 text-lg font-semibold transition-colors duration-500">
                   {project.title}
                 </p>
-                <p className="text-white dark:text-gray-800 text-sm">
+                <p className="text-white dark:text-gray-800 text-sm transition-colors duration-500">
                   {project.skills}
                 </p>
               </div>
