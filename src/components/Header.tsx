@@ -37,7 +37,7 @@ const Header: React.FC = () => {
       <div className="flex flex-row">
         <Icon
           iconName={isLightMode ? IoMdMoon : IoMdSunny}
-          className="opacity-30 hover:opacity-80 size-8 cursor-pointer"
+          className="opacity-30 hover:opacity-80 size-8 hover-target cursor-pointer"
           onClick={toggleTheme}
         />
       </div>
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
                   currentSection === sectionId
                     ? "after:bg-gray-500 dark:after:bg-white"
                     : "after-bg-transparent"
-                } after:content-[''] after:block after:w-full after:h-[2px] text-lg font-bold cursor-pointer  opacity-40 hover:opacity-80 transition`}
+                } after:content-[''] after:block after:w-full after:h-[2px] text-lg font-bold opacity-30 hover:opacity-80 cursor-pointer transition hover-target`}
               >
                 {sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}
               </li>

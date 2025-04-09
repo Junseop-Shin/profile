@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Home from "./components/Home";
 import ProjectDetail from "./components/ProjectDetail";
 import { Route, Routes } from "react-router-dom";
+import Cursor from "./components/common/Cursor";
 
 const App: React.FC = () => {
   return (
@@ -24,7 +25,6 @@ const App: React.FC = () => {
               </>
             }
           />
-
           <Route
             path="/project/:projectId"
             element={
@@ -35,6 +35,7 @@ const App: React.FC = () => {
             }
           />
         </Routes>
+        <Cursor />
       </main>
     </>
   );

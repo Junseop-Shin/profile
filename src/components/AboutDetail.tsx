@@ -35,7 +35,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
         transition={{ type: "spring", damping: 20, duration: 0.5 }}
       >
         <button
-          className="absolute top-0 left-[-45px] bg-none"
+          className="absolute top-0 left-[-45px] bg-none hover-target"
           onClick={onClose}
         >
           <Icon iconName={IoMdClose} className="text-white" />

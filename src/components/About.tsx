@@ -42,16 +42,22 @@ const AboutSection: React.FC = () => {
           <div className="flex flex-col gap-3">
             <a
               href={`mailto:${about.email}?subject=[문의]`}
-              className="flex items-center gap-1"
+              className="flex items-center gap-1 hover-target"
             >
               <Icon iconName={IoIosMail} />
               <Span>{about.email}</Span>
             </a>
-            <a href={about.linkedin} className="flex items-center gap-1">
+            <a
+              href={about.linkedin}
+              className="flex items-center gap-1 hover-target"
+            >
               <Icon iconName={IoLogoLinkedin} />
               <Span>{about.linkedin}</Span>
             </a>
-            <a href={about.github} className="flex items-center gap-1">
+            <a
+              href={about.github}
+              className="flex items-center gap-1 hover-target"
+            >
               <Icon iconName={IoLogoGithub} />
               <Span>{about.github}</Span>
             </a>
@@ -59,14 +65,14 @@ const AboutSection: React.FC = () => {
           <div className="flex items-center gap-5 mt-4">
             <button
               onClick={handleDownload}
-              className="flex w-fit items-center gap-1 bg-black text-white font-bold"
+              className="flex w-fit items-center gap-1 bg-black text-white font-bold hover-target"
             >
               <Icon iconName={IoMdDownload} className="text-white" />
               이력서
             </button>
             <button
               onClick={openAboutDetail}
-              className="flex w-fit items-center gap-1 bg-gray-300  font-bold"
+              className="flex w-fit items-center gap-1 bg-gray-300 font-bold hover-target"
             >
               {isAboutDetailOpen ? (
                 <Icon iconName={IoIosArrowBack} className="dark:text-black" />
