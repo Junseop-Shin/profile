@@ -14,7 +14,7 @@ const ProjectsSection: React.FC = () => {
       projects.filter(
         (project) => project.type === activeTag || activeTag === "all"
       ),
-    [projects, activeTag]
+    [activeTag]
   );
 
   const onTagClick = useCallback((type: ProjectType) => {
@@ -32,7 +32,7 @@ const ProjectsSection: React.FC = () => {
               type === activeTag
                 ? "border-2 border-solid dark:border-white"
                 : "border-none"
-            } rounded-3xl cursor-pointer  hover:opacity-50 px-4 py-2`}
+            } rounded-3xl hover:opacity-50 px-4 py-2 cursor-pointer hover-target`}
             onClick={() => onTagClick(type)}
             key={type}
           >
@@ -47,7 +47,7 @@ const ProjectsSection: React.FC = () => {
             <Link
               key={index}
               to={`project/${project.link}`}
-              className={`shadow-md hover:shadow-lg transition relative dark:bg-gray-600`}
+              className={`shadow-md hover:shadow-lg transition relative dark:bg-gray-600 hover-target`}
               onMouseEnter={() => setHoveredProject(project)}
             >
               <img
