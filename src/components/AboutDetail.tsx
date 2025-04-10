@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 import MountUnmountAnimation from "./common/MountUnmoundAnimation";
 import { motion } from "motion/react";
 import { IoMdClose } from "react-icons/io";
-import { useGlobalContext } from "../hooks/useGlobalContext";
 import H2 from "./common/H2";
 import Icon from "./common/Icon";
 import P from "./common/P";
 import { about } from "../assets/about";
 import { useCursorTarget } from "../hooks/useCursorTarget";
+import { useHomeContext } from "../hooks/useHomeContext";
 
 interface AboutDetailProps {
   isOpened: boolean;
@@ -15,7 +15,7 @@ interface AboutDetailProps {
 }
 
 const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
-  const { currentSection } = useGlobalContext();
+  const { currentSection } = useHomeContext();
   const drawerRef = useRef<HTMLDivElement | null>(null);
   useCursorTarget(drawerRef, isOpened); // 드로어 열릴 때만 바인딩
 
