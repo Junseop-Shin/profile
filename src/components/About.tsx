@@ -97,7 +97,7 @@ const AboutSection: React.FC = () => {
           <img
             src="/about.png"
             alt="Profile"
-            className="w-fit h-fit rounded-r-lg p-8 opacity-70"
+            className="w-fit h-fit p-8 opacity-70"
           />
           <AboutDetail
             isOpened={isAboutDetailOpen}

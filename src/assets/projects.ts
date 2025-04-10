@@ -35,6 +35,7 @@ export const projects: Project[] = [
       "구글 firebase를 이용한 배포",
     ],
   },
+
   {
     type: "personal",
     title: "BOLD 웹페이지",
@@ -55,6 +56,7 @@ export const projects: Project[] = [
       "Vercel을 이용한 배포",
     ],
   },
+
   {
     type: "work",
     title: "Ax",
@@ -62,7 +64,7 @@ export const projects: Project[] = [
     date: "2023.09 ~ 2023.12",
     skills: "React, TypeScript, Styled-Components, SWR, Redux",
     link: "ax",
-    image: "vite.svg",
+    image: "no_image_available.jpg",
     subProjects: [
       {
         type: "work",
@@ -109,6 +111,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     type: "work",
     title: "웹오피스",
@@ -116,7 +119,7 @@ export const projects: Project[] = [
     date: "2022.02 ~ 2023.09",
     skills: "React, TypeScript, MobX, sass, eslint, prettier, jest, webpack",
     link: "weboffice",
-    image: "vite.svg",
+    image: "no_image_available.jpg",
     subProjects: [
       {
         type: "work",
@@ -168,6 +171,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     type: "work",
     title: "오피스",
@@ -175,7 +179,7 @@ export const projects: Project[] = [
     date: "2020.02 ~ 2022.02",
     skills: "C++, OOXML, MVC 패턴",
     link: "office",
-    image: "vite.svg",
+    image: "no_image_available.jpg",
     subProjects: [
       {
         type: "work",
