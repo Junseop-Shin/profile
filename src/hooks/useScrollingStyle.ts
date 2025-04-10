@@ -3,7 +3,7 @@ import _ from "lodash";
 
 const useScrollingStyle = () => {
   useEffect(() => {
-    const targets = document.querySelectorAll(".hover-target");
+    const targets = document.querySelectorAll(".stopped");
 
     const handleScroll = () => {
       targets.forEach((target) => {
