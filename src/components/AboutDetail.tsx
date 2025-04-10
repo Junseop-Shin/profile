@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import MountUnmountAnimation from "./common/MountUnmoundAnimation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { IoMdClose } from "react-icons/io";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import H2 from "./common/H2";

@@ -1,14 +1,20 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, HTMLMotionProps } from "motion/react";
 import { ReactNode } from "react";
 
-const PageAnimation = ({ children }: { children: ReactNode }) => {
+interface PageAnimationProps extends HTMLMotionProps<"div"> {
+  children: ReactNode;
+}
+
+const PageAnimation = ({ children, ...props }: PageAnimationProps) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        key={props.id ?? "default-key"}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
+        {...props}
       >
         {children}
       </motion.div>
