@@ -1,6 +1,16 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant hover-active (&:where(.hover-active, .hover-active *));
+@custom-variant scrolling (&:where(.scrolling, .scrolling *));
+
+@theme {
+  --color-dark-bg-default: #191a1a;
+  --color-dark-bg-item: #202222;
+  --color-dark-bg-addition: #2d2f2f;
+
+  --color-dark-text-default: #e8e8e6;
+  --color-dark-text-addition: #8d9191;
+}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -22,7 +32,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  cursor: default; /* 기본 커서 숨기기 */
+  cursor: default;
 }
 
 h1 {

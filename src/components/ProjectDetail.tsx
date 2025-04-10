@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Section from "./common/Section";
 import { useParams } from "react-router-dom";
 import { Project, projects } from "../assets/projects";
@@ -19,7 +19,7 @@ const ProjectDetail: React.FC = () => {
   const handleScroll = () => {
     const scrollTop = window.scrollY; // Current scroll position
     const maxScroll = window.innerHeight; // Maximum scroll height (adjust as needed)
-    const newOpacity = Math.max(0.2, 1 - scrollTop / maxScroll); // Calculate opacity (minimum 0.5)
+    const newOpacity = Math.max(0.3, 1 - scrollTop / maxScroll); // Calculate opacity (minimum 0.5)
     setImageOpacity(newOpacity);
   };
 
@@ -31,6 +31,10 @@ const ProjectDetail: React.FC = () => {
     };
   }, []);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0); // Set scroll position to the top
+  }, []);
+
   if (!project) {
     return <H2>프로젝트를 찾을 수 없습니다.</H2>;
   }
@@ -40,17 +44,19 @@ const ProjectDetail: React.FC = () => {
     return (
       <li
         key={mainItem}
-        className="text-lg text-gray-700 dark:text-white leading-relaxed"
+        className={`text-lg text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed`}
       >
         {mainItem}
-        {subItemsText?.split(".")?.map((text) => (
-          <li
-            key={text}
-            className="text-sm text-gray-700 dark:text-white leading-relaxed pl-5"
-          >
-            {text}
-          </li>
-        ))}
+        <ul className="list-disc">
+          {subItemsText?.split(".")?.map((text) => (
+            <li
+              key={text}
+              className={`text-sm text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed ml-7`}
+            >
+              {text}
+            </li>
+          ))}
+        </ul>
       </li>
     );
   };
@@ -58,8 +64,8 @@ const ProjectDetail: React.FC = () => {
   const layoutProject = (project: Project) => {
     return (
       <div
-        key={project.link}
-        className="flex flex-col w-full min-h-[50dvh] text-left p-6 shadow-lg rounded-lg dark:bg-gray-600"
+        key={project.subtitle}
+        className={`flex flex-col w-full min-h-[50dvh] text-left p-6 shadow-lg rounded-lg dark:bg-dark-bg-item transition-colors duration-500`}
       >
         <H3>{`${project.subtitle} (${project.date})`}</H3>
         <H4>{project.skills}</H4>
@@ -76,12 +82,14 @@ const ProjectDetail: React.FC = () => {
       <img
         src={project.image}
         alt={project.title}
-        className="w-full object-contain opacity-90 my-2 sticky top-0 transition-opacity duration-100"
+        className="w-full object-contain opacity-90 py-2 sticky top-0 transition-opacity duration-100"
         style={{ opacity: imageOpacity }}
       />
       <div
         className={`w-full h-full flex flex-col items-center p-6 ${
-          imageOpacity !== 1 ? "bg-white dark:bg-gray-400" : "bg-none"
+          imageOpacity !== 1
+            ? "bg-white dark:bg-dark-bg-default transition-colors duration-500"
+            : "bg-none"
         }`}
         style={{
           opacity: 1 - imageOpacity,

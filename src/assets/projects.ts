@@ -23,7 +23,7 @@ export const projects: Project[] = [
     skills: "React, TypeScript, TailwindCSS",
     link: "profile",
     image: "/profile.png",
-    web: "https://boldgobynd.vercel.app/",
+    web: "https://testproject-ba5ce.web.app/",
     git: "https://github.com/Junseop-Shin/profile",
     description: [
       "기본 웹페이지 만들기",
@@ -35,6 +35,7 @@ export const projects: Project[] = [
       "구글 firebase를 이용한 배포",
     ],
   },
+
   {
     type: "personal",
     title: "BOLD 웹페이지",
@@ -55,6 +56,7 @@ export const projects: Project[] = [
       "Vercel을 이용한 배포",
     ],
   },
+
   {
     type: "work",
     title: "Ax",
@@ -62,7 +64,7 @@ export const projects: Project[] = [
     date: "2023.09 ~ 2023.12",
     skills: "React, TypeScript, Styled-Components, SWR, Redux",
     link: "ax",
-    image: "vite.svg",
+    image: "no_image_available.jpg",
     subProjects: [
       {
         type: "work",
@@ -109,6 +111,7 @@ export const projects: Project[] = [
       },
     ],
   },
+
   {
     type: "work",
     title: "웹오피스",
@@ -116,7 +119,7 @@ export const projects: Project[] = [
     date: "2022.02 ~ 2023.09",
     skills: "React, TypeScript, MobX, sass, eslint, prettier, jest, webpack",
     link: "weboffice",
-    image: "vite.svg",
+    image: "no_image_available.jpg",
     subProjects: [
       {
         type: "work",
@@ -161,13 +164,14 @@ export const projects: Project[] = [
         description: [
           "빌드 성능 개선: webpack v4에서 v5로 마이그레이션. babel-loader/terser-webpack-plugin에서 esbuild-loader/esbuildMinifyPlugin 전환",
           "jest 성능 개선: jest v26에서 v29로 버전 업을 통해 성능 개선. 비동기 로직(리소스 로딩 등) mocking을 통한 성능 개선",
-          "패키지 버전 최신화: React v.16에서 v.18로 마이그레이션 및 관련 패키지 전체 버전 업데이트",
+          "패키지 버전 최신화: React v16에서 v18로 마이그레이션 및 관련 패키지 전체 버전 업데이트",
           "Gitlab 파이프라인 관리, husky: Gitlab runner docker에 메모리 제한을 걸어 jest 실행 중 메모리 충돌로 인한 파이프라인 실패 개선. husky python에서 node.js로 마이그레이션, pre-commit 오류 해결, 깃랩 MR action에서 cp를 mv로 변경해 속도 개선",
           "빌드 환경별 옵션 및 패키지 관리, 배포 패키징",
         ],
       },
     ],
   },
+
   {
     type: "work",
     title: "오피스",
@@ -175,7 +179,7 @@ export const projects: Project[] = [
     date: "2020.02 ~ 2022.02",
     skills: "C++, OOXML, MVC 패턴",
     link: "office",
-    image: "vite.svg",
+    image: "no_image_available.jpg",
     subProjects: [
       {
         type: "work",

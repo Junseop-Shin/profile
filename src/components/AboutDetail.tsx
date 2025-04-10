@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import MountUnmountAnimation from "./common/MountUnmoundAnimation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { IoMdClose } from "react-icons/io";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import H2 from "./common/H2";
@@ -28,7 +28,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
 
   return (
     <MountUnmountAnimation isVisible={isOpened}>
-      <div className="fixed top-0 right-0 w-full h-full bg-black opacity-20 dark:bg-white z-40" />
+      <div
+        className="fixed top-0 right-0 w-full h-full
+       bg-black opacity-20 dark:bg-white transition-colors duration-500 z-40"
+      />
       <motion.div
         className="fixed top-0 right-0 w-[50%] h-full z-50"
         initial={{ x: 100, opacity: 1 }}
@@ -42,7 +45,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
         >
           <Icon iconName={IoMdClose} className="text-white" />
         </button>
-        <div className="flex flex-col text-left w-full h-full bg-white dark:bg-gray-500 rounded-lg shadow-lg p-10 overflow-auto">
+        <div
+          className={`flex flex-col text-left w-full h-full bg-white dark:bg-dark-bg-addition transition-colors duration-500
+         rounded-lg shadow-lg p-10 overflow-auto`}
+        >
           <H2 className="pb-6 border-b-2">Journey as a Developer</H2>
           <div className="break-keep mb-3">
             {about.detail.map((int) => (
@@ -53,7 +59,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
             {about.pros.map((pro) => (
               <li
                 key={pro}
-                className="text-sm text-gray-700 dark:text-white leading-relaxed"
+                className={`text-sm text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed`}
               >
                 {pro}
               </li>

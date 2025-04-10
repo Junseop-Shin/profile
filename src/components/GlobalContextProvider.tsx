@@ -1,7 +1,7 @@
 import { ReactNode, useCallback, useState } from "react";
-import { GlobalContext } from "../../utils/GlobalContext";
-import useCurrentSection from "../../hooks/useCurrentSection";
-import { sectionIds } from "../../assets/header";
+import { GlobalContext } from "../utils/GlobalContext";
+import useCurrentSection from "../hooks/useCurrentSection";
+import { sectionIds } from "../assets/header";
 
 export const GlobalContextProvider = ({
   children,

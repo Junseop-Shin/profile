@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
 
   const handleDownload = useCallback(() => {
     const link = document.createElement("a");
-    link.href = "/resume.pdf"; // 이력서 파일 경로
+    link.href = about.resume; // 이력서 파일 경로
     link.download = "신준섭_이력서.pdf"; // 다운로드될 파일 이름
     link.click();
   }, []);
@@ -85,9 +85,9 @@ const AboutSection: React.FC = () => {
               className="flex w-fit items-center gap-1 bg-gray-300 font-bold hover-target"
             >
               {isAboutDetailOpen ? (
-                <Icon iconName={IoIosArrowBack} className="dark:text-black" />
+                <IoIosArrowBack className="size-6 flex-shrink-0 text-black transition-colors duration-500" />
               ) : (
-                <Icon iconName={IoIosArrowForward} />
+                <IoIosArrowForward className="size-6 flex-shrink-0 text-black transition-colors duration-500" />
               )}
               더보기
             </button>
@@ -97,7 +97,7 @@ const AboutSection: React.FC = () => {
           <img
             src="/about.png"
             alt="Profile"
-            className="w-fit h-fit rounded-r-lg p-8 opacity-70"
+            className="w-fit h-fit p-8 opacity-70"
           />
           <AboutDetail
             isOpened={isAboutDetailOpen}
