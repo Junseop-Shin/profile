@@ -9,6 +9,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Cursor from "./components/Cursor";
 import PageAnimation from "./components/common/PageAnimation";
 import Skill from "./components/Skill";
+import { HomeContextProvider } from "./components/context/HomeContextProvider";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -20,23 +21,27 @@ const App: React.FC = () => {
           <Route
             path="/"
             element={
-              <div className="dark:bg-dark-bg-default">
-                <Header />
-                <Home />
-                <About />
-                <Career />
-                <Skill />
-                <Projects />
-              </div>
+              <HomeContextProvider>
+                <div className="dark:bg-dark-bg-default">
+                  <Header />
+                  <Home />
+                  <About />
+                  <Career />
+                  <Skill />
+                  <Projects />
+                </div>
+              </HomeContextProvider>
             }
           />
           <Route
             path="/project/:projectId"
             element={
-              <div className="dark:bg-dark-bg-default">
-                <Header />
-                <ProjectDetail />
-              </div>
+              <HomeContextProvider>
+                <div className="dark:bg-dark-bg-default">
+                  <Header />
+                  <ProjectDetail />
+                </div>
+              </HomeContextProvider>
             }
           />
         </Routes>

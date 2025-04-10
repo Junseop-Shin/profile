@@ -1,7 +1,5 @@
 import { ReactNode, useCallback, useState } from "react";
-import { GlobalContext } from "../utils/GlobalContext";
-import useCurrentSection from "../hooks/useCurrentSection";
-import { sectionIds } from "../assets/header";
+import { GlobalContext } from "../../utils/GlobalContext";
 
 export const GlobalContextProvider = ({
   children,
@@ -9,7 +7,6 @@ export const GlobalContextProvider = ({
   children: ReactNode;
 }) => {
   const [isLightMode, setIsLightMode] = useState(true);
-  const currentSection = useCurrentSection(sectionIds);
 
   const toggleTheme = useCallback(() => {
     setIsLightMode((prev) => !prev);
@@ -17,9 +14,7 @@ export const GlobalContextProvider = ({
   }, [isLightMode]);
 
   return (
-    <GlobalContext.Provider
-      value={{ isLightMode, toggleTheme, currentSection }}
-    >
+    <GlobalContext.Provider value={{ isLightMode, toggleTheme }}>
       {children}
     </GlobalContext.Provider>
   );

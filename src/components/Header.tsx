@@ -5,9 +5,11 @@ import { sectionIds } from "../assets/header";
 import { useNavigate, useParams } from "react-router-dom";
 import Icon from "./common/Icon";
 import useScrollingStyle from "../hooks/useScrollingStyle";
+import { useHomeContext } from "../hooks/useHomeContext";
 
 const Header: React.FC = () => {
-  const { isLightMode, toggleTheme, currentSection } = useGlobalContext();
+  const { isLightMode, toggleTheme } = useGlobalContext();
+  const { currentSection } = useHomeContext();
   const { projectId } = useParams<{ projectId: string }>();
   useScrollingStyle();
   const navigate = useNavigate();
