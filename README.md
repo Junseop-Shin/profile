@@ -1,54 +1,24 @@
-# React + TypeScript + Vite
+자기소개 프로필 페이지
+- About
+- Career
+- Skill
+- Projects
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+기술
+- Vite로 프로젝트 생성(CRA 대체)
+- React, Typescript
+- Tailwind
+- vite 빌드, firebase 배포
+- SPA(react-router)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+기능
+- 반응형 디자인
+- 테마(다크모드)
+- 스크롤 이벤트
+  - InterSectionObserver 이용 현재 섹션 관리
+  - scrolling/stopped 커스텀 클래스 생성해 스크롤링 중 헤더 opacity 변경
+  - scrollIntoView
+- 애니메이션
+  - motion, 기본
+- 커서 컴포넌트
+  - hover-target 클래스 엘리먼트 hover시 커서 컴포넌트 스타일 변경
