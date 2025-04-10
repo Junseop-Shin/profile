@@ -8,6 +8,7 @@ import ProjectDetail from "./components/ProjectDetail";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Cursor from "./components/Cursor";
 import PageAnimation from "./components/common/PageAnimation";
+import Skill from "./components/Skill";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const App: React.FC = () => {
                 <Home />
                 <About />
                 <Career />
+                <Skill />
                 <Projects />
               </div>
             }
