@@ -34,4 +34,5 @@ export const about = {
   email: "nuclearbomb6518@gmail.com",
   linkedin: "https://www.linkedin.com/in/준섭-신-24b5a8247/",
   github: "https://github.com/Junseop-Shin/",
+  resume: "../src/assets/resume.pdf",
 };

@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
 
   const handleDownload = useCallback(() => {
     const link = document.createElement("a");
-    link.href = "/resume.pdf"; // 이력서 파일 경로
+    link.href = about.resume; // 이력서 파일 경로
     link.download = "신준섭_이력서.pdf"; // 다운로드될 파일 이름
     link.click();
   }, []);
