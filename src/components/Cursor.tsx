@@ -1,5 +1,21 @@
 import { useLayoutEffect, useRef } from "react";
 
+let globalRegisterHoverTargets: ((root?: HTMLElement) => void) | null = null;
+
+export const registerHoverTargets = (root?: HTMLElement) => {
+  if (globalRegisterHoverTargets) {
+    globalRegisterHoverTargets(root);
+  }
+};
+
+let globalUnregisterHoverTargets: ((root?: HTMLElement) => void) | null = null;
+
+export const unregisterHoverTargets = (root?: HTMLElement) => {
+  if (globalUnregisterHoverTargets) {
+    globalUnregisterHoverTargets(root);
+  }
+};
+
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -22,42 +38,42 @@ const Cursor = () => {
       cursorRef.current?.classList.remove("hover-active");
     };
 
-    // 이벤트 등록 함수
-    const registerHoverEvents = (elements: NodeListOf<Element>) => {
+    const registerHoverEvents = (elements: NodeListOf<Element> | Element[]) => {
       elements.forEach((target) => {
         target.addEventListener("mouseenter", handleButtonEnter);
         target.addEventListener("mouseleave", handleButtonLeave);
       });
     };
 
-    const targets = document.querySelectorAll(".hover-target");
-    registerHoverEvents(targets);
-
-    // MutationObserver 설정
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (
-            node instanceof HTMLElement &&
-            node.classList.contains("hover-target")
-          ) {
-            node.addEventListener("mouseenter", handleButtonEnter);
-            node.addEventListener("mouseleave", handleButtonLeave);
-          }
-        });
+    const unregisterHoverEvents = (
+      elements: NodeListOf<Element> | Element[]
+    ) => {
+      elements.forEach((target) => {
+        target.removeEventListener("mouseenter", handleButtonEnter);
+        target.removeEventListener("mouseleave", handleButtonLeave);
       });
-    });
+    };
 
-    // DOM 변경 감지 시작
-    observer.observe(document.body, { childList: true, subtree: true });
+    const registerAllHoverTargets = (root: HTMLElement = document.body) => {
+      const targets = root.querySelectorAll(".hover-target");
+      registerHoverEvents(targets);
+    };
+
+    const unregisterAllHoverTargets = (root: HTMLElement = document.body) => {
+      const targets = root.querySelectorAll(".hover-target");
+      unregisterHoverEvents(targets);
+    };
+
+    globalRegisterHoverTargets = registerAllHoverTargets;
+    globalUnregisterHoverTargets = unregisterAllHoverTargets;
+    registerAllHoverTargets();
 
     document.addEventListener("mousemove", handleMouseMove);
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      targets.forEach((target) => {
-        target.removeEventListener("mouseenter", handleButtonEnter);
-        target.removeEventListener("mouseleave", handleButtonLeave);
-      });
+      unregisterAllHoverTargets();
+      globalRegisterHoverTargets = null;
+      globalUnregisterHoverTargets = null;
     };
   }, [cursorRef]);
 

@@ -4,7 +4,6 @@ import { createContext } from "react";
 interface GlobalContextType {
   isLightMode: boolean;
   toggleTheme: () => void;
-  currentSection: string;
 }
 
 export const GlobalContext = createContext<GlobalContextType | undefined>(

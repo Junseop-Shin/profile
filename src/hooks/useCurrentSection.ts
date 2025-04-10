@@ -16,7 +16,7 @@ const useCurrentSection = (sectionIds: string[]) => {
             setCurrentSection(id);
           }
         },
-        { threshold: 0.5 }
+        { rootMargin: "-300px 0px 0px 0px" }
       );
 
       observer.observe(section);
