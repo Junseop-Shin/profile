@@ -36,8 +36,8 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full flex flex-row px-12 py-12 justify-between items-center p-16
-     bg-transparent z-30 text-gray-500 dark:text-dark-text-addition transition-all duration-500`}
+      className={`fixed top-0 left-0 w-full flex flex-row justify-between items-center
+     bg-transparent z-30 text-gray-500 dark:text-dark-text-addition transition-all duration-500 p-9 md:p-12`}
     >
       <div className="flex flex-row">
         <Icon
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
       </div>
       <div className="flex flex-row gap-8">
         <nav className="w-full">
-          <ul className="flex flex-column space-x-6 justify-center items-center md:gap-6 sm:gap-2">
+          <ul className="flex flex-column space-x-6 justify-center items-center md:gap-6 sm:gap-0.5">
             {sectionIds.map((sectionId) => (
               <li
                 key={sectionId}
