@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Section from "./common/Section";
 import { useParams } from "react-router-dom";
 import { Project, projects } from "../assets/projects";
@@ -19,7 +19,7 @@ const ProjectDetail: React.FC = () => {
   const handleScroll = () => {
     const scrollTop = window.scrollY; // Current scroll position
     const maxScroll = window.innerHeight; // Maximum scroll height (adjust as needed)
-    const newOpacity = Math.max(0.2, 1 - scrollTop / maxScroll); // Calculate opacity (minimum 0.5)
+    const newOpacity = Math.max(0.3, 1 - scrollTop / maxScroll); // Calculate opacity (minimum 0.5)
     setImageOpacity(newOpacity);
   };
 
@@ -29,6 +29,10 @@ const ProjectDetail: React.FC = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll); // Cleanup listener
     };
+  }, []);
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0); // Set scroll position to the top
   }, []);
 
   if (!project) {
@@ -76,7 +80,7 @@ const ProjectDetail: React.FC = () => {
       <img
         src={project.image}
         alt={project.title}
-        className="w-full object-contain opacity-90 my-2 sticky top-0 transition-opacity duration-100"
+        className="w-full object-contain opacity-90 py-2 sticky top-0 transition-opacity duration-100"
         style={{ opacity: imageOpacity }}
       />
       <div
