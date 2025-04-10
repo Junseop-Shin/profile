@@ -46,8 +46,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
           <Icon iconName={IoMdClose} className="text-white" />
         </button>
         <div
-          className="flex flex-col text-left w-full h-full bg-white dark:bg-gray-500 transition-colors duration-500
-         rounded-lg shadow-lg p-10 overflow-auto"
+          className={`flex flex-col text-left w-full h-full bg-white dark:bg-dark-bg-addition transition-colors duration-500
+         rounded-lg shadow-lg p-10 overflow-auto`}
         >
           <H2 className="pb-6 border-b-2">Journey as a Developer</H2>
           <div className="break-keep mb-3">
@@ -59,7 +59,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
             {about.pros.map((pro) => (
               <li
                 key={pro}
-                className="text-sm text-gray-700 dark:text-white transition-colors duration-500 leading-relaxed"
+                className={`text-sm text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed`}
               >
                 {pro}
               </li>

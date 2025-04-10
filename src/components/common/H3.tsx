@@ -6,7 +6,7 @@ interface H3Props extends React.HTMLProps<HTMLHeadingElement> {
 const H3 = ({ className, children, ...props }: H3Props) => {
   return (
     <h3
-      className={`mb-3 text-2xl font-bold text-gray-800 dark:text-white transition-colors duration-500 ${className}`}
+      className={`mb-3 text-2xl font-bold text-gray-800 dark:text-dark-text-default transition-colors duration-500 ${className}`}
       {...props}
     >
       {children}

@@ -47,7 +47,7 @@ const ProjectsSection: React.FC = () => {
             <Link
               key={index}
               to={`project/${project.link}`}
-              className={`shadow-md hover:shadow-lg transition relative dark:bg-gray-600 transition-colors duration-500 hover-target`}
+              className={`shadow-md hover:shadow-lg relative dark:bg-dark-bg-item transition-colors duration-500 hover-target`}
               onMouseEnter={() => setHoveredProject(project)}
             >
               <img
@@ -58,7 +58,7 @@ const ProjectsSection: React.FC = () => {
               <div
                 className={`${
                   hoveredProject === project ? "" : "collapse"
-                } flex flex-col bg-gray-600 dark:bg-gray-400 transition-colors duration-500
+                } flex flex-col bg-gray-600 dark:bg-dark-bg-item transition-colors duration-500
                   absolute top-0 left-0 w-full h-full opacity-50 z-10 rounded-lg justify-end items-start p-4 gap-3 text-left`}
                 onMouseLeave={() => setHoveredProject(null)}
               >

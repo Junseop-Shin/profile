@@ -12,7 +12,7 @@ const Icon: React.FC<IconProps> = ({
 }) => {
   return (
     <IconComponent
-      className={`size-6 flex-shrink-0 text-black dark:text-white transition-colors duration-500 ${className}`}
+      className={`size-6 flex-shrink-0 text-black dark:text-dark-text-default transition-colors duration-500 ${className}`}
       {...props}
     />
   );

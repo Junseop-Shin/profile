@@ -22,7 +22,7 @@ const CareerSection: React.FC = () => {
               className={`${
                 index > events.length - 3 && "opacity-50"
               } flex flex-col items-center p-4 shadow-lg rounded-lg
-                dark:bg-gray-600 transition-colors duration-500 hover-target`}
+                dark:bg-dark-bg-item transition-colors duration-500 hover-target`}
             >
               <H3>{event.heading}</H3>
               <H4

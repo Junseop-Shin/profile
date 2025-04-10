@@ -16,22 +16,22 @@ const App: React.FC = () => {
           <Route
             path="/"
             element={
-              <>
+              <div className="dark:bg-dark-bg-default">
                 <Header />
                 <Home />
                 <About />
                 <Career />
                 <Projects />
-              </>
+              </div>
             }
           />
           <Route
             path="/project/:projectId"
             element={
-              <>
+              <div className="dark:bg-dark-bg-default">
                 <Header />
                 <ProjectDetail />
-              </>
+              </div>
             }
           />
         </Routes>

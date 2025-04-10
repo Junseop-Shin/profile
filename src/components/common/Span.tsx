@@ -6,7 +6,7 @@ interface SpanProps extends React.HTMLProps<HTMLSpanElement> {
 const Span = ({ className, children, ...props }: SpanProps) => {
   return (
     <span
-      className={`text-sm text-black dark:text-white transition-colors duration-500 truncate ${className}`}
+      className={`text-sm text-black dark:text-dark-text-default transition-colors duration-500 truncate ${className}`}
       {...props}
     >
       {children}

@@ -6,7 +6,7 @@ interface H4Props extends React.HTMLProps<HTMLHeadingElement> {
 const H4 = ({ className, children, ...props }: H4Props) => {
   return (
     <h4
-      className={`mb-6 text-xl font-semibold text-gray-800 dark:text-white transition-colors duration-500 opacity-50 ${className}`}
+      className={`mb-6 text-xl font-semibold text-gray-800 dark:text-dark-text-default transition-colors duration-500 opacity-50 ${className}`}
       {...props}
     >
       {children}
