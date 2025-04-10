@@ -8,8 +8,6 @@ const Cursor = () => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!cursorRef.current) return;
       const { clientX, clientY } = e;
-      //   cursorRef.current.style.left = `${clientX - 16}px`;
-      //   cursorRef.current.style.top = `${clientY - 16}px`;
       cursorRef.current.style.transform = `translate(${clientX - 16}px, ${
         clientY - 16
       }px)`;
@@ -24,18 +22,41 @@ const Cursor = () => {
       cursorRef.current?.classList.remove("hover-active");
     };
 
-    const buttons = document.querySelectorAll(".hover-target");
-    buttons.forEach((btn) => {
-      btn.addEventListener("mouseenter", handleButtonEnter);
-      btn.addEventListener("mouseleave", handleButtonLeave);
+    // 이벤트 등록 함수
+    const registerHoverEvents = (elements: NodeListOf<Element>) => {
+      elements.forEach((target) => {
+        target.addEventListener("mouseenter", handleButtonEnter);
+        target.addEventListener("mouseleave", handleButtonLeave);
+      });
+    };
+
+    const targets = document.querySelectorAll(".hover-target");
+    registerHoverEvents(targets);
+
+    // MutationObserver 설정
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (
+            node instanceof HTMLElement &&
+            node.classList.contains("hover-target")
+          ) {
+            node.addEventListener("mouseenter", handleButtonEnter);
+            node.addEventListener("mouseleave", handleButtonLeave);
+          }
+        });
+      });
     });
+
+    // DOM 변경 감지 시작
+    observer.observe(document.body, { childList: true, subtree: true });
 
     document.addEventListener("mousemove", handleMouseMove);
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      buttons.forEach((btn) => {
-        btn.removeEventListener("mouseenter", handleButtonEnter);
-        btn.removeEventListener("mouseleave", handleButtonLeave);
+      targets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleButtonEnter);
+        target.removeEventListener("mouseleave", handleButtonLeave);
       });
     };
   }, [cursorRef]);

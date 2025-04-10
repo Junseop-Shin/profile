@@ -47,14 +47,16 @@ const ProjectDetail: React.FC = () => {
         className={`text-lg text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed`}
       >
         {mainItem}
-        {subItemsText?.split(".")?.map((text) => (
-          <li
-            key={text}
-            className={`text-sm text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed pl-5`}
-          >
-            {text}
-          </li>
-        ))}
+        <ul className="list-disc">
+          {subItemsText?.split(".")?.map((text) => (
+            <li
+              key={text}
+              className={`text-sm text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed ml-7`}
+            >
+              {text}
+            </li>
+          ))}
+        </ul>
       </li>
     );
   };
@@ -62,7 +64,7 @@ const ProjectDetail: React.FC = () => {
   const layoutProject = (project: Project) => {
     return (
       <div
-        key={project.link}
+        key={project.subtitle}
         className={`flex flex-col w-full min-h-[50dvh] text-left p-6 shadow-lg rounded-lg dark:bg-dark-bg-item transition-colors duration-500`}
       >
         <H3>{`${project.subtitle} (${project.date})`}</H3>

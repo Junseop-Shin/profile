@@ -164,7 +164,7 @@ export const projects: Project[] = [
         description: [
           "빌드 성능 개선: webpack v4에서 v5로 마이그레이션. babel-loader/terser-webpack-plugin에서 esbuild-loader/esbuildMinifyPlugin 전환",
           "jest 성능 개선: jest v26에서 v29로 버전 업을 통해 성능 개선. 비동기 로직(리소스 로딩 등) mocking을 통한 성능 개선",
-          "패키지 버전 최신화: React v.16에서 v.18로 마이그레이션 및 관련 패키지 전체 버전 업데이트",
+          "패키지 버전 최신화: React v16에서 v18로 마이그레이션 및 관련 패키지 전체 버전 업데이트",
           "Gitlab 파이프라인 관리, husky: Gitlab runner docker에 메모리 제한을 걸어 jest 실행 중 메모리 충돌로 인한 파이프라인 실패 개선. husky python에서 node.js로 마이그레이션, pre-commit 오류 해결, 깃랩 MR action에서 cp를 mv로 변경해 속도 개선",
           "빌드 환경별 옵션 및 패키지 관리, 배포 패키징",
         ],

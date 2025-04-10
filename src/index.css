@@ -32,7 +32,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  cursor: default; /* 기본 커서 숨기기 */
+  cursor: default;
 }
 
 h1 {
