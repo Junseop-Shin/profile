@@ -71,7 +71,7 @@ const CareerSection: React.FC = () => {
                   </P>
                   <P
                     pSize="sm"
-                    className="leading-snug whitespace-pre-line opacity-80"
+                    className="leading-snug whitespace-pre-line break-keep opacity-80"
                   >
                     {event.description}
                   </P>
