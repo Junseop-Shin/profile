@@ -9,6 +9,7 @@ import { about } from "../assets/about";
 import { useCursorTarget } from "../hooks/useCursorTarget";
 import { useHomeContext } from "../hooks/useHomeContext";
 import LItem from "./common/Litem";
+import H3 from "./common/H3";
 
 interface AboutDetailProps {
   isOpened: boolean;
@@ -50,20 +51,28 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
         </button>
         <div
           className={`flex flex-col text-left w-full h-full bg-white dark:bg-dark-bg-addition transition-colors duration-500
-         rounded-lg shadow-lg p-10 overflow-auto`}
+         rounded-lg shadow-lg px-6 py-10 md:px-10 overflow-auto`}
         >
           <H2 className="pb-6 border-b-2">Journey as a Developer</H2>
-          <div className="mb-3 break-keep">
+          <div className="mb-3 space-y-2 break-keep [text-indent:10px]">
             {about.detail.map((int) => (
               <P>{int}</P>
             ))}
           </div>
+          <H3 className="mt-10 mb-3 text-lg font-semibold">저의 강점</H3>
           <div className="flex flex-col gap-2">
-            {about.pros.map((pro) => (
-              <LItem type="main" key={pro}>
-                {pro}
-              </LItem>
-            ))}
+            {about.pros.map((pro) => {
+              const [head, body] = pro.split(":");
+              return (
+                <LItem
+                  type="main"
+                  key={pro}
+                  className="text-justify [text-indent:-25px] ml-[25px]"
+                >
+                  <strong>{head}</strong>: {body}
+                </LItem>
+              );
+            })}
           </div>
         </div>
       </motion.div>

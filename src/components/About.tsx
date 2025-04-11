@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
           <H2 className="pb-6 border-b-2" style={{ margin: 0 }}>
             About
           </H2>
-          <div className="break-keep">
+          <div className="break-keep [text-indent:10px]">
             {about.intro.map((int) => (
               <P>{int}</P>
             ))}
