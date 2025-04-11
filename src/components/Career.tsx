@@ -53,10 +53,10 @@ const CareerSection: React.FC = () => {
                 {/* 박스 내용 */}
                 <div
                   className={cn(
-                    "rounded-2xl p-5 shadow-lg hover:shadow-xl transition-shadow border dark:border-gray-700 bg-gradient-to-br",
+                    "rounded-lg p-4 shadow-lg  bg-white dark:bg-dark-bg-item transition-all duration-500 hover-target",
                     event.highlight
-                      ? "from-green-200 to-green-50 dark:from-yellow-900 dark:to-yellow-800"
-                      : "from-gray-200 to-white dark:from-dark-bg-item dark:to-gray-800"
+                      ? "opacity-100 hover:shadow-xl"
+                      : "opacity-70"
                   )}
                 >
                   {/* {event.icon && (
