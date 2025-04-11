@@ -8,6 +8,7 @@ import P from "./common/P";
 import { about } from "../assets/about";
 import { useCursorTarget } from "../hooks/useCursorTarget";
 import { useHomeContext } from "../hooks/useHomeContext";
+import LItem from "./common/Litem";
 
 interface AboutDetailProps {
   isOpened: boolean;
@@ -32,10 +33,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
 
   return (
     <MountUnmountAnimation isVisible={isOpened}>
-      <div
-        className="fixed top-0 right-0 w-full h-full
-       bg-black opacity-20 dark:bg-white transition-colors duration-500 z-40"
-      />
+      <div className="fixed top-0 right-0 z-40 w-full h-full transition-colors duration-500 bg-black opacity-20 dark:bg-white" />
       <motion.div
         className="fixed top-0 right-0 w-[50%] h-full z-50"
         initial={{ x: 100, opacity: 1 }}
@@ -55,19 +53,16 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ isOpened, onClose }) => {
          rounded-lg shadow-lg p-10 overflow-auto`}
         >
           <H2 className="pb-6 border-b-2">Journey as a Developer</H2>
-          <div className="break-keep mb-3">
+          <div className="mb-3 break-keep">
             {about.detail.map((int) => (
               <P>{int}</P>
             ))}
           </div>
           <div className="flex flex-col gap-2">
             {about.pros.map((pro) => (
-              <li
-                key={pro}
-                className={`text-sm text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed`}
-              >
+              <LItem type="main" key={pro}>
                 {pro}
-              </li>
+              </LItem>
             ))}
           </div>
         </div>

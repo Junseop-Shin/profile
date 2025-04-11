@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import { Project, projects } from "../assets/projects";
 import { IoMdAt, IoLogoGithub } from "react-icons/io";
 import H2 from "./common/H2";
-import Span from "./common/Span";
 import Icon from "./common/Icon";
 import H3 from "./common/H3";
-import H4 from "./common/H4";
+import P from "./common/P";
+import LItem from "./common/Litem";
 
 const ProjectDetail: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -42,22 +42,16 @@ const ProjectDetail: React.FC = () => {
   const layoutDescription = (desc: string) => {
     const [mainItem, subItemsText] = desc.split(":");
     return (
-      <li
-        key={mainItem}
-        className={`text-lg text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed`}
-      >
+      <LItem key={mainItem} type="main">
         {mainItem}
-        <ul className="list-disc">
+        <ul className="my-1 list-disc">
           {subItemsText?.split(".")?.map((text) => (
-            <li
-              key={text}
-              className={`text-sm text-gray-700 dark:text-dark-text-default transition-colors duration-500 leading-relaxed ml-7`}
-            >
+            <LItem key={text} type="sub">
               {text}
-            </li>
+            </LItem>
           ))}
         </ul>
-      </li>
+      </LItem>
     );
   };
 
@@ -65,11 +59,14 @@ const ProjectDetail: React.FC = () => {
     return (
       <div
         key={project.subtitle}
-        className={`flex flex-col w-full min-h-[50dvh] text-left p-6 shadow-lg rounded-lg dark:bg-dark-bg-item transition-colors duration-500`}
+        className={`flex flex-col w-full min-h-[50dvh] text-center p-6 shadow-lg rounded-lg dark:bg-dark-bg-item transition-colors duration-500`}
       >
-        <H3>{`${project.subtitle} (${project.date})`}</H3>
-        <H4>{project.skills}</H4>
-        <div className="flex flex-col text-left gap-2">
+        <H3>{`${project.subtitle}`}</H3>
+        <H3>{`(${project.date})`}</H3>
+        <P pSize="xl" style={{ opacity: 0.7 }}>
+          {project.skills}
+        </P>
+        <div className="flex flex-col gap-2 mt-10 text-left">
           {project.description?.map((desc) => layoutDescription(desc))}
         </div>
       </div>
@@ -78,25 +75,26 @@ const ProjectDetail: React.FC = () => {
 
   const { subProjects } = project;
   return (
-    <Section id="project-detail">
+    <Section id="project-detail" style={{ minHeight: "200vh" }}>
       <img
         src={project.image}
         alt={project.title}
-        className="w-full object-contain opacity-90 py-2 sticky top-0 transition-opacity duration-100"
+        className="fixed inset-0 z-0 object-contain h-[100vh] justify-self-center py-2 transition-opacity duration-100 opacity-90 pointer-events-none"
         style={{ opacity: imageOpacity }}
       />
       <div
-        className={`w-full h-full flex flex-col items-center p-6 ${
+        className={`relative z-10 w-full min-h-[80vh] flex flex-col items-center p-6 ${
           imageOpacity !== 1
             ? "bg-white dark:bg-dark-bg-default transition-colors duration-500"
             : "bg-none"
         }`}
         style={{
           opacity: 1 - imageOpacity,
+          marginTop: "100vh",
         }}
       >
         <H2>{project.title}</H2>
-        <div className="flex flex-col gap-3 text-left mb-6">
+        <div className="flex flex-col gap-3 mb-6 text-left">
           {project.web && (
             <a
               href={project.web}
@@ -105,7 +103,7 @@ const ProjectDetail: React.FC = () => {
               rel="noopener noreferrer"
             >
               <Icon iconName={IoMdAt} />
-              <Span>{project.web}</Span>
+              <P pSize="sm">{project.web}</P>
             </a>
           )}
           {project.git && (
@@ -116,7 +114,7 @@ const ProjectDetail: React.FC = () => {
               rel="noopener noreferrer"
             >
               <Icon iconName={IoLogoGithub} />
-              <Span>{project.git}</Span>
+              <P pSize="sm">{project.git}</P>
             </a>
           )}
         </div>

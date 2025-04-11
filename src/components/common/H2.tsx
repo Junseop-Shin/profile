@@ -6,7 +6,12 @@ interface H2Props extends React.HTMLProps<HTMLHeadingElement> {
 const H2 = ({ className, children, ...props }: H2Props) => {
   return (
     <h2
-      className={`mb-6 text-3xl font-bold text-gray-800 dark:text-dark-text-default transition-colors duration-500 ${className}`}
+      className={`
+      mb-6 text-3xl sm:text-4xl md:text-[40px] lg:text-[44px] xl:text-[48px]
+      font-bold text-gray-800 dark:text-dark-text-default
+      leading-tight tracking-tight transition-colors duration-500
+      ${className}
+    `}
       {...props}
     >
       {children}
