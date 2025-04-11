@@ -3,35 +3,83 @@ import Section from "./common/Section";
 import { events } from "../assets/career";
 import H2 from "./common/H2";
 import H3 from "./common/H3";
-import H4 from "./common/H4";
-import Span from "./common/Span";
+import P from "./common/P";
 import FadeUpAnimation from "./common/FadeUpAnimation";
+
+function cn(...classes: (string | undefined | null | false)[]) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const CareerSection: React.FC = () => {
   const reversedEvents = useMemo(() => [...events].reverse(), []);
 
   return (
     <Section id="career">
-      <H2>Career</H2>
+      <H2 className="mb-10 text-center">Career</H2>
 
-      <div className="space-y-6">
-        {reversedEvents.reverse().map((event, index) => (
-          <FadeUpAnimation delay={0.1 * index}>
-            <div
+      <div className="relative w-[90vw] max-w-[1000px] px-4 sm:px-6 md:px-10 before:absolute before:left-1/2 before:top-0 before:h-full before:w-[2px] before:-translate-x-1/2 before:bg-gray-300 dark:before:bg-gray-700">
+        {reversedEvents.map((event, index) => {
+          const isLeft = index % 2 === 0;
+
+          return (
+            <FadeUpAnimation
+              delay={0.1 * index}
               key={event.fromTo}
-              className={`${
-                index > events.length - 3 && "opacity-50"
-              } flex flex-col items-center p-4 shadow-lg rounded-lg
-                dark:bg-dark-bg-item transition-colors duration-500 hover-target`}
+              className="flex "
             >
-              <H3>{event.heading}</H3>
-              <H4
-                style={{ marginBottom: "12px" }}
-              >{`${event.where} (${event.fromTo})`}</H4>
-              <Span className="opacity-70">{event.description}</Span>
-            </div>
-          </FadeUpAnimation>
-        ))}
+              <div
+                className={cn(
+                  "relative w-full md:w-1/2 py-6 px-2 md:px-4 ",
+                  isLeft
+                    ? "md:ml-10 md:justify-self-start"
+                    : "md:mr-10 md:justify-self-end"
+                )}
+              >
+                {/* 타임라인 점 */}
+                <div
+                  className={cn(
+                    "absolute z-10 -translate-x-1/2 top-7 left-1/2 md:top-1/9 lg:top-1/6",
+                    isLeft
+                      ? "md:right-11 md:translate-x-[100%] lg:right-13 lg:translate-x-[100%]"
+                      : "md:left-8 lg:left-10"
+                  )}
+                >
+                  <div className="relative w-5 h-5">
+                    <span className="absolute inset-0 rounded-full opacity-75 bg-gradient-to-br from-indigo-400 to-purple-500 animate-ping" />
+                    <span className="relative inline-block w-5 h-5 bg-white border-4 border-black rounded-full dark:border-white" />
+                  </div>
+                </div>
+
+                {/* 박스 내용 */}
+                <div
+                  className={cn(
+                    "rounded-2xl p-5 shadow-lg hover:shadow-xl transition-shadow border dark:border-gray-700 bg-gradient-to-br",
+                    event.highlight
+                      ? "from-green-200 to-green-50 dark:from-yellow-900 dark:to-yellow-800"
+                      : "from-gray-200 to-white dark:from-dark-bg-item dark:to-gray-800"
+                  )}
+                >
+                  {/* {event.icon && (
+                    <div className="mb-2 text-xl">{event.icon}</div>
+                  )} */}
+                  <H3 className="mb-2">{event.heading}</H3>
+                  <P pSize="xl" className="mb-2 opacity-60">
+                    {`${event.where}`}
+                  </P>
+                  <P pSize="xl" className="mb-2 opacity-60">
+                    {`(${event.fromTo})`}
+                  </P>
+                  <P
+                    pSize="sm"
+                    className="leading-snug whitespace-pre-line opacity-80"
+                  >
+                    {event.description}
+                  </P>
+                </div>
+              </div>
+            </FadeUpAnimation>
+          );
+        })}
       </div>
     </Section>
   );

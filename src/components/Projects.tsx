@@ -41,7 +41,7 @@ const ProjectsSection: React.FC = () => {
         ))}
       </div>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project, index) => {
           return (
             <Link
@@ -53,7 +53,7 @@ const ProjectsSection: React.FC = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full aspect-square object-contain opacity-90 my-2"
+                className="object-contain w-full my-2 aspect-square opacity-90"
               />
               <div
                 className={`${
@@ -62,10 +62,10 @@ const ProjectsSection: React.FC = () => {
                   absolute top-0 left-0 w-full h-full opacity-50 z-10 rounded-lg justify-end items-start p-4 gap-3 text-left`}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <p className="text-white dark:text-gray-800 text-lg font-semibold transition-colors duration-500">
+                <p className="text-lg font-semibold text-white transition-colors duration-500 dark:text-gray-800">
                   {project.title}
                 </p>
-                <p className="text-white dark:text-gray-800 text-sm transition-colors duration-500">
+                <p className="text-sm text-white transition-colors duration-500 dark:text-gray-800">
                   {project.skills}
                 </p>
               </div>

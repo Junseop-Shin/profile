@@ -64,7 +64,7 @@ export const projects: Project[] = [
     date: "2023.09 ~ 2023.12",
     skills: "React, TypeScript, Styled-Components, SWR, Redux",
     link: "ax",
-    image: "no_image_available.jpg",
+    image: "/no_image_available.jpg",
     subProjects: [
       {
         type: "work",
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     date: "2022.02 ~ 2023.09",
     skills: "React, TypeScript, MobX, sass, eslint, prettier, jest, webpack",
     link: "weboffice",
-    image: "no_image_available.jpg",
+    image: "/no_image_available.jpg",
     subProjects: [
       {
         type: "work",
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     date: "2020.02 ~ 2022.02",
     skills: "C++, OOXML, MVC 패턴",
     link: "office",
-    image: "no_image_available.jpg",
+    image: "/no_image_available.jpg",
     subProjects: [
       {
         type: "work",

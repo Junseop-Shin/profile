@@ -12,7 +12,6 @@ import AboutDetail from "./AboutDetail";
 import { about } from "../assets/about";
 import H2 from "./common/H2";
 import P from "./common/P";
-import Span from "./common/Span";
 import Icon from "./common/Icon";
 
 const AboutSection: React.FC = () => {
@@ -36,7 +35,7 @@ const AboutSection: React.FC = () => {
   return (
     <Section id="about">
       <div className="grid sm:grid-cols-1 md:grid-cols-2">
-        <div className="mx-10 text-left gap-5 flex flex-col justify-center sm:order-2 md:order-1">
+        <div className="flex flex-col justify-center order-2 gap-5 mx-10 text-left md:order-1">
           <H2 className="pb-6 border-b-2" style={{ margin: 0 }}>
             About
           </H2>
@@ -51,7 +50,7 @@ const AboutSection: React.FC = () => {
               className="flex items-center gap-1 hover-target"
             >
               <Icon iconName={IoIosMail} />
-              <Span>{about.email}</Span>
+              <P pSize="sm">{about.email}</P>
             </a>
             <a
               href={about.linkedin}
@@ -60,7 +59,7 @@ const AboutSection: React.FC = () => {
               rel="noopener noreferrer"
             >
               <Icon iconName={IoLogoLinkedin} />
-              <Span>{about.linkedin}</Span>
+              <P pSize="sm">{about.linkedin}</P>
             </a>
             <a
               href={about.github}
@@ -69,35 +68,35 @@ const AboutSection: React.FC = () => {
               rel="noopener noreferrer"
             >
               <Icon iconName={IoLogoGithub} />
-              <Span>{about.github}</Span>
+              <P pSize="sm">{about.github}</P>
             </a>
           </div>
           <div className="flex items-center gap-5 mt-4">
             <button
               onClick={handleDownload}
-              className="flex w-fit items-center gap-1 bg-black text-white font-bold hover-target"
+              className="flex items-center gap-1 font-bold text-white bg-black w-fit hover-target"
             >
               <Icon iconName={IoMdDownload} className="text-white" />
               이력서
             </button>
             <button
               onClick={openAboutDetail}
-              className="flex w-fit items-center gap-1 bg-gray-300 font-bold hover-target"
+              className="flex items-center gap-1 font-bold bg-gray-300 w-fit hover-target"
             >
               {isAboutDetailOpen ? (
-                <IoIosArrowBack className="size-6 flex-shrink-0 text-black transition-colors duration-500" />
+                <IoIosArrowBack className="flex-shrink-0 text-black transition-colors duration-500 size-6" />
               ) : (
-                <IoIosArrowForward className="size-6 flex-shrink-0 text-black transition-colors duration-500" />
+                <IoIosArrowForward className="flex-shrink-0 text-black transition-colors duration-500 size-6" />
               )}
               더보기
             </button>
           </div>
         </div>
-        <div className="flex relative items-center justify-center sm:order-1 md-order-2">
+        <div className="relative flex items-center justify-center order-1 md-order-2">
           <img
             src="/about.png"
             alt="Profile"
-            className="w-fit h-fit p-8 opacity-70"
+            className="p-8 w-fit h-fit opacity-70"
           />
           <AboutDetail
             isOpened={isAboutDetailOpen}

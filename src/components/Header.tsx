@@ -44,7 +44,7 @@ const Header: React.FC = () => {
       <div className="flex flex-row">
         <Icon
           iconName={isLightMode ? IoMdMoon : IoMdSunny}
-          className="opacity-50 hover:opacity-80 size-8 hover-target cursor-pointer stopped scrolling:opacity-30"
+          className="opacity-50 cursor-pointer hover:opacity-80 size-8 hover-target stopped scrolling:opacity-30"
           onClick={toggleTheme}
         />
       </div>
