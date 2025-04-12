@@ -52,7 +52,7 @@ export const projects: Project[] = [
       "Framer-motion을 이용한 기본 애니메이션 적용",
       "Styled-Components 이용한 반응형 디자인 적용",
       "Carousel, Gallery, Dropdown 등 구현",
-      "카카오톡 플러스 친구 알림 기능 적용",
+      "문의 시 메일 알림 기능 적용",
       "Vercel을 이용한 배포",
     ],
   },
