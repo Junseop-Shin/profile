@@ -23,6 +23,11 @@ jobs:
           cache: "npm"
           cache-dependency-path: next/package-lock.json
 
+      - name: Setup .npmrc for GitHub Packages
+        run: |
+          echo "@junseop-shin:registry=https://npm.pkg.github.com" >> next/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> next/.npmrc
+
       - name: Install dependencies
         working-directory: next
         run: npm ci
