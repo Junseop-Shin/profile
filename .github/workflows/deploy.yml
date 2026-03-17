@@ -42,6 +42,12 @@ jobs:
           curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o cloudflared.deb
           sudo dpkg -i cloudflared.deb
 
+      - name: Setup cloudflared cert
+        run: |
+          mkdir -p ~/.cloudflared
+          echo "${{ secrets.CLOUDFLARE_CERT }}" > ~/.cloudflared/cert.pem
+          chmod 600 ~/.cloudflared/cert.pem
+
       - name: Setup SSH key
         run: |
           mkdir -p ~/.ssh
