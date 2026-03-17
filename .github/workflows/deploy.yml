@@ -50,6 +50,16 @@ jobs:
           printf '#!/bin/bash\nCF_Access_Client_Id=$CF_ACCESS_CLIENT_ID CF_Access_Client_Secret=$CF_ACCESS_CLIENT_SECRET exec ssh -i ~/.ssh/id_deploy -o StrictHostKeyChecking=no -o "ProxyCommand=cloudflared access ssh --hostname %%h" "$@"\n' > /tmp/rsh.sh
           chmod +x /tmp/rsh.sh
 
+      - name: Debug cloudflared connection
+        env:
+          CF_Access_Client_Id: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_Access_Client_Secret: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          cloudflared --loglevel debug access ssh --hostname ${{ secrets.DEPLOY_HOST }} &
+          sleep 5
+          kill %1 || true
+        continue-on-error: true
+
       - name: Sync build output
         env:
           CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
