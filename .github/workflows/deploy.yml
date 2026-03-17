@@ -47,12 +47,10 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
-          cat >> ~/.ssh/config <<EOF
-          Host ${{ secrets.DEPLOY_HOST }}
-            ProxyCommand cloudflared access ssh --hostname %h
-            IdentityFile ~/.ssh/id_deploy
-            StrictHostKeyChecking no
-          EOF
+          echo "Host ${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/config
+          echo "  ProxyCommand cloudflared access ssh --hostname %h" >> ~/.ssh/config
+          echo "  IdentityFile ~/.ssh/id_deploy" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Sync build output
         run: |
