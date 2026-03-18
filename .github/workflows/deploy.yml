@@ -40,22 +40,18 @@ jobs:
       - name: Setup SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" | base64 -d > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
 
       - name: Sync build output
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/id_deploy -p ${{ secrets.DEPLOY_PORT }} -o StrictHostKeyChecking=no" \
-            next/.next/ \
-            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/next/.next/
-
-      - name: Sync public assets
-        run: |
-          rsync -avz \
-            -e "ssh -i ~/.ssh/id_deploy -p ${{ secrets.DEPLOY_PORT }} -o StrictHostKeyChecking=no" \
-            next/public/ \
-            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/next/public/
+          SSH="ssh -i ~/.ssh/id_deploy -p ${{ secrets.DEPLOY_PORT }} -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}"
+          $SSH "if exist \"${{ secrets.DEPLOY_PATH }}\\next\" rmdir /s /q \"${{ secrets.DEPLOY_PATH }}\\next\"" || true
+          $SSH "mkdir \"${{ secrets.DEPLOY_PATH }}\\next\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\.next\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\.next\\static\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\public\""
+          tar czf - -C next/.next/standalone . | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next"
+          tar czf - -C next/.next/static . | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next/.next/static"
+          tar czf - -C next/public . | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next/public"
+          tar czf - -C next ecosystem.config.js | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next"
 
       - name: Reload pm2
         run: |
@@ -63,4 +59,4 @@ jobs:
             -p ${{ secrets.DEPLOY_PORT }} \
             -o StrictHostKeyChecking=no \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
-            "pm2 reload profile-next --update-env || pm2 start ${{ secrets.DEPLOY_PATH }}/next/ecosystem.config.js && pm2 save"
+            "cd ${{ secrets.DEPLOY_PATH }}\\next && pm2 reload profile-next --update-env || cd ${{ secrets.DEPLOY_PATH }}\\next && pm2 start ecosystem.config.js && pm2 save && schtasks /run /tn PM2-Resurrect"

@@ -3,9 +3,9 @@ module.exports = {
   apps: [
     {
       name: "profile-next",
-      script: "node_modules/.bin/next",
-      args: "start",
-      cwd: "./",
+      script: "node",
+      args: "server.js",
+      cwd: __dirname,
       instances: 1,
       autorestart: true,
       watch: false,
