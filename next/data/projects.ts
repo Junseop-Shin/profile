@@ -75,6 +75,52 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "my-ui-lib",
+    type: "personal",
+    title: "My UI Library",
+    subtitle: "금융권 특화 React 디자인 시스템",
+    period: "2026.03 ~",
+    stack: ["React 19", "TypeScript", "TailwindCSS", "Radix UI", "Rollup"],
+    thumbnail: "/projects/my-ui-lib/opengraph-image",
+    summary: "테마 시스템과 데이터 시각화 컴포넌트를 제공하는 npm 라이브러리. Light/Dark/Finance 3가지 테마 지원.",
+    web: "https://storybook.nuclearbomb6518.com",
+    github: "https://github.com/Junseop-Shin/my-ui-lib",
+    sections: [
+      {
+        heading: "주요 특징",
+        items: [
+          "Light / Dark / Finance 3가지 테마 (CSS 변수 커스터마이징)",
+          "ThemeProvider 기반 전역 테마 관리",
+          "Radix UI 기반 접근성 준수 컴포넌트",
+          "npm 패키지 배포 (@junseop-shin/my-ui-lib)",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "lotto-oracle",
+    type: "personal",
+    title: "Lotto Oracle",
+    subtitle: "로또 역대 당첨번호 분석 기반 번호 추천 시스템",
+    period: "2026.03 ~",
+    stack: ["Python", "FastAPI", "Docker", "GitHub Actions"],
+    thumbnail: "/projects/lotto-oracle/opengraph-image",
+    summary: "역대 로또 당첨번호 데이터를 분석해 번호를 추천하는 시스템. FastAPI 백엔드 + Docker 컨테이너화.",
+    web: "https://lotto.nuclearbomb6518.com",
+    github: "https://github.com/Junseop-Shin/lotto-oracle",
+    sections: [
+      {
+        heading: "주요 특징",
+        items: [
+          "역대 당첨번호 통계 분석 및 추천 알고리즘",
+          "FastAPI 기반 REST API 서버",
+          "Docker + docker-compose 컨테이너화",
+          "GitHub Actions CI/CD",
+        ],
+      },
+    ],
+  },
   // ── Work — 티앤엠테크 ─────────────────────────────────────────
   {
     slug: "mobile-renewal",

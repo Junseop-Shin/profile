@@ -16,13 +16,12 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
       {/* Particles background */}
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <Particles
-          particleCount={120}
-          particleSpread={12}
-          speed={0.06}
+          particleCount={200}
+          particleSpread={8}
+          speed={0.12}
           particleColors={["#3b82f6", "#8b5cf6", "#6366f1", "#a78bfa"]}
-          alphaParticles
-          particleBaseSize={60}
-          sizeRandomness={1.2}
+          particleBaseSize={80}
+          sizeRandomness={1.0}
           disableRotation={false}
         />
       </div>

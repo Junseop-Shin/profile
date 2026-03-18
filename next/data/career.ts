@@ -25,7 +25,7 @@ export const career: CareerEvent[] = [
     tasks: [
       {
         title: "SEMS 서비스 유지관리",
-        period: "2025.04 ~",
+        period: "2025.04 ~ 2025.12",
         stack: "Spring, Java, MariaDB, React, Next.js, TypeScript, Rollbar",
         items: [
           "모바일 웹 JSP → React 전환 유지보수",
@@ -38,7 +38,7 @@ export const career: CareerEvent[] = [
       },
       {
         title: "SEMS 플랫폼 Azure 이관",
-        period: "2025.06 ~",
+        period: "2025.06 ~ 2026.02",
         stack:
           "Spring Boot, Java, Python, PostgreSQL, MongoDB, Azure Servicebus, Azure Function app, MQTT",
         items: [
@@ -47,6 +47,10 @@ export const career: CareerEvent[] = [
           "프로시저 쿼리 개선으로 실행시간 7분 → 20초 (95% 단축)",
           "수동 배포 → GitHub Actions CI/CD 자동화, pm2 무중단 배포",
           "기상청·환경공단·알리고 API 연동 및 스테이징 환경 구축",
+          "관제웹 신규 서비스 개발 및 도메인 전환",
+          "설치앱 신규 서비스 개발 및 도메인 전환",
+          "모바일앱 신규 서비스 개발 및 도메인 전환",
+          "기타 외부 연동 API 유지보수",
         ],
       },
       {
@@ -61,7 +65,7 @@ export const career: CareerEvent[] = [
       },
       {
         title: "클라우드 비용 절감",
-        period: "2026.01 ~",
+        period: "2026.01",
         stack: "Azure, Ncloud",
         items: [
           "기존 Ncloud 리소스 정리로 월 약 260만원 절감",
@@ -81,7 +85,7 @@ export const career: CareerEvent[] = [
       },
       {
         title: "플랫폼 Task 구조 리팩토링",
-        period: "2026.02 ~",
+        period: "2026.02",
         stack: "Java, Python, FastAPI, Azure Monitor",
         items: [
           "로깅 정책 통일 (롤링, 포맷, Slack 메시지)",
