@@ -79,7 +79,9 @@ function ProjectCard({
   const router = useRouter();
 
   const hasImage =
-    project.thumbnail && project.thumbnail !== "/no_image_available.jpg";
+    project.thumbnail &&
+    project.thumbnail !== "/no_image_available.jpg" &&
+    !project.thumbnail.startsWith("/projects/");
 
   return (
     <motion.div
