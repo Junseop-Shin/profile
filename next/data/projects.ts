@@ -33,7 +33,7 @@ export const projects: Project[] = [
     subtitle: "개인 포트폴리오 웹페이지",
     period: "2025.04 ~",
     stack: ["Next.js 15", "React 19", "TypeScript", "TailwindCSS", "motion"],
-    thumbnail: "/projects/profile/opengraph-image",
+    thumbnail: "/profile-og.svg",
     summary:
       "Next.js 15 App Router, React 19 기능, react-bits 라이브러리를 활용한 개인 포트폴리오 사이트",
     web: "https://testproject-ba5ce.web.app/",
