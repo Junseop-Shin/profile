@@ -46,6 +46,7 @@ jobs:
       - name: Sync build output
         run: |
           SSH="ssh -i ~/.ssh/id_deploy -p ${{ secrets.DEPLOY_PORT }} -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}"
+          $SSH "pm2 stop profile-next" || true
           $SSH "if exist \"${{ secrets.DEPLOY_PATH }}\\next\" rmdir /s /q \"${{ secrets.DEPLOY_PATH }}\\next\"" || true
           $SSH "mkdir \"${{ secrets.DEPLOY_PATH }}\\next\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\.next\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\.next\\static\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\public\""
           tar czf - -C next/.next/standalone . | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next"
