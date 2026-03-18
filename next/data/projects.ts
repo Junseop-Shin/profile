@@ -128,10 +128,10 @@ export const projects: Project[] = [
     company: "주식회사 티앤엠테크",
     title: "모바일 앱 리뉴얼",
     subtitle: "SEMS 모바일 웹 JSP → React 전환 및 안정화",
-    period: "2025.04 ~",
+    period: "2025.04 ~ 2025.12",
     stack: ["React", "Next.js", "TypeScript", "Spring", "Java", "Rollbar"],
-    thumbnail: "/no_image_available.jpg",
-    web: "https://platform.atxpert.biz:8444",
+    thumbnail: "/mobile-renewal.png",
+    web: "https://platform.atxpert.biz:8443",
     summary:
       "레거시 JSP 모바일 웹을 React로 전환하며 안정성 대폭 개선. FCM 푸시, 오류 모니터링, 전력량 보정 등 핵심 기능 정상화",
     metrics: [
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     company: "주식회사 티앤엠테크",
     title: "Azure 플랫폼 이관",
     subtitle: "SEMS 서비스 Ncloud → Azure 전면 마이그레이션",
-    period: "2025.06 ~",
+    period: "2025.06 ~ 2026.02",
     stack: [
       "Spring Boot",
       "Java",
@@ -172,6 +172,7 @@ export const projects: Project[] = [
       "GitHub Actions",
     ],
     thumbnail: "/no_image_available.jpg",
+    web: "https://platform.atxpert.biz",
     summary:
       "Ncloud 기반 서비스를 Azure로 전면 이관. DB 마이그레이션, CI/CD 자동화, API 연동까지 풀스택 마이그레이션 수행",
     metrics: [
@@ -207,6 +208,15 @@ export const projects: Project[] = [
           "Azure Monitor 적용, 로깅 정책 통일",
         ],
       },
+      {
+        heading: "서비스 전환 및 신규 개발",
+        items: [
+          "관제웹 신규 서비스 개발 및 도메인 전환",
+          "설치앱 신규 서비스 개발 및 도메인 전환",
+          "모바일앱 신규 서비스 개발 및 도메인 전환",
+          "기타 외부 연동 API 유지보수",
+        ],
+      },
     ],
   },
   {
@@ -215,7 +225,7 @@ export const projects: Project[] = [
     company: "주식회사 티앤엠테크",
     title: "클라우드 비용 절감",
     subtitle: "Ncloud 정리 및 Azure 리소스 최적화",
-    period: "2026.01 ~",
+    period: "2026.01",
     stack: ["Azure", "Ncloud", "GitHub Actions"],
     thumbnail: "/no_image_available.jpg",
     summary:
