@@ -33,7 +33,7 @@ export const projects: Project[] = [
     subtitle: "개인 포트폴리오 웹페이지",
     period: "2025.04 ~",
     stack: ["Next.js 15", "React 19", "TypeScript", "TailwindCSS", "motion"],
-    thumbnail: "/profile-og.svg",
+    thumbnail: "/profile-screenshot.png",
     summary:
       "Next.js 15 App Router, React 19 기능, react-bits 라이브러리를 활용한 개인 포트폴리오 사이트",
     web: "https://testproject-ba5ce.web.app/",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     subtitle: "금융권 특화 React 디자인 시스템",
     period: "2026.03 ~",
     stack: ["React 19", "TypeScript", "TailwindCSS", "Radix UI", "Rollup"],
-    thumbnail: "https://storybook.nuclearbomb6518.com/og-image.svg",
+    thumbnail: "/my-ui-lib.png",
     summary: "테마 시스템과 데이터 시각화 컴포넌트를 제공하는 npm 라이브러리. Light/Dark/Finance 3가지 테마 지원.",
     web: "https://storybook.nuclearbomb6518.com",
     github: "https://github.com/Junseop-Shin/my-ui-lib",
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     subtitle: "로또 역대 당첨번호 분석 기반 번호 추천 시스템",
     period: "2026.03 ~",
     stack: ["Python", "FastAPI", "Docker", "GitHub Actions"],
-    thumbnail: "https://lotto.nuclearbomb6518.com/static/og-image.svg",
+    thumbnail: "/lotto-oracle.png",
     summary: "역대 로또 당첨번호 데이터를 분석해 번호를 추천하는 시스템. FastAPI 백엔드 + Docker 컨테이너화.",
     web: "https://lotto.nuclearbomb6518.com",
     github: "https://github.com/Junseop-Shin/lotto-oracle",
@@ -131,6 +131,7 @@ export const projects: Project[] = [
     period: "2025.04 ~",
     stack: ["React", "Next.js", "TypeScript", "Spring", "Java", "Rollbar"],
     thumbnail: "/no_image_available.jpg",
+    web: "https://platform.atxpert.biz:8444",
     summary:
       "레거시 JSP 모바일 웹을 React로 전환하며 안정성 대폭 개선. FCM 푸시, 오류 모니터링, 전력량 보정 등 핵심 기능 정상화",
     metrics: [
@@ -244,6 +245,7 @@ export const projects: Project[] = [
     period: "2025.12 ~ 2026.01",
     stack: ["React", "TypeScript", "react-flow"],
     thumbnail: "/no_image_available.jpg",
+    web: "https://platform.atxpert.biz",
     summary:
       "IoT 플랫폼 대시보드에서 사용하는 커스텀 위젯 개발. react-flow 기반 룰체인 편집기 및 AI 연동 위젯 포함",
     sections: [
