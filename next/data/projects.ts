@@ -171,7 +171,7 @@ export const projects: Project[] = [
       "Azure",
       "GitHub Actions",
     ],
-    thumbnail: "/no_image_available.jpg",
+    thumbnail: "/sems-platform.png",
     web: "https://platform.atxpert.biz",
     summary:
       "Ncloud 기반 서비스를 Azure로 전면 이관. DB 마이그레이션, CI/CD 자동화, API 연동까지 풀스택 마이그레이션 수행",
@@ -227,7 +227,7 @@ export const projects: Project[] = [
     subtitle: "Ncloud 정리 및 Azure 리소스 최적화",
     period: "2026.01",
     stack: ["Azure", "Ncloud", "GitHub Actions"],
-    thumbnail: "/no_image_available.jpg",
+    thumbnail: "/cloud-cost.svg",
     summary:
       "불필요한 클라우드 리소스를 분석하고 최적화해 운영·개발 환경 모두에서 비용을 대폭 절감",
     metrics: [
@@ -254,7 +254,7 @@ export const projects: Project[] = [
     subtitle: "대시보드용 커스텀 위젯 개발",
     period: "2025.12 ~ 2026.01",
     stack: ["React", "TypeScript", "react-flow"],
-    thumbnail: "/no_image_available.jpg",
+    thumbnail: "/sems-platform.png",
     web: "https://platform.atxpert.biz",
     summary:
       "IoT 플랫폼 대시보드에서 사용하는 커스텀 위젯 개발. react-flow 기반 룰체인 편집기 및 AI 연동 위젯 포함",

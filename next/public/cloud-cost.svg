@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <!-- Azure blue glow -->
+    <radialGradient id="azure-glow" cx="30%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#0078D4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0078D4" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Ncloud green glow -->
+    <radialGradient id="ncloud-glow" cx="70%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#03C75A" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#03C75A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#azure-glow)"/>
+  <rect width="1200" height="630" fill="url(#ncloud-glow)"/>
+
+  <!-- Center divider -->
+  <line x1="600" y1="80" x2="600" y2="550" stroke="#30363d" stroke-width="1" stroke-dasharray="6 4"/>
+
+  <!-- ── Azure (left) ── -->
+  <!-- Azure icon: stylized cloud/diamond shape -->
+  <g transform="translate(180, 180)">
+    <!-- Azure logo approximation: triangle-based shape -->
+    <polygon points="80,0 160,40 140,120 20,120 0,40" fill="none" stroke="#0078D4" stroke-width="3" opacity="0.9"/>
+    <polygon points="80,20 140,50 124,108 36,108 20,50" fill="#0078D4" opacity="0.15"/>
+    <text x="80" y="75" font-family="system-ui, sans-serif" font-size="32" font-weight="700" fill="#0078D4" text-anchor="middle">Az</text>
+  </g>
+  <!-- Azure label -->
+  <text x="300" y="370" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-1">Azure</text>
+  <text x="300" y="415" font-family="system-ui, sans-serif" font-size="18" fill="#8b949e" text-anchor="middle">Microsoft Azure Cloud</text>
+  <!-- Saving badge -->
+  <rect x="170" y="450" width="260" height="44" rx="22" fill="rgba(0,120,212,0.15)" stroke="#0078D4" stroke-width="1.5"/>
+  <text x="300" y="478" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0078D4" text-anchor="middle">월 $742 절감</text>
+
+  <!-- ── Ncloud (right) ── -->
+  <!-- Ncloud icon: N shape with cloud -->
+  <g transform="translate(780, 180)">
+    <rect width="160" height="120" rx="14" fill="rgba(3,199,90,0.12)" stroke="#03C75A" stroke-width="2.5"/>
+    <text x="80" y="82" font-family="system-ui, sans-serif" font-size="56" font-weight="900" fill="#03C75A" text-anchor="middle">N</text>
+  </g>
+  <!-- Ncloud label -->
+  <text x="900" y="370" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-1">Ncloud</text>
+  <text x="900" y="415" font-family="system-ui, sans-serif" font-size="18" fill="#8b949e" text-anchor="middle">NAVER Cloud Platform</text>
+  <!-- Saving badge -->
+  <rect x="768" y="450" width="264" height="44" rx="22" fill="rgba(3,199,90,0.12)" stroke="#03C75A" stroke-width="1.5"/>
+  <text x="900" y="478" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#03C75A" text-anchor="middle">월 260만원 절감</text>
+
+  <!-- Arrow between -->
+  <text x="600" y="325" font-family="system-ui, sans-serif" font-size="28" fill="#30363d" text-anchor="middle">→</text>
+</svg>
