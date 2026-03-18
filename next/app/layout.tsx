@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Junseop Shin — Frontend Developer",
+  title: "Junseop Shin — Fullstack Developer",
   description:
     "수치로 증명하는 풀스택 개발자. React, Next.js, TypeScript, Java/Spring, Azure.",
   openGraph: {
-    title: "Junseop Shin — Frontend Developer",
+    title: "Junseop Shin — Fullstack Developer",
     description: "수치로 증명하는 풀스택 개발자",
     type: "website",
   },

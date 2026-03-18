@@ -5,6 +5,7 @@ export const skillGroups = [
       { name: "JavaScript / TypeScript", level: "primary" },
       { name: "React / Next.js", level: "primary" },
       { name: "HTML / CSS / TailwindCSS", level: "secondary" },
+      { name: "MobX / tanstack-query", level: "primary" },
       { name: "Webpack / Vite", level: "secondary" },
     ],
   },
@@ -21,7 +22,8 @@ export const skillGroups = [
     label: "Infra / DevOps",
     skills: [
       { name: "Azure", level: "primary" },
-      { name: "Docker / nginx / pm2", level: "secondary" },
+      { name: "Docker / Nginx", level: "secondary" },
+      { name: "GitHub Actions / pm2", level: "secondary" },
       { name: "MQTT / Azure Servicebus", level: "secondary" },
     ],
   },
@@ -29,7 +31,6 @@ export const skillGroups = [
     label: "Other",
     skills: [
       { name: "C++", level: "secondary" },
-      { name: "MobX / tanstack-query", level: "secondary" },
       { name: "Git / Jira / Slack", level: "secondary" },
     ],
   },
