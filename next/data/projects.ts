@@ -131,7 +131,7 @@ export const projects: Project[] = [
     period: "2025.04 ~ 2025.12",
     stack: ["React", "Next.js", "TypeScript", "Spring", "Java", "Rollbar"],
     thumbnail: "/mobile-renewal.png",
-    web: "https://platform.atxpert.biz:8444",
+    web: "https://platform.atxpert.biz:8443",
     summary:
       "레거시 JSP 모바일 웹을 React로 전환하며 안정성 대폭 개선. FCM 푸시, 오류 모니터링, 전력량 보정 등 핵심 기능 정상화",
     metrics: [
