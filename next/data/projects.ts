@@ -14,6 +14,7 @@ export interface Project {
   company?: string;
   stack: string[];
   thumbnail: string;
+  ogImage?: string;
   summary: string;
   metrics?: ProjectMetric[];
   web?: string;
@@ -94,6 +95,56 @@ export const projects: Project[] = [
           "ThemeProvider 기반 전역 테마 관리",
           "Radix UI 기반 접근성 준수 컴포넌트",
           "npm 패키지 배포 (@junseop-shin/my-ui-lib)",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "seobi-chat",
+    type: "personal",
+    title: "서비 챗봇",
+    subtitle: "AI 기반 서비스 안내 챗봇",
+    period: "2026.03 ~",
+    stack: ["Node.js", "WebSocket", "OpenAI API", "PM2"],
+    thumbnail: "/seobi-chat.png",
+    ogImage: "https://seobi.nuclearbomb6518.com",
+    summary: "OpenAI API를 활용한 서비스 안내 챗봇. 실시간 WebSocket 통신으로 대화형 AI 응답 제공.",
+    web: "https://seobi.nuclearbomb6518.com",
+    github: "https://github.com/Junseop-Shin/seobi-chat",
+    sections: [
+      {
+        heading: "주요 특징",
+        items: [
+          "OpenAI API 기반 자연어 처리 및 대화 컨텍스트 유지",
+          "WebSocket 실시간 스트리밍 응답",
+          "Node.js + PM2로 Windows 서버 배포",
+          "Cloudflare Tunnel로 HTTPS 서비스",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "devops-monitor",
+    type: "personal",
+    title: "DevOps Monitor",
+    subtitle: "자체 서비스 통합 옵저버빌리티 플랫폼",
+    period: "2026.03 ~",
+    stack: ["Prometheus", "Grafana", "Loki", "Docker", "TimescaleDB", "Node.js"],
+    thumbnail: "/devops-monitor.png",
+    ogImage: "https://monitoring.nuclearbomb6518.com",
+    summary:
+      "맥미니 + 배포 PC 전체 서비스를 단일 대시보드로 모니터링. 시스템 메트릭, 로그, 유저 이벤트를 Grafana에서 통합 조회.",
+    web: "https://monitoring.nuclearbomb6518.com",
+    github: "https://github.com/Junseop-Shin/devops-monitor",
+    sections: [
+      {
+        heading: "주요 특징",
+        items: [
+          "Prometheus + node_exporter + cAdvisor로 멀티호스트 시스템 메트릭 수집",
+          "Loki + Promtail로 Docker 컨테이너 로그 중앙 집계",
+          "AlertManager → Slack 실시간 알림 (HostDown / HighCPU / HighMemory 등)",
+          "TimescaleDB Hypertable로 유저 이벤트 시계열 저장 및 분석",
+          "Cloudflare Tunnel로 외부 접근, Docker Compose 단일 명령 실행",
         ],
       },
     ],
