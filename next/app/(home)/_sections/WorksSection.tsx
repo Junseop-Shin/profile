@@ -19,8 +19,12 @@ export default function WorksSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [filter, setFilter] = useState<ProjectType | "all">("all");
 
-  const filtered =
-    filter === "all" ? projects : projects.filter((p) => p.type === filter);
+  const filtered = (
+    filter === "all" ? projects : projects.filter((p) => p.type === filter)
+  ).slice().sort((a, b) => {
+    const parse = (p: string) => p.slice(0, 7).replace(".", "");
+    return parse(b.period) > parse(a.period) ? 1 : -1;
+  });
 
   return (
     <section id="works" className="py-32 px-6">
