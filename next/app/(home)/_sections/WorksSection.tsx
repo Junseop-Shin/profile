@@ -78,10 +78,10 @@ function ProjectCard({
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const router = useRouter();
 
-  const hasImage =
-    project.thumbnail &&
-    project.thumbnail !== "/no_image_available.jpg" &&
-    !project.thumbnail.startsWith("/projects/");
+  const imageSrc =
+    project.thumbnail && project.thumbnail !== "/no_image_available.jpg"
+      ? project.thumbnail
+      : project.ogImage ?? null;
 
   return (
     <motion.div
@@ -95,9 +95,9 @@ function ProjectCard({
     >
       {/* Thumbnail */}
       <div className="aspect-video bg-accent overflow-hidden relative">
-        {hasImage ? (
+        {imageSrc ? (
           <Image
-            src={project.thumbnail}
+            src={imageSrc}
             alt={project.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"

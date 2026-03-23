@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "lotto.nuclearbomb6518.com" },
       { protocol: "https", hostname: "storybook.nuclearbomb6518.com" },
+      { protocol: "https", hostname: "seobi.nuclearbomb6518.com" },
+      { protocol: "https", hostname: "monitoring.nuclearbomb6518.com" },
     ],
   },
 };
