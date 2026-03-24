@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./components/Header";
 import About from "./components/About";
 import Career from "./components/Career";
@@ -10,9 +10,14 @@ import Cursor from "./components/Cursor";
 import PageAnimation from "./components/common/PageAnimation";
 import Skill from "./components/Skill";
 import { HomeContextProvider } from "./components/context/HomeContextProvider";
+import { trackEvent } from "./analytics";
 
 const App: React.FC = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    trackEvent("page_view");
+  }, [location.pathname]);
 
   return (
     <PageAnimation id={location.pathname}>
