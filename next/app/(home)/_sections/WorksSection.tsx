@@ -104,7 +104,10 @@ function ProjectCard({
             src={imageSrc}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className={cn(
+              "transition-transform duration-500 group-hover:scale-105",
+              project.thumbnailContain ? "object-contain p-8" : "object-cover"
+            )}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (

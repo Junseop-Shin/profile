@@ -14,6 +14,7 @@ export interface Project {
   company?: string;
   stack: string[];
   thumbnail: string;
+  thumbnailContain?: boolean;
   ogImage?: string;
   summary: string;
   metrics?: ProjectMetric[];
@@ -235,6 +236,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     thumbnail: "/techfeed.png",
+    thumbnailContain: true,
     summary:
       "테크 블로그 · YouTube · 채용공고를 한 곳에서 소비하는 개발자 특화 콘텐츠 큐레이션 앱. AI 요약, 개인화 피드, 실시간 푸시 알림을 제공.",
     github: "https://github.com/Junseop-Shin/techfeed",
@@ -270,6 +272,7 @@ export const projects: Project[] = [
     period: "2026.03 ~",
     stack: ["Vue 3", "TypeScript", "TailwindCSS", "Chrome Extension MV3", "Vite"],
     thumbnail: "/yt-comment-filter.png",
+    thumbnailContain: true,
     github: "https://github.com/Junseop-Shin/yt-comment-filter",
     summary:
       "YouTube 댓글을 키워드, 닉네임, 봇 패턴으로 실시간 필터링하는 크롬 확장 프로그램. 한글 초성 검색 및 자동 봇 감지 기능 지원.",
