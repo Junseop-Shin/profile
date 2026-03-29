@@ -172,6 +172,120 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "kis-trader",
+    type: "personal",
+    title: "KIS Trader",
+    subtitle: "한국투자증권 API 기반 풀스택 주식 자동매매 시스템",
+    period: "2026.03 ~",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "Docker",
+    ],
+    thumbnail: "",
+    summary:
+      "한국투자증권 KIS API를 연동한 풀스택 주식 자동매매 플랫폼. 실시간 매매 전략 설정, 백테스트, 포트폴리오 분석을 단일 대시보드에서 제공.",
+    web: "https://trader.nuclearbomb6518.com",
+    github: "https://github.com/Junseop-Shin/kis-trader",
+    sections: [
+      {
+        heading: "주요 특징",
+        items: [
+          "KIS REST API 연동으로 실시간 시세 조회 및 주문 실행",
+          "전략별 백테스트 엔진 (Celery 비동기 워커 + Redis)",
+          "pykrx + pandas-ta 기반 기술적 지표 분석 (RSI, MACD, 볼린저밴드 등)",
+          "Next.js 대시보드 + lightweight-charts 실시간 캔들 차트",
+          "TOTP 2FA 인증 + JWT 기반 보안 로그인",
+          "Docker Compose 멀티 서비스 구성 + GitHub Actions CI/CD",
+        ],
+      },
+      {
+        heading: "서비스 구성",
+        items: [
+          "backend: FastAPI + SQLAlchemy + TimescaleDB 시계열 데이터 저장",
+          "frontend: Next.js 15 + Zustand + TanStack Query",
+          "data-collector: 주식 데이터 스케줄링 수집",
+          "real-trading: 실전 매매 자동화 서비스",
+          "backtest-worker: Celery 기반 백테스트 병렬 처리",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "techfeed",
+    type: "personal",
+    title: "TechFeed",
+    subtitle: "개발자를 위한 테크 콘텐츠 큐레이션 모바일 앱",
+    period: "2026.02 ~",
+    stack: [
+      "React Native",
+      "Expo",
+      "NestJS",
+      "TypeScript",
+      "MongoDB",
+      "Elasticsearch",
+      "Redis",
+      "PostgreSQL",
+      "Docker",
+    ],
+    thumbnail: "/techfeed.png",
+    summary:
+      "테크 블로그 · YouTube · 채용공고를 한 곳에서 소비하는 개발자 특화 콘텐츠 큐레이션 앱. AI 요약, 개인화 피드, 실시간 푸시 알림을 제공.",
+    github: "https://github.com/Junseop-Shin/techfeed",
+    sections: [
+      {
+        heading: "주요 기능",
+        items: [
+          "RSS/YouTube/채용공고 자동 크롤링 (BullMQ, 15분 간격)",
+          "Gemini 2.5 Flash 기반 AI 요약 (Redis 7일 캐시)",
+          "Elasticsearch 전문 검색 + 자동완성 + 태그/소스 필터",
+          "구독 태그 기반 개인화 피드 + Redis Sorted Set 트렌딩 랭킹",
+          "FCM 즉시 푸시 알림 (새 콘텐츠 등록 시)",
+          "다크 / 라이트 모드, 댓글 · 북마크 기능",
+        ],
+      },
+      {
+        heading: "기술 스택",
+        items: [
+          "모바일: Expo (React Native) — iOS / Android 동시 지원",
+          "백엔드: NestJS + TypeORM + MongoDB / Elasticsearch / Redis / PostgreSQL",
+          "AI: Google Gemini 2.5 Flash API",
+          "인프라: Docker Compose + GitHub Actions + Cloudflare Tunnel",
+          "분석: TimescaleDB 기반 유저 행동 이벤트 시계열 저장",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "yt-comment-filter",
+    type: "personal",
+    title: "YT 댓글 필터",
+    subtitle: "YouTube 댓글 키워드 · 봇 자동 필터링 크롬 확장",
+    period: "2026.03 ~",
+    stack: ["Vue 3", "TypeScript", "TailwindCSS", "Chrome Extension MV3", "Vite"],
+    thumbnail: "/yt-comment-filter.png",
+    github: "https://github.com/Junseop-Shin/yt-comment-filter",
+    summary:
+      "YouTube 댓글을 키워드, 닉네임, 봇 패턴으로 실시간 필터링하는 크롬 확장 프로그램. 한글 초성 검색 및 자동 봇 감지 기능 지원.",
+    sections: [
+      {
+        heading: "주요 기능",
+        items: [
+          "키워드 / 닉네임 블랙리스트 필터링 (정규식 지원)",
+          "한글 초성 패턴 검색 (ㅅㅂ, ㅂㅅ 등 우회 표현 포함)",
+          "봇 댓글 자동 감지 (반복 패턴 · 링크 도배 · 이모지 도배)",
+          "Vue 3 팝업 UI — 필터 탭 / 통계 탭 분리",
+          "Chrome storage API로 설정 영속화",
+        ],
+      },
+    ],
+  },
   // ── Work — 티앤엠테크 ─────────────────────────────────────────
   {
     slug: "mobile-renewal",
