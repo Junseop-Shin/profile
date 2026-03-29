@@ -51,9 +51,8 @@ jobs:
       - name: Sync build output
         run: |
           SSH="ssh -i ~/.ssh/id_deploy -p ${{ secrets.DEPLOY_PORT }} -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}"
-          $SSH "pm2 stop profile-next" || true
-          $SSH "if exist \"${{ secrets.DEPLOY_PATH }}\\next\" rmdir /s /q \"${{ secrets.DEPLOY_PATH }}\\next\"" || true
-          $SSH "mkdir \"${{ secrets.DEPLOY_PATH }}\\next\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\.next\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\.next\\static\" && mkdir \"${{ secrets.DEPLOY_PATH }}\\next\\public\""
+          $SSH "pm2 stop profile-next || exit 0"
+          $SSH "powershell -NoProfile -Command \"Start-Sleep -Seconds 2; Remove-Item -Path '${{ secrets.DEPLOY_PATH }}\\next' -Force -Recurse -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force -Path '${{ secrets.DEPLOY_PATH }}\\next\\.next\\static','${{ secrets.DEPLOY_PATH }}\\next\\public' | Out-Null\""
           tar czf - -C next/.next/standalone . | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next"
           tar czf - -C next/.next/static . | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next/.next/static"
           tar czf - -C next/public . | $SSH "tar xzf - -C ${{ secrets.DEPLOY_PATH }}/next/public"
