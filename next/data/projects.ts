@@ -29,6 +29,29 @@ export interface Project {
 export const projects: Project[] = [
   // ── Personal ──────────────────────────────────────────────────
   {
+    slug: "ontology-pipeline",
+    type: "personal",
+    title: "온톨로지 파이프라인 랩",
+    subtitle: "제조 데이터 지식그래프·GraphRAG 파이프라인",
+    period: "2026.06 ~",
+    stack: ["Python", "RDF/OWL", "RML", "SHACL", "GraphDB", "SPARQL", "GraphRAG"],
+    thumbnail: "/ontology-pipeline-thumb.png",
+    summary:
+      "제조 공정(권선 품질) 데이터를 정제→RML 매핑→SHACL 검증→GraphDB 적재→GraphRAG로 잇는 지식그래프 파이프라인 학습 랩",
+    github: "https://github.com/Junseop-Shin/ontology-pipeline",
+    sections: [
+      {
+        heading: "주요 특징",
+        items: [
+          "BFO·IOF·SOSA·QUDT·PROV-O 표준 온톨로지를 상속한 응용 온톨로지 설계",
+          "YARRRML→RML 매핑, SHACL 검증, GraphDB 적재까지 전 단계 스크립트화",
+          "549 트리플 생성·검증 및 SPARQL 조회",
+          "단계별 학습 문서화 (RDF vs LPG, OWA vs CWA 등 개념 정리)",
+        ],
+      },
+    ],
+  },
+  {
     slug: "profile",
     type: "personal",
     title: "프로필 사이트",
@@ -290,6 +313,36 @@ export const projects: Project[] = [
     ],
   },
   // ── Work — 티앤엠테크 ─────────────────────────────────────────
+  {
+    slug: "platform-v2",
+    type: "work",
+    company: "주식회사 티앤엠테크",
+    title: "IoT 플랫폼 v2 재설계",
+    subtitle: "커널+플러그인 아키텍처 설계 · 프론트엔드/이벤트 파이프라인 구현",
+    period: "2026.06 ~",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "TanStack Query",
+      "CloudEvents",
+      "Azure Event Hubs",
+      "PostgreSQL",
+    ],
+    thumbnail: "/platform-v2-thumb.png",
+    summary:
+      "산업용 IoT 플랫폼 전면 재설계. 전체 아키텍처(커널+플러그인, headless FE+manifest)를 설계하고 프론트엔드 위젯 프레임워크와 이벤트 파이프라인을 구현",
+    sections: [
+      {
+        heading: "주요 작업",
+        items: [
+          "v1 한계 분석 후 커널+플러그인 아키텍처로 전면 재설계 (MSA 물리 분리 대비 트레이드오프 판단)",
+          "headless 프론트엔드: 화면=PageBody/RegionWidget 위젯 프레임워크, DB 카탈로그 기반 API 매핑·메뉴",
+          "디자인 시스템 v2 (다크 퍼스트, 테마 cascade) 및 web/mobile surface 분리",
+          "이벤트 파이프라인: CloudEvents/OTel, fan-out+동적 체이닝, 관리형 메시징(Azure Event Hubs) 기반",
+        ],
+      },
+    ],
+  },
   {
     slug: "mobile-renewal",
     type: "work",
