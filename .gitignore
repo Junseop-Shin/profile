@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 .npmrc
+.gstack/
+
+# 서버 접속 정보가 포함된 로컬 인수인계 메모 (public 레포)
+handoff.md

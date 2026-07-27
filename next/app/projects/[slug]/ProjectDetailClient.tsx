@@ -3,14 +3,24 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "motion/react";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpLeft,
+  ArrowDownRight,
+  ExternalLink,
+  Github,
+} from "lucide-react";
 import type { Project } from "@/data/projects";
+import { findParents, findChildren } from "@/data/project-groups";
 import CountUp from "@/components/react-bits/CountUp";
 import SpotlightCard from "@/components/react-bits/SpotlightCard";
 import GradientText from "@/components/react-bits/GradientText";
 import Particles from "@/components/react-bits/Particles";
 
 export default function ProjectDetailClient({ project }: { project: Project }) {
+  const parents = findParents(project.slug);
+  const subProjects = findChildren(project.slug);
+
   return (
     <div className="min-h-screen pt-14 overflow-hidden relative">
       {/* Particles background */}
@@ -27,21 +37,22 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 py-16 relative z-10">
-        {/* Back */}
+        {/* 목록으로 — 뎁스와 무관하게 항상 홈 프로젝트 섹션으로 */}
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
+          className="mb-12"
         >
           <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12 group"
+            href="/#works"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
           >
             <ArrowLeft
               size={16}
               className="group-hover:-translate-x-1 transition-transform"
             />
-            뒤로가기
+            프로젝트 목록
           </Link>
         </motion.div>
 
@@ -133,8 +144,95 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
         {project.sections?.map((section, i) => (
           <ContentSection key={i} section={section} delay={0.5 + i * 0.1} />
         ))}
+
+        {/* 뎁스 이동 */}
+        {(parents.length > 0 || subProjects.length > 0) && (
+          <RelatedNav parents={parents} subProjects={subProjects} />
+        )}
       </div>
     </div>
+  );
+}
+
+function RelatedNav({
+  parents,
+  subProjects,
+}: {
+  parents: Project[];
+  subProjects: Project[];
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6 }}
+      className="mb-6"
+    >
+      <SpotlightCard
+        className="rounded-2xl border border-border bg-card/60 backdrop-blur-md p-6 sm:p-8"
+        spotlightColor="rgba(96, 165, 250, 0.15)"
+      >
+        {parents.length > 0 && (
+          <div className={subProjects.length > 0 ? "mb-8" : undefined}>
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+              상위 프로젝트
+            </h2>
+            <div className="space-y-2">
+              {parents.map((p) => (
+                <NavRow key={p.slug} project={p} direction="up" />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {subProjects.length > 0 && (
+          <div>
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+              하위 프로젝트
+            </h2>
+            <div className="space-y-2">
+              {subProjects.map((p) => (
+                <NavRow key={p.slug} project={p} direction="down" />
+              ))}
+            </div>
+          </div>
+        )}
+      </SpotlightCard>
+    </motion.div>
+  );
+}
+
+function NavRow({
+  project,
+  direction,
+}: {
+  project: Project;
+  direction: "up" | "down";
+}) {
+  const Icon = direction === "up" ? ArrowUpLeft : ArrowDownRight;
+
+  return (
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group flex items-start gap-3 rounded-xl border border-border px-4 py-3 hover:border-primary/50 hover:bg-accent/40 transition-colors"
+    >
+      <Icon size={15} className="shrink-0 mt-0.5 text-primary" />
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-baseline gap-x-2">
+          <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+            {project.title}
+          </span>
+          <span className="text-xs text-muted-foreground">{project.period}</span>
+        </div>
+        <p className="text-xs text-muted-foreground mt-0.5">
+          {project.subtitle}
+        </p>
+      </div>
+    </Link>
   );
 }
 
