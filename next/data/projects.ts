@@ -331,6 +331,7 @@ export const projects: Project[] = [
     thumbnail: "/platform-v2-thumb.png",
     summary:
       "산업용 IoT 플랫폼 전면 재설계. 전체 아키텍처(커널+플러그인, headless FE+manifest)를 설계하고 프론트엔드 위젯 프레임워크와 이벤트 파이프라인을 구현",
+    web: "https://github.com/Junseop-Shin/Work/blob/main/Work_History/2026-06-플랫폼-v2-재설계.md",
     sections: [
       {
         heading: "주요 작업",
