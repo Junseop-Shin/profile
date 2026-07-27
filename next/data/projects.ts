@@ -14,6 +14,7 @@ export interface Project {
   company?: string;
   stack: string[];
   thumbnail: string;
+  thumbnailContain?: boolean;
   ogImage?: string;
   summary: string;
   metrics?: ProjectMetric[];
@@ -27,6 +28,29 @@ export interface Project {
 
 export const projects: Project[] = [
   // ── Personal ──────────────────────────────────────────────────
+  {
+    slug: "ontology-pipeline",
+    type: "personal",
+    title: "온톨로지 파이프라인 랩",
+    subtitle: "제조 데이터 지식그래프·GraphRAG 파이프라인",
+    period: "2026.06 ~",
+    stack: ["Python", "RDF/OWL", "RML", "SHACL", "GraphDB", "SPARQL", "GraphRAG"],
+    thumbnail: "/ontology-pipeline-thumb.png",
+    summary:
+      "제조 공정(권선 품질) 데이터를 온톨로지 설계→정제→RML 매핑→SHACL 검증→GraphDB 적재→GraphRAG로 잇는 지식그래프 파이프라인 학습 랩",
+    github: "https://github.com/Junseop-Shin/ontology-pipeline",
+    sections: [
+      {
+        heading: "주요 특징",
+        items: [
+          "BFO·IOF·SOSA·QUDT·PROV-O 표준 온톨로지를 상속한 응용 온톨로지 설계",
+          "YARRRML→RML 매핑, SHACL 검증, GraphDB 적재까지 전 단계 스크립트화",
+          "549 트리플 생성·검증 및 SPARQL 조회",
+          "단계별 학습 문서화 (RDF vs LPG, OWA vs CWA 등 개념 정리)",
+        ],
+      },
+    ],
+  },
   {
     slug: "profile",
     type: "personal",
@@ -235,6 +259,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     thumbnail: "/techfeed.png",
+    thumbnailContain: true,
     summary:
       "테크 블로그 · YouTube · 채용공고를 한 곳에서 소비하는 개발자 특화 콘텐츠 큐레이션 앱. AI 요약, 개인화 피드, 실시간 푸시 알림을 제공.",
     github: "https://github.com/Junseop-Shin/techfeed",
@@ -270,6 +295,7 @@ export const projects: Project[] = [
     period: "2026.03 ~",
     stack: ["Vue 3", "TypeScript", "TailwindCSS", "Chrome Extension MV3", "Vite"],
     thumbnail: "/yt-comment-filter.png",
+    thumbnailContain: true,
     github: "https://github.com/Junseop-Shin/yt-comment-filter",
     summary:
       "YouTube 댓글을 키워드, 닉네임, 봇 패턴으로 실시간 필터링하는 크롬 확장 프로그램. 한글 초성 검색 및 자동 봇 감지 기능 지원.",
@@ -287,6 +313,38 @@ export const projects: Project[] = [
     ],
   },
   // ── Work — 티앤엠테크 ─────────────────────────────────────────
+  {
+    slug: "platform-v2",
+    type: "work",
+    company: "주식회사 티앤엠테크",
+    title: "IoT 플랫폼 v2 재설계",
+    subtitle: "전체 아키텍처 설계 · 프론트엔드/이벤트 파이프라인 담당",
+    period: "2026.06 ~",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Go",
+      "Kafka",
+      "Azure Event Hubs",
+      "PostgreSQL",
+      "MongoDB",
+    ],
+    thumbnail: "/platform-v2-thumb.png",
+    summary:
+      "여러 서비스가 한 서버에 얽혀 있던 IoT 플랫폼을 서비스별 분리 구조로 전면 재설계. '플랫폼이지만 결국 SI' 전제 위에서 공통 구조 + 분리 빌드·배포 + 기본앱 제공 체계를 잡고, 프론트엔드와 이벤트 파이프라인을 담당",
+    web: "https://github.com/Junseop-Shin/Work/blob/main/Work_History/2026-06-플랫폼-v2-재설계.md",
+    sections: [
+      {
+        heading: "주요 작업",
+        items: [
+          "멈춰 있던 아키텍처 논의를 정리해 전체 플랜 수립 — 공통 구조 + 분리 빌드·배포 + 기본앱 제공 체계로 재설계",
+          "프론트엔드: 관리자 앱 + 비즈니스 기본앱(웹·모바일), 공통/비즈니스 경계 설계, 디자인 시스템 적용",
+          "이벤트 파이프라인(Go): 수신 어댑터→판단 코어→실행기 구조, 멱등 처리 + DLQ, Event Hubs 별도 토픽",
+          "수집 경로 분리 방향 설계: Function Apps→Kafka 전환으로 유실 없는 수집 + Capture 아카이빙, 수집 입구 비용 1/5 절감",
+        ],
+      },
+    ],
+  },
   {
     slug: "mobile-renewal",
     type: "work",
