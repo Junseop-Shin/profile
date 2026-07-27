@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "motion/react";
-import { ChevronDown } from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { career } from "@/data/career";
 import { cn } from "@/lib/utils";
 
@@ -50,8 +49,6 @@ function TimelineItem({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [open, setOpen] = useState(false);
-  const hasTasks = event.tasks && event.tasks.length > 0;
 
   return (
     <motion.div
@@ -71,89 +68,18 @@ function TimelineItem({
         )}
       />
 
-      <div
-        className={cn(
-          "rounded-2xl border border-border bg-card/60 backdrop-blur-sm overflow-hidden",
-          hasTasks && "cursor-pointer"
-        )}
-      >
-        {/* Header */}
-        <button
-          className={cn(
-            "w-full text-left p-5",
-            hasTasks && "hover:bg-accent/30 transition-colors"
-          )}
-          onClick={() => hasTasks && setOpen(!open)}
-          disabled={!hasTasks}
-        >
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <div className="flex flex-wrap items-baseline gap-2 mb-1">
-                <h3 className="font-semibold text-foreground">{event.company}</h3>
-                <span className="text-sm text-muted-foreground">{event.role}</span>
-              </div>
-              <p className="text-xs text-muted-foreground mb-2">
-                {event.period}
-                {event.duration && ` · ${event.duration}`}
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {event.summary}
-              </p>
-            </div>
-            {hasTasks && (
-              <motion.div
-                animate={{ rotate: open ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="shrink-0 mt-1"
-              >
-                <ChevronDown size={16} className="text-muted-foreground" />
-              </motion.div>
-            )}
-          </div>
-        </button>
-
-        {/* Tasks accordion */}
-        <AnimatePresence>
-          {open && event.tasks && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              <div className="border-t border-border px-5 pb-5 pt-4 space-y-5">
-                {event.tasks.map((task, ti) => (
-                  <div key={ti}>
-                    <div className="flex flex-wrap items-baseline gap-2 mb-2">
-                      <h4 className="text-sm font-semibold text-foreground">
-                        {task.title}
-                      </h4>
-                      {task.period && (
-                        <span className="text-xs text-muted-foreground">
-                          {task.period}
-                        </span>
-                      )}
-                    </div>
-                    {task.stack && (
-                      <p className="text-xs text-primary mb-2">{task.stack}</p>
-                    )}
-                    <ul className="space-y-1.5">
-                      {task.items.map((item, ii) => (
-                        <li
-                          key={ii}
-                          className="flex gap-2 text-xs leading-relaxed text-muted-foreground"
-                        >
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-muted-foreground shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div className="rounded-2xl border border-border bg-card/60 backdrop-blur-sm p-5">
+        <div className="flex flex-wrap items-baseline gap-2 mb-1">
+          <h3 className="font-semibold text-foreground">{event.company}</h3>
+          <span className="text-sm text-muted-foreground">{event.role}</span>
+        </div>
+        <p className="text-xs text-muted-foreground mb-2">
+          {event.period}
+          {event.duration && ` · ${event.duration}`}
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {event.summary}
+        </p>
       </div>
     </motion.div>
   );

@@ -1,30 +1,25 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import { ExternalLink, Github, Briefcase, User } from "lucide-react";
-import { projects, type ProjectType } from "@/data/projects";
+import { projects } from "@/data/projects";
+import { projectGroups, groupedSlugs } from "@/data/project-groups";
+import ProjectGroupBlock from "./ProjectGroupBlock";
 import { cn } from "@/lib/utils";
-
-const FILTERS: { label: string; value: ProjectType | "all" }[] = [
-  { label: "전체", value: "all" },
-  { label: "개인", value: "personal" },
-  { label: "업무", value: "work" },
-];
 
 export default function WorksSection() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [filter, setFilter] = useState<ProjectType | "all">("all");
 
-  const filtered = (
-    filter === "all" ? projects : projects.filter((p) => p.type === filter)
-  ).slice().sort((a, b) => {
-    const parse = (p: string) => p.slice(0, 7).replace(".", "");
-    return parse(b.period) > parse(a.period) ? 1 : -1;
-  });
+  const standalone = projects
+    .filter((p) => !groupedSlugs.has(p.slug))
+    .sort((a, b) => {
+      const parse = (p: string) => p.slice(0, 7).replace(".", "");
+      return parse(b.period) > parse(a.period) ? 1 : -1;
+    });
 
   return (
     <section id="works" className="py-32 px-6">
@@ -39,30 +34,25 @@ export default function WorksSection() {
           <p className="text-sm font-medium text-primary tracking-widest uppercase mb-3">
             Work
           </p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-8">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
             프로젝트
           </h2>
-
-          <div className="flex gap-2">
-            {FILTERS.map((f) => (
-              <button
-                key={f.value}
-                onClick={() => setFilter(f.value)}
-                className={cn(
-                  "px-4 py-1.5 rounded-full text-sm font-medium transition-all",
-                  filter === f.value
-                    ? "bg-foreground text-background"
-                    : "bg-accent text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
         </motion.div>
 
+        <h3 className="text-lg font-semibold text-foreground mb-5">
+          업무 프로젝트
+        </h3>
+        <div className="space-y-5 mb-16">
+          {projectGroups.map((group, i) => (
+            <ProjectGroupBlock key={group.main} group={group} index={i} />
+          ))}
+        </div>
+
+        <h3 className="text-lg font-semibold text-foreground mb-5">
+          개인 프로젝트
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((project, i) => (
+          {standalone.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>

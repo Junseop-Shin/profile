@@ -314,7 +314,183 @@ export const projects: Project[] = [
   },
   // ── Work — 티앤엠테크 ─────────────────────────────────────────
   {
+    slug: "sems",
+    type: "work",
+    company: "주식회사 티앤엠테크",
+    title: "SEMS",
+    subtitle: "점포 에너지 관리 서비스",
+    period: "2025.04 ~ 2026.05",
+    stack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Spring",
+      "Java",
+      "PostgreSQL",
+      "Android",
+      "iOS",
+      "FCM",
+    ],
+    thumbnail: "/sems-platform.png",
+    web: "https://platform.atxpert.biz:8443",
+    summary:
+      "모바일 웹·관제웹·설치앱으로 구성된 점포 에너지 관리 서비스. 전환이 중단된 모바일 앱을 인계받아 완성하고 전력량 정확도·장애 대응을 개선한 뒤, Ncloud에 있던 서비스 전체를 TnM IoT 플랫폼으로 이관",
+    metrics: [
+      { label: "FCM 처리 속도", value: "90% 개선" },
+      { label: "모바일 프론트 오류", value: "100% 제거" },
+      { label: "모바일 WAS 오류", value: "80% 제거" },
+      { label: "점포 전력량 오차", value: "5% 이내 달성" },
+    ],
+    sections: [
+      {
+        heading: "서비스 구성",
+        items: [
+          "모바일 웹 — 점포 전력 사용량 조회, 간판 정기점검, 해피콜, 양수도",
+          "관제웹 — 점포 상태 통합 관제",
+          "설치앱 — 현장 설치 및 점검 지원",
+        ],
+      },
+      {
+        heading: "주요 작업",
+        items: [
+          "외주가 만들다 중단한 React 모바일 앱을 인계받아 미연결 기능·잔존 오류를 잡아 완성",
+          "FCM 최신화 및 배치 처리로 푸시 처리 속도 90% 개선",
+          "Rollbar 모니터링 적용으로 모바일 프론트 오류 100% / WAS 오류 80% 제거",
+          "전력량 보정 로직 적용으로 80% 점포에서 한전 실제 전력량과 오차 5% 이내 달성",
+          "JSP/JS 파일 캐시 문제 쿼리스트링 처리, 기상청 API 오류 대응",
+          "간판 정기점검, 해피콜, 양수도 등 신규 기능 추가",
+          "서비스 전체를 TnM IoT 플랫폼으로 이관 — 관제웹·설치앱·모바일앱 API 서버 이전 및 도메인 전환",
+          "모바일 네이티브 개선 — 자동로그인 평문 저장 제거, 네이티브↔웹앱 연동 정비, 앱링크·푸시 토큰 자동 갱신·강제 업데이트 도입",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "mobile-native",
+    type: "work",
+    company: "주식회사 티앤엠테크",
+    title: "모바일 네이티브 개선",
+    subtitle: "인증·네이티브 연동·푸시 체계 정비",
+    period: "2026.04 ~ 2026.05",
+    stack: ["Android", "iOS", "React", "TypeScript", "FCM"],
+    thumbnail: "/mobile-renewal.png",
+    summary:
+      "웹앱을 감싼 네이티브 앱의 인증 방식과 네이티브↔웹앱 연동, 푸시 체계를 전반적으로 정비. 자동로그인 평문 저장 제거, 앱링크 적용, 푸시 토큰 자동 갱신과 로그 추적을 도입",
+    sections: [
+      {
+        heading: "인증·연동 개선",
+        items: [
+          "id/pw를 기기 localStorage에 평문 저장하던 자동로그인 방식 개선",
+          "url param·쿠키·localStorage에 의존하던 네이티브↔웹앱 데이터 전달(deviceType, osVersion, pushToken) 방식 정비",
+        ],
+      },
+      {
+        heading: "푸시 체계 정비",
+        items: [
+          "앱링크 적용으로 푸시 클릭 시 targetUrl 페이지 이동 — 기존에는 원하는 페이지로 이동하지 않았음",
+          "푸시 클릭 후 알림이 리스트에 남던 오류 해결",
+          "푸시 토큰 만료 시 자동 재발급 — 기존에는 앱을 재설치해야만 갱신 가능했음",
+          "FCM 전송 성공 후 미수신 추적이 불가하던 문제를 푸시 로그 적재로 해결",
+        ],
+      },
+      {
+        heading: "배포 대응",
+        items: [
+          "앱 버전 체크 후 강제 업데이트 다이얼로그 및 플레이스토어/앱스토어 이동 도입",
+          "기존 개발 환경과 분리된 모바일 앱 테스트 환경 구축",
+          "신·구앱 iOS/Android 빌드 및 로그인·푸시·강제 업데이트 시나리오 테스트 완료",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "tnm-platform",
+    type: "work",
+    company: "주식회사 티앤엠테크",
+    title: "TnM IoT 플랫폼",
+    subtitle: "사내 IoT 통합 플랫폼",
+    period: "2025.06 ~",
+    stack: [
+      "Spring Boot",
+      "Java",
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "Azure",
+      "PostgreSQL",
+      "MongoDB",
+    ],
+    thumbnail: "/sems-platform.png",
+    web: "https://platform.atxpert.biz",
+    summary:
+      "여러 비즈니스 서비스를 올려 운영하는 사내 IoT 통합 플랫폼. SEMS를 이 플랫폼으로 이관하고 대시보드 위젯, 운영 구조, 클라우드 비용까지 플랫폼 전반을 정비",
+    metrics: [
+      { label: "Ncloud 리소스", value: "월 830만원 → 125만원" },
+      { label: "Table Storage", value: "월 123만원 → 48만원" },
+      { label: "Azure 운영 환경 최적화", value: "월 $742 추가 절감" },
+      { label: "SQL dialect 변환", value: "366개" },
+    ],
+    sections: [
+      {
+        heading: "주요 작업",
+        items: [
+          "SEMS 서비스 전체를 플랫폼으로 이관 (DB·스토리지 마이그레이션, CI/CD 자동화)",
+          "대시보드 커스텀 위젯 개발 (차트, react-flow 룰체인 편집기, AI 연동)",
+          "Ncloud 정리 및 Azure 리소스 최적화로 운영·개발 환경 비용 절감",
+          "SEMS 사후점검 기능 신규 개발 — 기사가 완료한 정기점검·설치공사를 무작위 표본으로 뽑아 관리자가 현장에서 재검사",
+        ],
+      },
+      {
+        heading: "플랫폼 운영 정비",
+        items: [
+          "로깅 정책 통일 (롤링, 포맷, Slack 메시지)",
+          "폴더 구조 개선 및 서버 서비스 FastAPI + Uvicorn 통일",
+          "graceful shutdown 및 Azure Monitor 적용",
+        ],
+      },
+      {
+        heading: "팀 협업 체계",
+        items: [
+          "비즈니스별 Slack 모니터링/유지보수 채널 구성",
+          "Jira 팀 스페이스 생성, 스프린트 및 자동화 룰 적용",
+          "GitHub 브랜치 관리 룰 및 Codex PR 리뷰 도입",
+        ],
+      },
+    ],
+  },
+  {
     slug: "platform-v2",
+    type: "work",
+    company: "주식회사 티앤엠테크",
+    title: "IoT 플랫폼 v2",
+    subtitle: "서비스별 분리 구조의 차세대 IoT 플랫폼",
+    period: "2026.06 ~",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Go",
+      "Kafka",
+      "Azure Event Hubs",
+      "PostgreSQL",
+      "MongoDB",
+    ],
+    thumbnail: "/platform-v2-thumb.png",
+    summary:
+      "여러 서비스가 한 서버에 얽혀 있던 기존 IoT 플랫폼을 서비스별 분리 구조로 다시 세우는 차세대 버전. '플랫폼이지만 결국 SI'라는 전제 위에서 공통 구조 + 분리 빌드·배포 + 기본앱 제공 체계를 목표로 함",
+    sections: [
+      {
+        heading: "설계 방향",
+        items: [
+          "공통 구조 위에 비즈니스별 서비스를 얹는 분리 구조",
+          "서비스별 분리 빌드·배포",
+          "비즈니스 기본앱(웹·모바일) 제공 체계",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "platform-v2-redesign",
     type: "work",
     company: "주식회사 티앤엠테크",
     title: "IoT 플랫폼 v2 재설계",
@@ -331,7 +507,7 @@ export const projects: Project[] = [
     ],
     thumbnail: "/platform-v2-thumb.png",
     summary:
-      "여러 서비스가 한 서버에 얽혀 있던 IoT 플랫폼을 서비스별 분리 구조로 전면 재설계. '플랫폼이지만 결국 SI' 전제 위에서 공통 구조 + 분리 빌드·배포 + 기본앱 제공 체계를 잡고, 프론트엔드와 이벤트 파이프라인을 담당",
+      "멈춰 있던 아키텍처 논의를 정리해 전체 플랜을 수립하고, 프론트엔드와 이벤트 파이프라인을 담당",
     web: "https://github.com/Junseop-Shin/Work/blob/main/Work_History/2026-06-플랫폼-v2-재설계.md",
     sections: [
       {
@@ -350,29 +526,26 @@ export const projects: Project[] = [
     type: "work",
     company: "주식회사 티앤엠테크",
     title: "모바일 앱 리뉴얼",
-    subtitle: "SEMS 모바일 웹 JSP → React 전환 및 안정화",
+    subtitle: "외주 중단된 React 앱을 인계받아 기능 연결 및 안정화",
     period: "2025.04 ~ 2025.12",
     stack: ["React", "Next.js", "TypeScript", "Spring", "Java", "Rollbar"],
     thumbnail: "/mobile-renewal.png",
     web: "https://platform.atxpert.biz:8443",
     summary:
-      "레거시 JSP 모바일 웹을 React로 전환하며 안정성 대폭 개선. FCM 푸시, 오류 모니터링, 전력량 보정 등 핵심 기능 정상화",
+      "JSP 모바일 웹을 React로 전환하다 중단된 외주 결과물을 인계받아, 연결되지 않은 기능과 잔존 오류를 하나씩 잡아가며 완성. FCM 푸시와 오류 모니터링을 정상화해 안정성 확보",
     metrics: [
       { label: "FCM 처리 속도", value: "90% 개선" },
       { label: "모바일 프론트 오류", value: "100% 제거" },
       { label: "모바일 WAS 오류", value: "80% 제거" },
-      { label: "점포 전력량 오차", value: "5% 이내 달성" },
     ],
     sections: [
       {
         heading: "주요 작업",
         items: [
-          "JSP → React 전환 유지보수 및 공통 컴포넌트(서명, 이미지, 헤더 아이콘) 구현",
+          "외주가 만들다 중단한 React/Next 앱 인계 — 미연결 기능과 잔존 오류를 파악해 순차적으로 연결",
+          "공통 컴포넌트(서명, 이미지, 헤더 아이콘) 구현 및 적용",
           "FCM 최신화 및 배치 처리로 푸시 로직 단순화, 처리 속도 90% 개선",
           "Rollbar 모니터링 적용, 모바일 프론트 오류 100% / WAS 오류 80% 제거",
-          "전력량 보정 로직 적용으로 80% 점포 한전 실제 전력량과 오차 5% 이내 달성",
-          "JSP/JS 파일 캐시 문제 쿼리스트링 처리, 기상청 API 오류 대응",
-          "간판 정기점검, 해피콜, 양수도 등 신규 기능 추가",
         ],
       },
     ],
@@ -381,8 +554,8 @@ export const projects: Project[] = [
     slug: "platform-migration",
     type: "work",
     company: "주식회사 티앤엠테크",
-    title: "Azure 플랫폼 이관",
-    subtitle: "SEMS 서비스 Ncloud → Azure 전면 마이그레이션",
+    title: "SEMS → TnM IoT 플랫폼 이관",
+    subtitle: "Ncloud 기반 SEMS를 Azure 위 TnM IoT 플랫폼으로 전면 이관",
     period: "2025.06 ~ 2026.02",
     stack: [
       "Spring Boot",
@@ -397,7 +570,7 @@ export const projects: Project[] = [
     thumbnail: "/sems-platform.png",
     web: "https://platform.atxpert.biz",
     summary:
-      "Ncloud 기반 서비스를 Azure로 전면 이관. DB 마이그레이션, CI/CD 자동화, API 연동까지 풀스택 마이그레이션 수행",
+      "Ncloud에 있던 SEMS 서비스를 Azure 위 TnM IoT 플랫폼으로 전면 이관. DB 마이그레이션, CI/CD 자동화, API 연동까지 풀스택 마이그레이션 수행",
     metrics: [
       { label: "SQL dialect 변환", value: "366개" },
       { label: "프로시저 쿼리 성능", value: "95% 개선 (7분→20초)" },
@@ -432,11 +605,9 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: "서비스 전환 및 신규 개발",
+        heading: "서비스 전환",
         items: [
-          "관제웹 신규 서비스 개발 및 도메인 전환",
-          "설치앱 신규 서비스 개발 및 도메인 전환",
-          "모바일앱 신규 서비스 개발 및 도메인 전환",
+          "관제웹·설치앱·모바일앱 API 서버 이전 및 도메인 전환",
           "기타 외부 연동 API 유지보수",
         ],
       },
@@ -447,22 +618,43 @@ export const projects: Project[] = [
     type: "work",
     company: "주식회사 티앤엠테크",
     title: "클라우드 비용 절감",
-    subtitle: "Ncloud 정리 및 Azure 리소스 최적화",
-    period: "2026.01",
-    stack: ["Azure", "Ncloud", "GitHub Actions"],
+    subtitle: "Ncloud 정리 · Azure 리소스 및 스토리지 최적화",
+    period: "2026.01 ~ 2026.07",
+    stack: [
+      "Azure",
+      "Azure Data Factory",
+      "Blob Storage",
+      "Ncloud",
+      "GitHub Actions",
+    ],
     thumbnail: "/cloud-cost.svg",
     summary:
-      "불필요한 클라우드 리소스를 분석하고 최적화해 운영·개발 환경 모두에서 비용을 대폭 절감",
+      "불필요한 클라우드 리소스를 분석·정리하고, 계속 증가하던 스토리지 비용을 압축 아카이빙 파이프라인으로 고정비화. 운영·개발 환경 모두에서 비용을 대폭 절감",
     metrics: [
-      { label: "Ncloud 리소스 정리", value: "월 260만원 절감" },
+      { label: "Ncloud 리소스", value: "월 830만원 → 125만원" },
+      { label: "Table Storage", value: "월 123만원 → 48만원" },
       { label: "Azure 운영 환경 최적화", value: "월 $742 추가 절감" },
     ],
     sections: [
       {
-        heading: "주요 작업",
+        heading: "Ncloud 리소스 정리",
         items: [
           "SEMS 기존 Ncloud 리소스 사용 현황 파악 및 Azure 이관으로 불필요 리소스 정리 (VM, 로드밸런서, DB 가용성 해제 등)",
-          "Azure logAnalytics, Function apps 설정 변경 및 VM 대체로 운영 환경 월 $742 절감",
+          "플랫폼 이관 완료 후 미이관 서비스를 제외한 전 리소스 정리 — 월 830만원 → 125만원",
+        ],
+      },
+      {
+        heading: "Table Storage 아카이빙 이관",
+        items: [
+          "계속 증가하던 Table Storage 비용에 대응 — 최근 3개월치만 남기고 나머지는 Blob Storage에 압축 저장",
+          "Azure Data Factory 파이프라인을 구성해 이관 자동화",
+          "월 123만원(증가 추세) → 48만원(고정) — 일회성 마이그레이션 비용 92만원은 약 1.2개월 만에 회수",
+        ],
+      },
+      {
+        heading: "Azure 리소스 최적화",
+        items: [
+          "Azure logAnalytics, Function apps 설정 변경 및 VM 대체로 운영 환경 월 $742 절감 (당시 USD 청구 기준, 이후 원화 청구로 전환)",
           "미사용 VM 제거, ServiceBus/PostgreSQL server/MongoDB disk 성능 최적화",
           "GitHub self-hosted runner 적용으로 보안 강화 및 운영 서비스 배포환경 네트워크 inbound 규칙 적용",
         ],
@@ -510,13 +702,27 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        heading: "주요 작업",
+        heading: "제품 안정화",
+        items: [
+          "백로그 포함 할당 이슈 약 180개 중 78%, 140개 해결",
+          "백로그 제외 전체 해결",
+        ],
+      },
+      {
+        heading: "신기능 구현",
         items: [
           "계정 계좌/채널/계약 정보 생성·상세·수정 페이지 추가",
-          "상품 판매단위 생성 및 가채널 판매 미리보기 구현",
+          "상품 판매단위 생성 상세/수정 페이지 추가",
+          "가채널 판매 미리보기 및 비회원 공유용 미리보기 구현",
+        ],
+      },
+      {
+        heading: "CI/CD 및 공통 구조",
+        items: [
           "TypeScript, ESLint, Prettier 신규 구현부부터 적용",
+          "pre-commit type/lint check 및 PR 빌드 action 추가",
           "Color, Label, Icon, InputField, Dropdown, Modal 등 디자인 시스템 구축",
-          "Redux, SWR 상태관리 적용. moment → date-fns 교체",
+          "Redux, SWR 적용. moment → date-fns 교체",
         ],
       },
     ],
@@ -572,12 +778,18 @@ export const projects: Project[] = [
       "ToHangul 한글 문서 편집기 핵심 기능 구현. KERIS(한국교육학술정보원) 서비스 제공",
     sections: [
       {
-        heading: "주요 구현",
+        heading: "문서 편집 기능",
         items: [
-          "쪽 번호 매기기, 머리말꼬리말 편집/템플릿 기능",
-          "인쇄/미리보기/회색조 전체처리 (paint vs print), 화면 스케일링",
-          "줄번호 카운팅 및 페인트 기능",
-          "KERIS에 ToHangul 서비스 제공",
+          "쪽 번호 매기기 기능 구현",
+          "머리말꼬리말 편집 및 템플릿 기능 구현",
+          "줄번호 카운팅 및 페인트 기능 구현",
+        ],
+      },
+      {
+        heading: "인쇄·렌더링 처리",
+        items: [
+          "인쇄/미리보기/회색조 전체처리 (paint vs print)",
+          "화면 스케일링 처리",
         ],
       },
     ],
