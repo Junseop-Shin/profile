@@ -37,7 +37,7 @@ export const projects: Project[] = [
     stack: ["Python", "RDF/OWL", "RML", "SHACL", "GraphDB", "SPARQL", "GraphRAG"],
     thumbnail: "/ontology-pipeline-thumb.png",
     summary:
-      "제조 공정(권선 품질) 데이터를 정제→RML 매핑→SHACL 검증→GraphDB 적재→GraphRAG로 잇는 지식그래프 파이프라인 학습 랩",
+      "제조 공정(권선 품질) 데이터를 온톨로지 설계→정제→RML 매핑→SHACL 검증→GraphDB 적재→GraphRAG로 잇는 지식그래프 파이프라인 학습 랩",
     github: "https://github.com/Junseop-Shin/ontology-pipeline",
     sections: [
       {
@@ -318,28 +318,29 @@ export const projects: Project[] = [
     type: "work",
     company: "주식회사 티앤엠테크",
     title: "IoT 플랫폼 v2 재설계",
-    subtitle: "커널+플러그인 아키텍처 설계 · 프론트엔드/이벤트 파이프라인 구현",
+    subtitle: "전체 아키텍처 설계 · 프론트엔드/이벤트 파이프라인 담당",
     period: "2026.06 ~",
     stack: [
       "Next.js",
       "TypeScript",
-      "TanStack Query",
-      "CloudEvents",
+      "Go",
+      "Kafka",
       "Azure Event Hubs",
       "PostgreSQL",
+      "MongoDB",
     ],
     thumbnail: "/platform-v2-thumb.png",
     summary:
-      "산업용 IoT 플랫폼 전면 재설계. 전체 아키텍처(커널+플러그인, headless FE+manifest)를 설계하고 프론트엔드 위젯 프레임워크와 이벤트 파이프라인을 구현",
+      "여러 서비스가 한 서버에 얽혀 있던 IoT 플랫폼을 서비스별 분리 구조로 전면 재설계. '플랫폼이지만 결국 SI' 전제 위에서 공통 구조 + 분리 빌드·배포 + 기본앱 제공 체계를 잡고, 프론트엔드와 이벤트 파이프라인을 담당",
     web: "https://github.com/Junseop-Shin/Work/blob/main/Work_History/2026-06-플랫폼-v2-재설계.md",
     sections: [
       {
         heading: "주요 작업",
         items: [
-          "v1 한계 분석 후 커널+플러그인 아키텍처로 전면 재설계 (MSA 물리 분리 대비 트레이드오프 판단)",
-          "headless 프론트엔드: 화면=PageBody/RegionWidget 위젯 프레임워크, DB 카탈로그 기반 API 매핑·메뉴",
-          "디자인 시스템 v2 (다크 퍼스트, 테마 cascade) 및 web/mobile surface 분리",
-          "이벤트 파이프라인: CloudEvents/OTel, fan-out+동적 체이닝, 관리형 메시징(Azure Event Hubs) 기반",
+          "멈춰 있던 아키텍처 논의를 정리해 전체 플랜 수립 — 공통 구조 + 분리 빌드·배포 + 기본앱 제공 체계로 재설계",
+          "프론트엔드: 관리자 앱 + 비즈니스 기본앱(웹·모바일), 공통/비즈니스 경계 설계, 디자인 시스템 적용",
+          "이벤트 파이프라인(Go): 수신 어댑터→판단 코어→실행기 구조, 멱등 처리 + DLQ, Event Hubs 별도 토픽",
+          "수집 경로 분리 방향 설계: Function Apps→Kafka 전환으로 유실 없는 수집 + Capture 아카이빙, 수집 입구 비용 1/5 절감",
         ],
       },
     ],
