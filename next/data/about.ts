@@ -2,22 +2,23 @@ export const about = {
   name: "신준섭",
   nameEn: "Junseop Shin",
   title: "Fullstack Developer",
-  tagline: "서비스가 개선되고, 팀이 더 잘 일하고, 내가 성장할 때 — 개발이 가장 즐겁습니다.",
+  tagline: "구조가 정리되고, 팀이 더 잘 일하고, 내가 성장할 때 — 개발이 가장 즐겁습니다.",
   intro: [
     "서비스가 나아지고 스스로도 성장하는 순간의 성취감이 개발을 즐겁게 만듭니다.",
+    "넘겨받은 레거시를 정리하는 일에서 시작해, 지금은 플랫폼 아키텍처를 직접 설계하고 그 위에 서비스를 얹는 일을 하고 있습니다.",
     "일정과 우선순위를 스스로 잡아가며 일을 주도하는 걸 좋아합니다.",
   ],
   strengths: [
     {
-      title: "레거시 코드 관리",
+      title: "레거시 인수와 구조 재설계",
       description:
-        "크고 복잡한 레거시 코드를 분석해 기능 개발, 문제 해결, 구조 개선을 주 업무로 오래 다뤘습니다. C++ 문서 편집기부터 웹오피스 공통 프레임워크, JSP→React 전환, MariaDB→PostgreSQL, Ncloud→Azure 이관 등 대규모 전환 작업을 수행했습니다.",
+        "크고 복잡한 레거시 코드를 분석해 기능 개발, 문제 해결, 구조 개선을 주 업무로 오래 다뤘습니다. C++ 문서 편집기부터 웹오피스 공통 프레임워크, JSP→React 전환, MariaDB→PostgreSQL, Ncloud→Azure 이관을 거쳐, 지금은 여러 서비스가 한 서버에 얽혀 있던 IoT 플랫폼을 서비스별 분리 구조로 재설계하고 프론트엔드 프레임워크와 Go 이벤트 파이프라인을 담당하고 있습니다.",
       metrics: [],
     },
     {
       title: "팀 협업 체계 구축",
       description:
-        "큰 회사에서의 QA·UX·다른 개발 팀원들과의 협업, 스타트업에서의 빠른 개발까지 경험했습니다. 지라 스프린트 관리, 슬랙 모니터링 채널, Github 브랜치 룰, Codex PR 리뷰 도입 등 팀 협업툴 체계를 직접 구축했습니다.",
+        "큰 회사에서의 QA·UX·다른 개발 팀원들과의 협업, 스타트업에서의 빠른 개발까지 경험했습니다. 지라 스프린트 관리, 슬랙 모니터링 채널, Github 브랜치 룰, Codex PR 리뷰 도입 등 팀 협업툴 체계를 직접 구축했고, 멈춰 있던 아키텍처 논의를 정리해 전체 플랜을 세우고 파트를 나눠 팀에 배분했습니다.",
       metrics: [],
     },
     {
@@ -34,6 +35,7 @@ export const about = {
   ],
   certifications: [
     { name: "AZ-900", muted: false },
+    { name: "정보처리기사", muted: false },
     { name: "SQLD", muted: false },
     { name: "ADsP", muted: false },
     { name: "RI(방사선동위원소취급자 일반면허)", muted: true },

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { about } from "@/data/about";
+import { cn } from "@/lib/utils";
 
 export default function BioSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -86,9 +87,12 @@ export default function BioSection() {
             {about.certifications.map((cert) => (
               <span
                 key={cert.name}
-                className={`px-3 py-1 rounded-full text-xs font-medium border border-border bg-card transition-colors ${
-                  cert.muted ? "text-muted-foreground/40 border-border/40" : "text-foreground"
-                }`}
+                className={cn(
+                  "px-3 py-1.5 rounded-full text-xs font-medium border transition-colors",
+                  cert.muted
+                    ? "bg-accent border-border text-muted-foreground"
+                    : "bg-primary/10 border-primary/30 text-primary"
+                )}
               >
                 {cert.name}
               </span>
