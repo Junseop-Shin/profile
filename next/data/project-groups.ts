@@ -23,12 +23,17 @@ export const projectGroups: ProjectGroup[] = [
       { ref: "tnm-widgets" },
       { ref: "cloud-cost" },
       {
-        title: "플랫폼 Task 구조 리팩토링",
+        title: "플랫폼 Task(배치) 구조 리팩토링",
         period: "2026.02",
         note: "로깅 정책 통일, FastAPI + Uvicorn 통일, graceful shutdown 및 Azure Monitor 적용",
       },
       {
-        title: "SEMS 정기점검·설치공사 사후점검 기능 추가",
+        title: "PostgreSQL 프로시저 프레임워크",
+        period: "2025.09",
+        note: "단일 진입 프로시저로 공통 로깅·예외 처리·Slack 알림 자동화. pg_cron 스케줄링, pg_partman 파티셔닝, pg_notify 기반 알림 파이프라인",
+      },
+      {
+        title: "SEMS 편의점 정기점검·설치공사 사후점검 기능 추가",
         period: "2026.05",
         note: "기사가 완료한 정기점검·설치공사를 무작위 표본으로 뽑아 관리자가 현장에서 재검사하는 감사 기능",
       },
