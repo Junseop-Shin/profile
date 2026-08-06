@@ -25,12 +25,12 @@ export const projectGroups: ProjectGroup[] = [
       {
         title: "플랫폼 Task(배치) 구조 리팩토링",
         period: "2026.02",
-        note: "로깅 정책 통일, FastAPI + Uvicorn 통일, graceful shutdown 및 Azure Monitor 적용",
+        note: "Python·Java·Node.js 3개 언어 배치 운영 표준화. 7개 Python 서비스 FastAPI + Uvicorn 통일, 14개 SQL Mapper 분리, 수집 작업 12개 → 8개 systemd 배치 재편",
       },
       {
         title: "PostgreSQL 프로시저 프레임워크",
         period: "2025.09",
-        note: "단일 진입 프로시저로 공통 로깅·예외 처리·Slack 알림 자동화. pg_cron 스케줄링, pg_partman 파티셔닝, pg_notify 기반 알림 파이프라인",
+        note: "Java 배치 10여 개 · 프로시저 10여 개를 단일 진입 프로시저로 공통 로깅·예외 처리·Slack 알림 자동화. pg_cron 스케줄링, pg_partman 파티셔닝, pg_notify 기반 알림 파이프라인",
       },
       {
         title: "SEMS 편의점 정기점검·설치공사 사후점검 기능 추가",
