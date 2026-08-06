@@ -61,7 +61,7 @@ export const projects: Project[] = [
     thumbnail: "/profile-screenshot.png",
     summary:
       "Next.js 15 App Router, React 19 기능, react-bits 라이브러리를 활용한 개인 포트폴리오 사이트",
-    web: "https://testproject-ba5ce.web.app/",
+    web: "https://profile.nuclearbomb6518.com",
     github: "https://github.com/Junseop-Shin/profile",
     sections: [
       {
@@ -335,14 +335,24 @@ export const projects: Project[] = [
     thumbnail: "/sems-platform.png",
     web: "https://platform.atxpert.biz:8443",
     summary:
-      "모바일 웹·관제웹·설치앱으로 구성된 점포 에너지 관리 서비스. 전환이 중단된 모바일 앱을 인계받아 완성하고 전력량 정확도·장애 대응을 개선한 뒤, Ncloud에 있던 서비스 전체를 TnM IoT 플랫폼으로 이관",
+      "전국 편의점 프랜차이즈 약 1.8만 점포의 에너지를 관리하는 서비스. 모바일 웹·관제웹·설치앱으로 구성된다. 전환이 중단된 모바일 앱을 인계받아 완성하고 전력량 정확도·장애 대응을 개선한 뒤, Ncloud에 있던 서비스 전체를 TnM IoT 플랫폼으로 이관",
     metrics: [
+      { label: "관리 점포", value: "약 1.8만 점포" },
+      { label: "센싱 데이터 수집", value: "일 약 5,200만 건" },
       { label: "FCM 처리 속도", value: "90% 개선" },
+      { label: "점포 전력량 오차", value: "5% 이내 달성" },
       { label: "모바일 프론트 오류", value: "100% 제거" },
       { label: "모바일 WAS 오류", value: "80% 제거" },
-      { label: "점포 전력량 오차", value: "5% 이내 달성" },
     ],
     sections: [
+      {
+        heading: "서비스 규모",
+        items: [
+          "전국 편의점 프랜차이즈 약 1.8만 점포 관리",
+          "점포당 약 10종 센싱 데이터를 5분 주기 수집 — 시간당 약 216만 건, 일 약 5,200만 건",
+          "Azure Table Storage → MongoDB → PostgreSQL로 이어지는 집계 서비스가 별도 Python 데몬으로 돌고 있던 것을 공통 배치 프레임워크로 이관해 통합 관리",
+        ],
+      },
       {
         heading: "서비스 구성",
         items: [
@@ -428,16 +438,16 @@ export const projects: Project[] = [
     thumbnail: "/sems-platform.png",
     web: "https://platform.atxpert.biz",
     summary:
-      "여러 비즈니스 서비스를 올려 운영하는 사내 IoT 통합 플랫폼. SEMS 편의점을 이 플랫폼으로 이관하고 대시보드 위젯, 운영 구조, 클라우드 비용까지 플랫폼 전반을 정비",
+      "5개 비즈니스 서비스를 올려 운영하는 사내 IoT 통합 플랫폼. 최대 서비스인 SEMS 편의점 기준 약 1.8만 점포에서 일 5,200만 건의 센싱 데이터가 들어온다. SEMS 편의점을 이 플랫폼으로 이관하고 대시보드 위젯, 운영 구조, 클라우드 비용까지 플랫폼 전반을 정비",
     metrics: [
-      { label: "Ncloud 리소스", value: "월 830만원 → 125만원" },
-      { label: "Table Storage", value: "월 123만원 → 48만원" },
-      { label: "Azure 운영 환경 최적화", value: "월 $742 추가 절감" },
+      { label: "운영 서비스", value: "5개" },
+      { label: "센싱 데이터 수집", value: "일 약 5,200만 건" },
+      { label: "Azure 비용 최적화", value: "월 $742 절감" },
       { label: "SQL dialect 변환", value: "366개" },
     ],
     sections: [
       {
-        heading: "운영 서비스",
+        heading: "운영 서비스 (5개)",
         items: [
           "SEMS 편의점 — 점포 에너지 관리",
           "EMS — 에너지 관리 시스템",
@@ -459,9 +469,10 @@ export const projects: Project[] = [
       {
         heading: "플랫폼 Task(배치) 운영 정비",
         items: [
-          "로깅 정책 통일 (롤링, 포맷, Slack 메시지)",
-          "폴더 구조 개선 및 서버 서비스 FastAPI + Uvicorn 통일",
-          "graceful shutdown 및 Azure Monitor 적용",
+          "Python·Java·Node.js 3개 언어로 흩어진 배치를 하나의 운영 표준으로 통일 (로깅 포맷·Slack 알림·설정 구조)",
+          "7개 Python 서비스를 FastAPI + Uvicorn으로 통일, 14개 SQL Mapper 분리",
+          "Table Storage → MongoDB → PostgreSQL 집계 서비스를 배치 프레임워크로 이관 — 단일 파이썬 데몬이 메모리 스케줄러로 돌리던 12개 수집 작업을 8개 systemd 배치로 재편 (5분 3 / 1시간 3 / 1일 2)",
+          "폴더 구조 개선, graceful shutdown 및 Azure Monitor 적용",
           "PostgreSQL 프로시저 프레임워크 구현 — 단일 진입 프로시저가 로깅·예외 처리·Slack 알림을 감싸고, 비즈니스 함수는 로직만 작성",
           "pg_cron 스케줄 등록, pg_partman 파티셔닝, pg_notify 기반 Slack 에러 알림 파이프라인 적용",
         ],
@@ -533,6 +544,12 @@ export const projects: Project[] = [
     thumbnail: "/platform-v2-thumb.png",
     summary:
       "한 달째 멈춰 있던 아키텍처 논의를 정리해 전체 설계와 플랜을 수립하고, 프론트엔드와 이벤트 파이프라인을 직접 담당. 새 비즈니스가 들어오면 기본 포맷을 복사해 분리 생성하는 구조로 재설계 — DB는 스키마, API 서버는 컨테이너 단위로 나누고, 프론트는 웹/모바일만 분리해 앱 간 코드를 공유한다",
+    metrics: [
+      { label: "대상 서비스", value: "5개 분리" },
+      { label: "수집 이벤트", value: "일 약 5,200만 건" },
+      { label: "수집 입구 비용", value: "1/5 절감" },
+      { label: "컨테이너 이미지", value: "수백MB → 수십MB" },
+    ],
     web: "https://github.com/Junseop-Shin/Work/blob/main/Work_History/2026-06-플랫폼-v2-재설계.md",
     sections: [
       {
@@ -629,8 +646,9 @@ export const projects: Project[] = [
     thumbnail: "/sems-platform.png",
     web: "https://platform.atxpert.biz",
     summary:
-      "Ncloud에 있던 SEMS 편의점 서비스를 Azure 위 TnM IoT 플랫폼으로 전면 이관. DB 마이그레이션, CI/CD 자동화, API 연동까지 풀스택 마이그레이션 수행",
+      "Ncloud에 있던 SEMS 편의점 서비스를 Azure 위 TnM IoT 플랫폼으로 전면 이관. 220개 테이블 · 약 200GB · 1.8만 점포가 실시간으로 달려 있는 DB를 옮기면서 CI/CD 자동화, API 연동까지 풀스택 마이그레이션 수행",
     metrics: [
+      { label: "이관 DB 규모", value: "220 테이블 · 약 200GB" },
       { label: "SQL dialect 변환", value: "366개" },
       { label: "프로시저 쿼리 성능", value: "95% 개선 (7분→20초)" },
       { label: "배포 방식", value: "수동 → 자동화" },
@@ -639,7 +657,7 @@ export const projects: Project[] = [
       {
         heading: "데이터 마이그레이션",
         items: [
-          "MariaDB → PostgreSQL (SQL dialect 변환 366개, CTE 적용으로 가독성 개선)",
+          "MariaDB → PostgreSQL — 220개 테이블 · 약 200GB · 1.8만 점포 실시간 거래 시스템 (SQL dialect 변환 366개, CTE 적용으로 가독성 개선)",
           "Ncloud bucket storage → Azure Blob Storage, 이미지 SDK S3→Azure 전환 및 SAS token 적용",
           "pg_stat_statement로 쿼리 실행 통계 분석, 1초 이상 쿼리 성능 개선",
           "인덱싱 및 pg_partman 테이블 파티셔닝 적용",
@@ -648,7 +666,7 @@ export const projects: Project[] = [
       {
         heading: "배치·프로시저 이관 및 공통 프레임워크",
         items: [
-          "Java·Node.js·Python 3개 언어 배치를 하나의 공통 프레임워크로 통합 — 추상 베이스가 실행 로그·예외·Slack 알림·설정 로딩을 처리하고, 자식은 비즈니스 로직과 메타 정보만 작성",
+          "Java·Node.js·Python 3개 언어 배치를 하나의 공통 프레임워크로 통합 (Java 배치 10여 개 · 프로시저 10여 개) — 추상 베이스가 실행 로그·예외·Slack 알림·설정 로딩을 처리하고, 자식은 비즈니스 로직과 메타 정보만 작성",
           "3개 언어의 로깅 포맷·Slack 오류 알림 양식·설정 파일 구조를 하나로 통일 — 배치가 어디서 돌든 운영 인터페이스가 동일",
           "PostgreSQL 단일 진입 프로시저 구현 — 시작 로그 → 비즈니스 함수 동적 실행 → 성공/실패 로그·알림을 감싸고, 비즈니스 함수는 결과 요약만 반환",
           "pg_cron 등록도 진입 프로시저 호출 한 패턴으로 통일 — 신규 SP 배치 추가가 '함수 작성 + 스케줄 한 줄'로 축소",
@@ -682,7 +700,7 @@ export const projects: Project[] = [
     type: "work",
     company: "주식회사 티앤엠테크",
     title: "클라우드 비용 절감",
-    subtitle: "Ncloud 정리 · Azure 리소스 및 스토리지 최적화",
+    subtitle: "Azure 리소스 다운스케일 · 스토리지 아카이빙 · Ncloud 잔여 정리",
     period: "2026.01 ~ 2026.07",
     stack: [
       "React",
@@ -696,18 +714,20 @@ export const projects: Project[] = [
     ],
     thumbnail: "/cloud-cost.svg",
     summary:
-      "불필요한 클라우드 리소스를 분석·정리하고, 계속 증가하던 스토리지 비용을 압축 아카이빙 파이프라인으로 고정비화. 운영·개발 환경 모두에서 비용을 대폭 절감",
+      "Azure 리소스를 실사용량에 맞게 다운스케일하고, 계속 증가하던 스토리지 비용을 압축 아카이빙 파이프라인으로 고정비화. Ncloud는 플랫폼 이관에 따라 잔여 리소스를 정리",
     metrics: [
-      { label: "Ncloud 리소스", value: "월 830만원 → 125만원" },
+      { label: "Azure 운영 환경 최적화", value: "월 $742 절감" },
       { label: "Table Storage", value: "월 123만원 → 48만원" },
-      { label: "Azure 운영 환경 최적화", value: "월 $742 추가 절감" },
+      { label: "Ncloud 잔여 리소스 정리", value: "월 830만원 → 125만원" },
     ],
     sections: [
       {
-        heading: "Ncloud 리소스 정리",
+        heading: "Azure 리소스 최적화",
         items: [
-          "SEMS 편의점 기존 Ncloud 리소스 사용 현황 파악 및 Azure 이관으로 불필요 리소스 정리 (VM, 로드밸런서, DB 가용성 해제 등)",
-          "플랫폼 이관 완료 후 미이관 서비스를 제외한 전 리소스 정리 — 월 830만원 → 125만원",
+          "실사용량 대비 과한 성능의 리소스를 필요 성능 기준으로 다운스케일 (ServiceBus, PostgreSQL server, MongoDB disk)",
+          "Azure logAnalytics, Function apps 설정 변경 및 VM 대체로 운영 환경 월 $742 절감 (당시 USD 청구 기준, 이후 원화 청구로 전환)",
+          "미사용 VM 제거",
+          "GitHub self-hosted runner 적용으로 보안 강화 및 운영 서비스 배포환경 네트워크 inbound 규칙 적용",
         ],
       },
       {
@@ -719,11 +739,11 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: "Azure 리소스 최적화",
+        heading: "Ncloud 잔여 리소스 정리",
         items: [
-          "Azure logAnalytics, Function apps 설정 변경 및 VM 대체로 운영 환경 월 $742 절감 (당시 USD 청구 기준, 이후 원화 청구로 전환)",
-          "미사용 VM 제거, ServiceBus/PostgreSQL server/MongoDB disk 성능 최적화",
-          "GitHub self-hosted runner 적용으로 보안 강화 및 운영 서비스 배포환경 네트워크 inbound 규칙 적용",
+          "플랫폼 이관에 따른 정리 작업 — 사용 현황 파악 후 Azure로 이관하고 남은 리소스를 제거",
+          "VM·로드밸런서 정리, DB 가용성 해제, 컨테이너·VM 재배치 등",
+          "미이관 서비스를 제외한 잔여 리소스 정리 — 월 830만원 → 125만원",
         ],
       },
     ],
@@ -797,10 +817,10 @@ export const projects: Project[] = [
   {
     slug: "weboffice",
     type: "work",
-    company: "티맥스가이아",
+    company: "티맥스가이아 (구 티맥스에이앤씨)",
     title: "웹오피스",
     subtitle: "웹오피스 공통 프레임워크 개발 (docx/pptx/xlsx/hwp)",
-    period: "2021.10 ~ 2023.09",
+    period: "2022.02 ~ 2023.09",
     stack: ["React", "TypeScript", "MobX", "Webpack", "Jest"],
     thumbnail: "/no_image_available.jpg",
     summary:
@@ -835,10 +855,10 @@ export const projects: Project[] = [
   {
     slug: "tohangul",
     type: "work",
-    company: "(주)티맥스에이앤씨",
+    company: "티맥스가이아 (구 티맥스에이앤씨)",
     title: "ToHangul",
     subtitle: "한글 문서 편집기 개발",
-    period: "2020.02 ~ 2021.10",
+    period: "2020.02 ~ 2022.02",
     stack: ["C++", "OOXML", "MVC"],
     thumbnail: "/no_image_available.jpg",
     summary:
