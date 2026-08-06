@@ -23,7 +23,7 @@ export const projects: Project[] = [
     skills: "React, TypeScript, TailwindCSS",
     link: "profile",
     image: "/profile.png",
-    web: "https://testproject-ba5ce.web.app/",
+    web: "https://profile.nuclearbomb6518.com",
     git: "https://github.com/Junseop-Shin/profile",
     description: [
       "기본 웹페이지 만들기",
