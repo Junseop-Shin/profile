@@ -1,0 +1,247 @@
+<svg viewBox="0 0 1400 1080" xmlns="http://www.w3.org/2000/svg" role="img"
+   aria-label="프론트(web·mobile)에서 APIM을 거쳐 비즈니스별 API 서버로 가는 동기 축과, 설비·계측기에서 어댑터와 공유 Event Hubs를 거쳐 이벤트 파이프라인·텔레메트리 파이프라인으로 가는 비동기 축이 PostgreSQL·MongoDB 데이터 계층에서 만나는 플랫폼 구조도. API 서버와 배치 스케줄러는 제어 요청·알림 요청으로 파이프라인에 직접 진입한다">
+<defs>
+  <marker id="pArrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#007ac2"/>
+  </marker>
+  <marker id="pArrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#087f5b"/>
+  </marker>
+  <marker id="pArrN" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5d6b7a"/>
+  </marker>
+</defs>
+<style>
+  .bx  { fill:#fbfdff; stroke:#b8c4d0; stroke-width:1.2; }
+  .bx2 { fill:#eef5fb; stroke:#8fb8d4; stroke-width:1.2; }
+  .ext { fill:#f4f1e8; stroke:#c8bfa4; stroke-width:1.2; }
+  .db  { fill:#eef7f2; stroke:#8fc4ab; stroke-width:1.2; }
+  .grp { fill:none; stroke:#c3cfdb; stroke-width:1.1; stroke-dasharray:6 5; }
+  .tt { font: 700 13px "Segoe UI","Malgun Gothic",sans-serif; fill:#12283a; }
+  .tb { font: 700 15px "Segoe UI","Malgun Gothic",sans-serif; fill:#12283a; }
+  .ts { font: 11px "Segoe UI","Malgun Gothic",sans-serif; fill:#5d6b7a; }
+  .gl { font: 700 12px "Segoe UI","Malgun Gothic",sans-serif; fill:#8695a5; letter-spacing:.04em; }
+  .lb { font: 700 11px "Segoe UI","Malgun Gothic",sans-serif; fill:#007ac2; }
+  .lg { font: 700 11px "Segoe UI","Malgun Gothic",sans-serif; fill:#087f5b; }
+  .ln { font: 11px "Segoe UI","Malgun Gothic",sans-serif; fill:#5d6b7a; }
+  .fl { stroke:#007ac2; stroke-width:1.6; fill:none; marker-end:url(#pArrB); }
+  .lp { stroke:#087f5b; stroke-width:1.6; fill:none; stroke-dasharray:6 4; marker-end:url(#pArrG); }
+  .au { stroke:#5d6b7a; stroke-width:1.3; fill:none; marker-end:url(#pArrN); }
+</style>
+
+<rect x="0" y="0" width="1400" height="1080" fill="#fbfcf8"/>
+
+<!-- ===== 축 라벨 ===== -->
+<text class="gl" x="40" y="30">동기 축 — 사용자 트래픽</text>
+<text class="gl" x="740" y="30">비동기 축 — 설비 이벤트 · 텔레메트리</text>
+<line x1="710" y1="14" x2="710" y2="770" stroke="#dde5ec" stroke-width="1.5" stroke-dasharray="3 6"/>
+
+<!-- ===== 좌: 프론트 ===== -->
+<rect class="bx" x="60"  y="48" width="200" height="70" rx="8"/>
+<text class="tt" x="74" y="72">platform-frontend · web</text>
+<text class="ts" x="74" y="90">Next.js 프로세스 1</text>
+<text class="ts" x="74" y="106">PC 관리자 · 비즈니스 화면</text>
+
+<rect class="bx" x="285" y="48" width="200" height="70" rx="8"/>
+<text class="tt" x="299" y="72">platform-frontend · mobile</text>
+<text class="ts" x="299" y="90">Next.js 프로세스 2</text>
+<text class="ts" x="299" y="106">모바일/네이티브 셸 WebView</text>
+
+<rect class="ext" x="510" y="48" width="170" height="70" rx="8"/>
+<text class="tt" x="524" y="72">네이티브 앱 셸</text>
+<text class="ts" x="524" y="90">Android / iOS</text>
+<text class="ts" x="524" y="106">브리지 · 푸시 · 카메라</text>
+<line class="au" x1="510" y1="83" x2="487" y2="83"/>
+
+<!-- APIM -->
+<rect class="bx2" x="60" y="168" width="600" height="66" rx="8"/>
+<text class="tb" x="76" y="196">APIM (API Management)</text>
+<text class="ts" x="76" y="216">프론트가 아는 유일한 엔드포인트 — 경로/비즈니스코드로 백엔드 라우팅 · 인증 토큰 검증 · 레이트리밋</text>
+<line class="fl" x1="160" y1="118" x2="160" y2="166"/>
+<line class="fl" x1="385" y1="118" x2="385" y2="166"/>
+
+<!-- API 서버 그룹 -->
+<rect class="grp" x="48" y="266" width="624" height="228" rx="10"/>
+<text class="gl" x="60" y="286">API 서버 — 비즈니스별로 분해</text>
+
+<rect class="bx" x="64"  y="298" width="192" height="58" rx="8"/>
+<text class="tt" x="76" y="320">common-api</text>
+<text class="ts" x="76" y="338">인증 · 사용자/조직 · 메뉴 · 앱</text>
+
+<rect class="bx" x="272" y="298" width="192" height="58" rx="8"/>
+<text class="tt" x="284" y="320">business-common-api</text>
+<text class="ts" x="284" y="338">사이트 · 설비 · 알람 공통</text>
+
+<rect class="bx" x="480" y="298" width="180" height="58" rx="8"/>
+<text class="tt" x="492" y="320">business-api-1</text>
+<text class="ts" x="492" y="338">비즈니스 1 전용</text>
+
+<rect class="bx" x="64"  y="366" width="192" height="58" rx="8"/>
+<text class="tt" x="76" y="388">business-api-2</text>
+<text class="ts" x="76" y="406">비즈니스 2 전용</text>
+
+<rect class="bx" x="272" y="366" width="192" height="58" rx="8"/>
+<text class="tt" x="284" y="388">business-api-3</text>
+<text class="ts" x="284" y="406">비즈니스 3 전용</text>
+
+<rect class="bx" x="480" y="366" width="180" height="58" rx="8"/>
+<text class="tt" x="492" y="388">business-api-4</text>
+<text class="ts" x="492" y="406">비즈니스 4 전용</text>
+
+<text class="ts" x="76" y="452">비즈니스가 늘면 여기에 전용 API 서버가 하나 붙고, APIM 라우팅 규칙만 추가된다 — 프론트는 그대로.</text>
+<text class="ts" x="76" y="472">각 서버는 아래 데이터 계층에서 자기 스키마 / 자기 컬렉션만 읽고 쓴다.</text>
+
+<line class="fl" x1="360" y1="234" x2="360" y2="296"/>
+<text class="lb" x="370" y="270">경로별 분배</text>
+
+<!-- 배치 스케줄러 -->
+<rect class="bx" x="200" y="520" width="250" height="58" rx="8"/>
+<text class="tt" x="214" y="543">배치 스케줄러</text>
+<text class="ts" x="214" y="561">정기 제어 · 정기 알림 발송 잡</text>
+<text class="ts" x="212" y="642">API 서버와 배치는 사용자 요청 없이도</text>
+<text class="ts" x="212" y="660">파이프라인을 직접 깨울 수 있다 →</text>
+
+<!-- ===== 우: 현장 디바이스 ===== -->
+<rect class="ext" x="740" y="48" width="270" height="70" rx="8"/>
+<text class="tt" x="754" y="72">GW · 레거시 설비 · 카메라</text>
+<text class="ts" x="754" y="90">MQTT(EMQX) report / alarm / completed</text>
+<text class="ts" x="754" y="106">미디어 업로드 · 제어 트리거(HTTP)</text>
+
+<rect class="ext" x="1040" y="48" width="300" height="70" rx="8"/>
+<text class="tt" x="1054" y="72">계측기 · 센서 (telemetry 원천)</text>
+<text class="ts" x="1054" y="90">주기 계측값 — 전력 · 온습도 등</text>
+<text class="ts" x="1054" y="106">HTTP POST 업링크 · 고빈도 · 대량</text>
+
+<!-- adapter 층 -->
+<rect class="bx" x="740" y="168" width="270" height="86" rx="8"/>
+<text class="tt" x="754" y="192">event adapter <tspan class="ts">(1 프로세스)</tspan></text>
+<text class="ts" x="754" y="210">eventchannel + control-trigger + media</text>
+<text class="ts" x="754" y="226">3종이 합쳐진 단일 배포 단위</text>
+<text class="ts" x="754" y="242">legacy → CloudEvents 정규화</text>
+
+<rect class="bx" x="1040" y="168" width="300" height="86" rx="8"/>
+<text class="tt" x="1054" y="192">telemetry adapter</text>
+<text class="ts" x="1054" y="210">HTTP 엔드포인트로 수신 · 정규화</text>
+<text class="ts" x="1054" y="226">디바이스 인증 · 배치 묶음</text>
+<text class="ts" x="1054" y="242">같은 Event Hubs로 발행</text>
+
+<line class="fl" x1="875"  y1="118" x2="875"  y2="166"/>
+<text class="lb" x="884" y="146">MQTT (EMQX · mTLS)</text>
+<line class="fl" x1="1190" y1="118" x2="1190" y2="166"/>
+<text class="lb" x="1199" y="146">HTTP</text>
+
+<!-- Event Hubs 공유 -->
+<rect class="bx2" x="740" y="286" width="600" height="76" rx="8"/>
+<text class="tb" x="756" y="314">Azure Event Hubs — 두 파이프라인이 공유하는 단일 메시지 백본</text>
+<text class="ts" x="756" y="334">events.{biz} (설비 이벤트) · telemetry.{biz} (계측) · events-dlq · 파티션 키 = deviceid</text>
+<text class="ts" x="756" y="350">Kafka 엔드포인트 · Capture(Avro) → Blob = 재처리 원천(EventStore)</text>
+<line class="fl" x1="875"  y1="254" x2="875"  y2="284"/>
+<line class="fl" x1="1190" y1="254" x2="1190" y2="284"/>
+
+<!-- 소비자 층 -->
+<rect class="bx2" x="740" y="394" width="270" height="128" rx="8"/>
+<text class="tt" x="754" y="418">event-pipeline <tspan class="ts">(1 프로세스 / 비즈니스)</tspan></text>
+<text class="ts" x="754" y="438">event-core + executor 합본</text>
+<text class="ts" x="754" y="456">router → dispatcher → handler</text>
+<text class="ts" x="754" y="474">control / alarm / AI 추론 판단</text>
+<text class="ts" x="754" y="492">executor: MQTT 제어 발사 · 알림</text>
+<text class="ts" x="754" y="510">멱등 처리 · DLQ 재처리</text>
+
+<rect class="bx2" x="1040" y="394" width="300" height="128" rx="8"/>
+<text class="tt" x="1054" y="418">telemetry consumer <tspan class="ts">(1 프로세스 / 비즈니스)</tspan></text>
+<text class="ts" x="1054" y="438">telemetry.{biz} 구독</text>
+<text class="ts" x="1054" y="456">원시 계측값 그대로 적재</text>
+<text class="ts" x="1054" y="474">판단 없음 — 저장이 전부</text>
+<text class="ts" x="1054" y="492">쓰기 대상 = MongoDB</text>
+<line class="fl" x1="875"  y1="362" x2="875"  y2="392"/>
+<line class="fl" x1="1190" y1="362" x2="1190" y2="392"/>
+
+<!-- 제어 폐루프 (우측 바깥으로 GW 복귀) -->
+<polyline class="lp" points="960,522 960,540 1372,540 1372,8 700,8 700,66 736,66"/>
+<text class="lg" x="1024" y="534">제어 명령 MQTT 발사 → GW → completed 재진입</text>
+
+<!-- AI 모델 서비스 -->
+<rect class="ext" x="740" y="556" width="270" height="52" rx="8"/>
+<text class="tt" x="754" y="578">AI 모델 서비스</text>
+<text class="ts" x="754" y="596">/infer · Blob dataref로 원본 직접 fetch</text>
+<line class="fl" x1="875" y1="522" x2="875" y2="554"/>
+
+<!-- Blob Storage — 파일 축 -->
+<rect class="db" x="740" y="628" width="270" height="88" rx="8"/>
+<text class="tt" x="754" y="652">Azure Blob Storage</text>
+<text class="ts" x="754" y="670">events-capture: EH Capture(Avro) = EventStore</text>
+<text class="ts" x="754" y="686">media/ · 업로드 원본(엑셀 · 이미지 · CCTV 영상)</text>
+<text class="ts" x="754" y="702">이벤트·DB에는 dataref(URI)만 남는다</text>
+<line class="au" x1="875" y1="608" x2="875" y2="626" stroke-dasharray="5 4"/>
+<text class="ln" x="884" y="622">dataref로 원본 fetch</text>
+
+<!-- ===== 데이터 계층 ===== -->
+<text class="gl" x="40" y="600">데이터 계층 — 두 축이 만나는 곳</text>
+
+<!-- MongoDB -->
+<rect class="db" x="1040" y="556" width="300" height="70" rx="8"/>
+<text class="tt" x="1054" y="580">MongoDB</text>
+<text class="ts" x="1054" y="598">원시 텔레메트리 시계열 · 비정형 로그</text>
+<text class="ts" x="1054" y="614">쓰기 폭주를 여기서 흡수 (화면이 직접 훑지 않음)</text>
+<line class="fl" x1="1190" y1="522" x2="1190" y2="554"/>
+
+<!-- 집계 배치 -->
+<rect class="bx" x="1040" y="660" width="300" height="66" rx="8"/>
+<text class="tt" x="1054" y="683">집계 배치</text>
+<text class="ts" x="1054" y="701">MongoDB 원시 → 시간/일 단위 집계</text>
+<text class="ts" x="1054" y="717">결과만 PostgreSQL에 적재</text>
+<line class="au" x1="1190" y1="626" x2="1190" y2="658"/>
+<line class="au" x1="1190" y1="726" x2="1190" y2="784"/>
+<text class="ln" x="1200" y="760">집계 결과 적재 (비즈니스 스키마)</text>
+
+<!-- PostgreSQL -->
+<rect class="db" x="60" y="786" width="1280" height="176" rx="10"/>
+<text class="tb" x="78" y="814">PostgreSQL — 단일 DB, 스키마로 비즈니스 분리</text>
+<text class="ts" x="78" y="834">물리 DB를 나누지 않는다. 같은 인스턴스 안에서 스키마 경계로만 갈린다.</text>
+
+<rect class="bx" x="78"  y="850" width="400" height="52" rx="6"/>
+<text class="tt" x="92" y="872">common</text>
+<text class="ts" x="92" y="890">사용자 · 조직 · 권한 · fe_* 카탈로그</text>
+
+<rect class="bx" x="498" y="850" width="400" height="52" rx="6"/>
+<text class="tt" x="512" y="872">business</text>
+<text class="ts" x="512" y="890">사이트 · 설비 · 알람 · 이벤트 결과 · 배치 집계 결과</text>
+
+<rect class="bx" x="918" y="850" width="400" height="52" rx="6"/>
+<text class="tt" x="932" y="872">biz_1 / biz_2 / biz_3 …</text>
+<text class="ts" x="932" y="890">비즈니스 전용 스키마</text>
+
+<text class="ts" x="78" y="936">event-pipeline이 쓰는 것: 이벤트 결과 · 실행 감사 · 판단/실행 룰 테이블 (business 스키마) + NOTIFY 기반 룰 핫리로드</text>
+
+<!-- 데이터 계층으로 가는 화살표들 -->
+<line class="au" x1="120" y1="494" x2="120" y2="784"/>
+<text class="ln" x="128" y="712">API 서버 ↔ PostgreSQL</text>
+<text class="ln" x="128" y="730">(자기 스키마 조회/변이)</text>
+
+<polyline class="au" points="672,430 676,430 676,740 1030,740"/>
+<text class="ln" x="840" y="732">API 서버 → MongoDB 조회 (원시 상세 화면만)</text>
+
+<polyline class="au" points="740,500 718,500 718,776 620,776 620,784"/>
+<text class="ln" x="628" y="768">event-pipeline → business 스키마 저장·감사</text>
+
+<!-- Blob 축 -->
+<polyline class="au" points="1024,362 1024,672 1014,672"/>
+<text class="ln" transform="rotate(-90 1032 630)" x="1032" y="630">EH Capture(Avro) 적재</text>
+
+<polyline class="au" points="560,494 560,752 726,752 726,720"/>
+<text class="ln" x="566" y="744">API 서버 → 업로드 원본(엑셀·이미지·CCTV) 저장/조회</text>
+
+<!-- ★ API 서버 · 배치 → 파이프라인 직접 진입 (동기 축 → 비동기 축) -->
+<polyline class="fl" points="672,330 716,330 716,196 736,196"/>
+<text class="lb" transform="rotate(-90 706 322)" x="706" y="322">제어 요청 API</text>
+
+<polyline class="fl" points="450,549 660,549 660,478 736,478"/>
+<text class="lb" x="462" y="542">알람·알림 요청 API</text>
+
+<!-- 범례 -->
+<line class="fl" x1="60" y1="1000" x2="92" y2="1000"/><text class="ln" x="100" y="1004">요청 · 이벤트 흐름</text>
+<polyline class="lp" points="330,1000 362,1000"/><text class="ln" x="370" y="1004">제어 폐루프 (명령 발사 → completed 회수)</text>
+<line class="au" x1="760" y1="1000" x2="792" y2="1000"/><text class="ln" x="800" y="1004">데이터 읽기/쓰기</text>
+<rect class="ext" x="1000" y="993" width="26" height="14" rx="3"/><text class="ln" x="1034" y="1004">플랫폼 밖(외부 시스템 · 현장 장비)</text>
+<text class="ln" x="60" y="1040">※ 파란 화살표 중 좌→우로 건너가는 두 갈래(제어 요청 · 알림 요청)가 동기 축과 비동기 축을 잇는 <tspan font-weight="700">유일한 직접 호출</tspan>이다 — 나머지 교류는 전부 데이터 계층 경유.</text>
+          </svg>

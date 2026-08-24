@@ -1,0 +1,133 @@
+<svg id="region-diagram" xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="region-diagram-title region-diagram-desc" style="width:100%;height:auto;max-width:1280px;">
+            <title id="region-diagram-title">Region · PageBody · Widget 화면 배치 용어 다이어그램</title>
+            <desc id="region-diagram-desc">Header, Menu, Drawer, Footer를 Region으로, 내부 조각을 RegionWidget으로, PageBody를 Widget gridLayout으로 표현한 다이어그램</desc>
+            <defs>
+              <filter id="roughShadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#142332" flood-opacity="0.10"/>
+              </filter>
+              <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M 0 0 L 10 5.5 L 0 11 z" fill="#2f4354"/>
+              </marker>
+              <style>
+                #region-diagram .bg { fill: #fbfcf8; }
+                #region-diagram .ink { fill: #1b2733; font-family: "Segoe UI", "Malgun Gothic", sans-serif; }
+                #region-diagram .muted { fill: #627181; font-family: "Segoe UI", "Malgun Gothic", sans-serif; }
+                #region-diagram .mono { font-family: "Cascadia Mono", "JetBrains Mono", Consolas, monospace; }
+                #region-diagram .box { fill: #fffdf7; stroke: #1f2d3a; stroke-width: 2.2; filter: url(#roughShadow); }
+                #region-diagram .box2 { fill: #f3f9ff; stroke: #16689d; stroke-width: 2.1; }
+                #region-diagram .box3 { fill: #f9fff6; stroke: #3f7b45; stroke-width: 2.1; }
+                #region-diagram .box4 { fill: #fff8ed; stroke: #a56a16; stroke-width: 2.1; }
+                #region-diagram .dash { fill: none; stroke: #8a9aaa; stroke-width: 2; stroke-dasharray: 9 7; }
+                #region-diagram .line { fill: none; stroke: #2f4354; stroke-width: 2.2; marker-end: url(#arrow); }
+                #region-diagram .scribble { fill: none; stroke: #1f2d3a; stroke-width: 1.1; opacity: 0.38; }
+                #region-diagram .label { font-size: 28px; font-weight: 700; }
+                #region-diagram .sub { font-size: 16px; }
+                #region-diagram .tiny { font-size: 13px; }
+                #region-diagram .term { font-size: 18px; font-weight: 700; }
+                #region-diagram .chip { fill: #ffffff; stroke: #9fb3c3; stroke-width: 1.5; }
+                #region-diagram .grid { stroke: #aebdca; stroke-width: 1.5; fill: #ffffff; }
+                #region-diagram .widget { fill: #f4fbff; stroke: #4e819d; stroke-width: 1.7; }
+              </style>
+            </defs>
+
+            <rect class="bg" width="1280" height="820"/>
+            <path class="scribble" d="M48 60 C210 30, 404 42, 590 28 C825 9, 1059 31, 1224 54"/>
+            <text x="58" y="63" class="ink label">화면 배치 용어</text>
+            <text x="60" y="91" class="muted sub">Header / Menu / Drawer / Footer는 모두 Region. Region 내부 조각은 RegionWidget. PageBody는 Widget을 gridLayout으로 배치한다.</text>
+
+            <!-- App shell -->
+            <rect x="58" y="126" width="1164" height="608" rx="18" class="box"/>
+            <path class="scribble" d="M65 139 C310 119, 679 131, 1214 119"/>
+            <text x="82" y="160" class="ink term">App ShellFrame</text>
+            <text x="220" y="160" class="muted tiny mono">app/[locale]/(auth)/apps/[appId]/layout.tsx → shell/frame.tsx</text>
+
+            <!-- Header region -->
+            <rect x="96" y="188" width="1088" height="92" rx="14" class="box2"/>
+            <path class="scribble" d="M107 198 C330 183, 880 199, 1172 187"/>
+            <text x="118" y="222" class="ink term">Region: header</text>
+            <text x="118" y="247" class="muted tiny">left / center / right slot에 RegionWidget 배치</text>
+            <rect x="360" y="207" width="128" height="44" rx="10" class="chip"/>
+            <text x="376" y="235" class="ink tiny">app-brand</text>
+            <rect x="510" y="207" width="140" height="44" rx="10" class="chip"/>
+            <text x="528" y="235" class="ink tiny">menu-title</text>
+            <rect x="672" y="207" width="106" height="44" rx="10" class="chip"/>
+            <text x="699" y="235" class="ink tiny">weather</text>
+            <rect x="798" y="207" width="92" height="44" rx="10" class="chip"/>
+            <text x="826" y="235" class="ink tiny">alarm</text>
+            <rect x="910" y="207" width="82" height="44" rx="10" class="chip"/>
+            <text x="936" y="235" class="ink tiny">user</text>
+
+            <!-- Menu region -->
+            <rect x="96" y="306" width="184" height="342" rx="14" class="box2"/>
+            <path class="scribble" d="M105 319 C145 302, 222 310, 270 299"/>
+            <text x="118" y="340" class="ink term">Region: menu</text>
+            <text x="118" y="365" class="muted tiny">web: RailMenu</text>
+            <text x="118" y="386" class="muted tiny">mobile: DrawerMenu</text>
+            <rect x="124" y="416" width="128" height="42" rx="10" class="chip"/>
+            <text x="154" y="442" class="ink tiny">MenuTree</text>
+            <rect x="124" y="474" width="128" height="42" rx="10" class="chip"/>
+            <text x="151" y="500" class="ink tiny">NavLink</text>
+            <rect x="124" y="532" width="128" height="42" rx="10" class="chip"/>
+            <text x="147" y="558" class="ink tiny">App menu</text>
+
+            <!-- Drawer region -->
+            <rect x="302" y="306" width="184" height="160" rx="14" class="box4"/>
+            <path class="scribble" d="M309 316 C362 303, 426 317, 480 302"/>
+            <text x="324" y="340" class="ink term">Region: drawer</text>
+            <text x="324" y="365" class="muted tiny">menu Region의</text>
+            <text x="324" y="386" class="muted tiny">mobile/off-canvas 표현</text>
+            <rect x="330" y="411" width="128" height="36" rx="9" class="chip"/>
+            <text x="354" y="434" class="ink tiny">DrawerMenu</text>
+
+            <!-- PageBody -->
+            <rect x="510" y="306" width="674" height="342" rx="14" class="box3"/>
+            <path class="scribble" d="M520 320 C675 297, 945 323, 1176 300"/>
+            <text x="532" y="340" class="ink term">PageBody: Widget gridLayout</text>
+            <text x="532" y="365" class="muted tiny">route 본문. coded PageBody 또는 editable PageBody가 Widget을 배치</text>
+            <rect x="540" y="397" width="610" height="218" rx="12" class="grid"/>
+            <line x1="692" y1="397" x2="692" y2="615" class="dash"/>
+            <line x1="844" y1="397" x2="844" y2="615" class="dash"/>
+            <line x1="996" y1="397" x2="996" y2="615" class="dash"/>
+            <line x1="540" y1="470" x2="1150" y2="470" class="dash"/>
+            <line x1="540" y1="543" x2="1150" y2="543" class="dash"/>
+            <rect x="560" y="417" width="260" height="44" rx="9" class="widget"/>
+            <text x="585" y="445" class="ink tiny">Widget: stat-card</text>
+            <rect x="846" y="417" width="284" height="44" rx="9" class="widget"/>
+            <text x="874" y="445" class="ink tiny">Widget: usage-combo</text>
+            <rect x="560" y="491" width="570" height="44" rx="9" class="widget"/>
+            <text x="585" y="519" class="ink tiny">Widget: signature-summary</text>
+            <rect x="560" y="563" width="260" height="34" rx="8" class="widget"/>
+            <text x="585" y="585" class="ink tiny">Widget: table</text>
+            <rect x="846" y="563" width="284" height="34" rx="8" class="widget"/>
+            <text x="874" y="585" class="ink tiny">Widget: chart</text>
+            <text x="548" y="638" class="muted tiny mono">Placement = { widgetKey, colSpan, rowSpan, params }</text>
+
+            <!-- Footer region -->
+            <rect x="96" y="674" width="1088" height="42" rx="12" class="box2"/>
+            <text x="118" y="701" class="ink term">Region: footer</text>
+            <rect x="376" y="681" width="144" height="28" rx="8" class="chip"/>
+            <text x="389" y="701" class="ink tiny">footer-company</text>
+            <rect x="548" y="681" width="116" height="28" rx="8" class="chip"/>
+            <text x="564" y="701" class="ink tiny">legal-links</text>
+            <rect x="692" y="681" width="76" height="28" rx="8" class="chip"/>
+            <text x="713" y="701" class="ink tiny">date</text>
+
+            <!-- Explanatory arrows -->
+            <path d="M395 278 C395 288, 395 292, 395 303" class="line"/>
+            <text x="324" y="294" class="muted tiny">menu Region can open drawer</text>
+            <path d="M488 232 C530 269, 598 284, 668 308" class="line"/>
+            <text x="548" y="288" class="muted tiny">Region과 PageBody는 분리</text>
+            <path d="M846 648 C846 662, 846 666, 846 674" class="line"/>
+
+            <!-- Legend -->
+            <rect x="58" y="758" width="1164" height="42" rx="12" fill="#ffffff" stroke="#d7e0e8" stroke-width="1.5"/>
+            <circle cx="86" cy="779" r="7" fill="#f3f9ff" stroke="#16689d" stroke-width="2"/>
+            <text x="102" y="784" class="muted tiny">Region 영역</text>
+            <circle cx="210" cy="779" r="7" fill="#ffffff" stroke="#9fb3c3" stroke-width="2"/>
+            <text x="226" y="784" class="muted tiny">RegionWidget</text>
+            <circle cx="362" cy="779" r="7" fill="#f9fff6" stroke="#3f7b45" stroke-width="2"/>
+            <text x="378" y="784" class="muted tiny">PageBody</text>
+            <circle cx="494" cy="779" r="7" fill="#f4fbff" stroke="#4e819d" stroke-width="2"/>
+            <text x="510" y="784" class="muted tiny">Widget</text>
+            <text x="700" y="784" class="muted tiny mono">Use Region / RegionWidget / PageBody / Widget.</text>
+          </svg>

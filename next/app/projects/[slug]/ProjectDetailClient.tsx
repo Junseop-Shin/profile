@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import {
   ArrowLeft,
@@ -10,7 +11,11 @@ import {
   ExternalLink,
   Github,
 } from "lucide-react";
-import type { Project } from "@/data/projects";
+import type { Project, ProjectDiagram } from "@/data/projects";
+import { cn } from "@/lib/utils";
+
+/** 구조도는 폭이 넓다 — 큰 화면에서는 본문 컬럼 밖으로 넓혀 글자를 키운다 */
+const DIAGRAM_BLEED = "lg:-mx-16 xl:-mx-32";
 import { findParents, findChildren } from "@/data/project-groups";
 import CountUp from "@/components/react-bits/CountUp";
 import SpotlightCard from "@/components/react-bits/SpotlightCard";
@@ -139,6 +144,9 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
 
         {/* Summary */}
         <SummaryCard summary={project.summary} />
+
+        {/* Architecture diagram */}
+        {project.diagram && <DiagramCard diagram={project.diagram} />}
 
         {/* Sections */}
         {project.sections?.map((section, i) => (
@@ -315,6 +323,67 @@ function SummaryCard({ summary }: { summary: string }) {
   );
 }
 
+/** 다이어그램은 폭이 넓어 축소되면 글자가 작아진다 — 새 탭에서 원본 크기로 열 수 있게 둔다 */
+function Diagram({ diagram }: { diagram: ProjectDiagram }) {
+  return (
+    <>
+      <a
+        href={diagram.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block rounded-xl border border-border overflow-hidden bg-white"
+      >
+        <Image
+          src={diagram.src}
+          alt={diagram.alt}
+          width={1400}
+          height={1080}
+          className="w-full h-auto"
+          sizes="(max-width: 1024px) 100vw, 1100px"
+        />
+      </a>
+      {diagram.caption && (
+        <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+          {diagram.caption}
+        </p>
+      )}
+      <a
+        href={diagram.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-2 inline-flex items-center gap-1.5 text-xs text-primary hover:underline"
+      >
+        <ExternalLink size={12} /> 원본 크기로 보기
+      </a>
+    </>
+  );
+}
+
+function DiagramCard({ diagram }: { diagram: ProjectDiagram }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.45 }}
+      className={cn("mb-6", DIAGRAM_BLEED)}
+    >
+      <SpotlightCard
+        className="rounded-2xl border border-border bg-card/60 backdrop-blur-md p-6 sm:p-8"
+        spotlightColor="rgba(52, 211, 153, 0.15)"
+      >
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
+          Architecture
+        </h2>
+        <Diagram diagram={diagram} />
+      </SpotlightCard>
+    </motion.div>
+  );
+}
+
 function ContentSection({
   section,
   delay,
@@ -331,7 +400,7 @@ function ContentSection({
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="mb-6"
+      className={cn("mb-6", section.diagram && DIAGRAM_BLEED)}
     >
       <SpotlightCard
         className="rounded-2xl border border-border bg-card/60 backdrop-blur-md p-6 sm:p-8"
@@ -340,6 +409,11 @@ function ContentSection({
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
           {section.heading}
         </h2>
+        {section.diagram && (
+          <div className="mb-6">
+            <Diagram diagram={section.diagram} />
+          </div>
+        )}
         <ul className="space-y-3">
           {section.items.map((item, i) => (
             <motion.li
