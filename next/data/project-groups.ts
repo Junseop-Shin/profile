@@ -14,7 +14,10 @@ export interface ProjectGroup {
 export const projectGroups: ProjectGroup[] = [
   {
     main: "platform-v2",
-    children: [{ ref: "platform-v2-redesign" }],
+    children: [
+      { ref: "platform-v2-frontend" },
+      { ref: "platform-v2-event-pipeline" },
+    ],
   },
   {
     main: "tnm-platform",
