@@ -26,10 +26,19 @@ export const skillGroups = [
     skills: [
       { name: "Azure / APIM", level: "primary" },
       { name: "Azure Storage Account / Table Storage", level: "secondary" },
-      { name: "Docker / Nginx / pm2", level: "secondary" },
+      { name: "Docker / Docker Compose / Nginx / pm2", level: "secondary" },
       { name: "GitHub Actions / Self-hosted Runner / OIDC", level: "secondary" },
+      { name: "Terraform", level: "secondary" },
       { name: "Key Vault / Entra ID", level: "secondary" },
       { name: "MQTT(EMQX) / Service Bus / Kafka(Event Hubs)", level: "secondary" },
+    ],
+  },
+  {
+    label: "Observability",
+    skills: [
+      { name: "ClickHouse", level: "secondary" },
+      { name: "OpenTelemetry", level: "secondary" },
+      { name: "Azure Monitor / Rollbar", level: "secondary" },
     ],
   },
   {

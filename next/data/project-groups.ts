@@ -17,6 +17,8 @@ export const projectGroups: ProjectGroup[] = [
     children: [
       { ref: "platform-v2-frontend" },
       { ref: "platform-v2-event-pipeline" },
+      { ref: "platform-v2-deploy" },
+      { ref: "platform-v2-monitoring" },
     ],
   },
   {
